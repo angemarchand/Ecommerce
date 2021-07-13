@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     denormalizationContext={"groups"={"product:write"}}
  * )
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Products
 {
@@ -115,5 +116,17 @@ class Products
         $this->modified_at = $modified_at;
 
         return $this;
+    }
+
+    /**
+    * @ORM\PrePersist
+    * @ORM\PreUpdate
+    */
+    public function updatedTimestamps(): void
+    {
+        $this->setModifiedAt(new \DateTime('now'));    
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
     }
 }

@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     denormalizationContext={"groups"={"users:write"}}
  * )
  * @ORM\Entity(repositoryClass=UsersRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Users
 {
@@ -116,4 +117,16 @@ class Users
 
         return $this;
     }
+
+    /**
+    * @ORM\PrePersist
+    * @ORM\PreUpdate
+    */
+    public function updatedTimestamps(): void
+    {
+        $this->setModifiedAt(new \DateTime('now'));    
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new \DateTime('now'));
+    }
+}
 }
