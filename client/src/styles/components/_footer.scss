@@ -1,9 +1,73 @@
 #footer {
-    background-color: $secondary-1;
-    height: 45rem;
-    display: flex;
-    justify-content: center;
-    .wrapper {
-        
+  background-color: $secondary-1;
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+  .wrapper {
+      justify-content: space-evenly;
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 20vw;
+      padding-left: 2rem;
+      .identity {
+        display: flex;
+        .bg-logo {
+          background-color: $bg-color-1;
+          width: 8rem;
+          height: 7.2rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0.5rem;
+          margin-right: 2rem;
+          img {
+            width: 7rem;
+          }
+        }
+        .logo-text {
+          .omega {
+            font-family: $lato;
+            font-size: 2.5rem;
+            font-weight: 100;
+          }
+          .gaming {
+            font-family: $lato;
+            font-size: 2.5rem;
+            font-weight: 400;
+          }
+        }
+      }
+      .lorem {
+        font-family: $raleway;
+        font-weight: 300;
+        font-size: 2.2rem;
+        padding-top: 3rem;
+      }
     }
+    .footer-right {
+      display: flex;
+      justify-content: space-evenly;
+      width: 60vw;
+      .link-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 8vw;
+        .main-link {
+          font-family: $raleway;
+          font-weight: 300;
+          font-size: 2.2rem;
+          padding-bottom: 2rem;
+        }
+        .link {
+          font-family: $raleway;
+          font-weight: 300;
+          font-size: 1.6rem;
+          line-height: 4.5rem;
+        }
+      }
+    }
+  }
 }
