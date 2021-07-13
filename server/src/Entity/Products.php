@@ -3,13 +3,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\ProductsRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"product:read"}},
- *     denormalizationContext={"groups"={"product:write"}}))
+ *     denormalizationContext={"groups"={"product:write"}}
+ * )
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
  */
 class Products
@@ -22,31 +23,31 @@ class Products
     private $id;
 
     /**
-     * @group ({"product:read", "product:write"})
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @group ({"product:read", "product:write"})
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="string", length=4000)
      */
     private $description;
 
     /**
-     * @group ({"product:read", "product:write"})
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="integer")
      */
     private $price;
 
     /**
-     * @group ({"product:read"})
+     * @Groups({"product:read"})
      * @ORM\Column(type="datetime")
      */
     private $created_at;
 
     /**
-     * @group ({"product:read"})
+     * @Groups({"product:read"})
      * @ORM\Column(type="datetime")
      */
     private $modified_at;

@@ -3,13 +3,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\UsersRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"users:read"}},
- *     denormalizationContext={"groups"={"users:write"}})
+ *     denormalizationContext={"groups"={"users:write"}}
+ * )
  * @ORM\Entity(repositoryClass=UsersRepository::class)
  */
 class Users
@@ -22,31 +23,31 @@ class Users
     private $id;
 
     /**
-     * @group ({"users:read", "users:write"})
+     * @Groups({"users:read", "users:write"})
      * @ORM\Column(type="string", length=100)
      */
     private $email;
 
     /**
-     * @group ({"users:read", "users:write"})
+     * @Groups({"users:read", "users:write"})
      * @ORM\Column(type="string", length=100)
      */
     private $name;
 
     /**
-     * @group ({"users:read", "users:write"})
+     * @Groups({"users:read", "users:write"})
      * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
-     * @group ({"users:read"})
+     * @Groups({"users:read"})
      * @ORM\Column(type="datetime")
      */
     private $created_at;
 
     /**
-     * @group ({"users:read"})
+     * @Groups({"users:read"})
      * @ORM\Column(type="datetime")
      */
     private $modified_at;
