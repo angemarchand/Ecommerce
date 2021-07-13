@@ -53,6 +53,18 @@ class Products
      */
     private $modified_at;
 
+    /**
+    * @ORM\PrePersist
+    * @ORM\PreUpdate
+    */
+    public function updatedTimestamps(): void
+    {
+        $this->setModifiedAt(new \DateTime('now'));    
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -116,17 +128,5 @@ class Products
         $this->modified_at = $modified_at;
 
         return $this;
-    }
-
-    /**
-    * @ORM\PrePersist
-    * @ORM\PreUpdate
-    */
-    public function updatedTimestamps(): void
-    {
-        $this->setModifiedAt(new \DateTime('now'));    
-        if ($this->getCreatedAt() === null) {
-            $this->setCreatedAt(new \DateTime('now'));
-        }
     }
 }
