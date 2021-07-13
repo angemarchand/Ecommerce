@@ -7,18 +7,20 @@ import profile from "../assets/img/account_circle_black_24dp.svg";
 export default function Navbar() {
   return (
     <div id="navbar">
-      <img src={logo} className="logo"></img>
-      <div className="navLinks">
-        <a href="#">PORTABLE</a>
-        <a href="#">ACCESSOIRES</a>
-        <a href="#">PERIPHERIQUES</a>
-        <a href="#">CUSTOM</a>
-        <a href="#">COMMUNAUTÉ</a>
-      </div>
-      <div className="navIcons">
-        <img src={search}></img>
-        <img src={cart}></img>
-        <img src={profile}></img>
+      <div className="wrapper">
+        <img src={logo} className="logo"></img>
+        <div className="navLinks">
+          <a href="#">PORTABLE</a>
+          <a href="#">ACCESSOIRES</a>
+          <a href="#">PERIPHERIQUES</a>
+          <a href="#">CUSTOM</a>
+          <a href="#">COMMUNAUTÉ</a>
+        </div>
+        <div className="navIcons">
+          <img src={search}></img>
+          <img src={cart}></img>
+          <img src={profile}></img>
+        </div>
       </div>
     </div>
   );
