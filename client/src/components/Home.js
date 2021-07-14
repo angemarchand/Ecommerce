@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function Home() {
-    return (
-        <Fragment>
-            <h1>test</h1>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+      <Navbar />
+      <p style={{height:"40rem"}}></p>
+      <Footer />
+    </Fragment>
+  );
 }

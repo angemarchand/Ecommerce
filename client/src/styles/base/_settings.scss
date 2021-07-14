@@ -2,8 +2,32 @@
 
 $black: #000;
 $white: #fff;
-$primary: #4066e0;
-$paragraph: #c5c5c5;
+
+$primary-1: #baa64f;
+$primary-2: #d6cea9;
+
+$secondary-1: #c4c4c4;
+$secondary-2: #d6d6d6;
+
+$bg-color-1: #1d1d1b;
+$bg-color-2: #e5e5e5;
+
+/*------------------- FONT-FAMILY -------------------*/
+
+@mixin googleFonts($font) {
+  @import url("https://fonts.googleapis.com/css2?family=#{$font}");
+}
+
+@include googleFonts("Hind+Siliguri:wght@300&display=swap");
+@include googleFonts(
+  "family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+);
+@include googleFonts(
+  "family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"
+);
+
+$lato: "Lato", sans-serif;
+$raleway: "Raleway", sans-serif;
 
 /*----------- FONT-SIZE -----------*/
 
