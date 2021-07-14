@@ -2,11 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\ProductsRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource(
+ *     normalizationContext={"groups"={"product:read"}},
+ *     denormalizationContext={"groups"={"product:write"}}
+ * )
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Products
 {
@@ -18,43 +24,60 @@ class Products
     private $id;
 
     /**
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private $name;
 
     /**
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="string", length=4000)
      */
     private $description;
 
     /**
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="integer")
      */
     private $price;
 
     /**
-     * @ORM\Column(type="date")
+     * @Groups({"product:read"})
+     * @ORM\Column(type="datetime")
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="date")
+     * @Groups({"product:read"})
+     * @ORM\Column(type="datetime")
      */
     private $modified_at;
+
+    /**
+    * @ORM\PrePersist
+    * @ORM\PreUpdate
+    */
+    public function updatedTimestamps(): void
+    {
+        $this->setModifiedAt(new \DateTime('now'));    
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): self
+    public function setName(string $name): self
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
