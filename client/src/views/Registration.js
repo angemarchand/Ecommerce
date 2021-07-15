@@ -1,48 +1,48 @@
 import React, { useState } from "react";
-import Axios from 'react-axios';
+import Axios from 'axios';
+// import logo from "../assets/img/logo.png";
 
 function Registration() {
-    const url="";
+    const url="http://localhost:8000/api/users";
 
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [plainPassword, setPlainPassword] = useState('');
 
-const [data, setData] = useState({
-    name: "",
-    email: "",
-    password: ""
-})
-
-    function Submit (e){
+    const handleSubmit = e =>{
         e.preventDefault();
-        Axios.post('url', {
-            name: data.name,
-            email: data.email,
-            password: data.name
+        Axios.post(url, {
+            name: name,
+            email: email,
+            plainPassword: plainPassword
         })
         .then(response => {
-            console.log(response.data)
+            console.log(response);
+            return response;
+
+            
         })
-    }
-    function handleSubmit(e){
-        const newData = {...data};
-        newData[e.target.name] = e.target.value;
-        setData(newData);
-        console.log(newData);
+        .catch(error => {
+            console.log(error);
+            return error;
+        })            
     }
 
-
+    
+    
     return (
         <div id="form">
-                <form onSubmit = {(e) => Submit}>
-                    <h2> Inscription </h2>
+                <form onSubmit = {handleSubmit}>
+                    <h2> INSCRIPTION </h2>
                     <div id="register">
                         <label for="name"> Nom d'utilisateur </label>
-                        <input id="name" type="text" onChange={(e) => handleSubmit(e)} value={data.name}
+                        <input id="name" type="text" required onChange={e => setName(e.target.value)} 
                                 placeholder="Entrer votre nom d'utilisateur"></input>
                         <label for="email"> Email </label>
-                        <input id="email" type="email" onChange={(e) => handleSubmit(e)} value={data.email}
+                        <input id="email" type="email" required onChange={e => setEmail(e.target.value)} 
                                 placeholder="Entrer votre addresse mail"></input>
                         <label for="password"> Mot de passe </label>
-                        <input id="password" type="password"  onChange={(e) => handleSubmit(e)} value={data.password} 
+                        <input id="password" type="password" required onChange={e => setPlainPassword(e.target.value)} 
                                 placeholder="Entrer votre mot de passe"></input>
                     </div>
 
