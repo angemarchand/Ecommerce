@@ -54,6 +54,11 @@ class Products
     private $modified_at;
 
     /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $pictures = [];
+
+    /**
     * @ORM\PrePersist
     * @ORM\PreUpdate
     */
@@ -126,6 +131,18 @@ class Products
     public function setModifiedAt(\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    public function getPictures(): ?array
+    {
+        return $this->pictures;
+    }
+
+    public function setPictures(?array $pictures): self
+    {
+        $this->pictures = $pictures;
 
         return $this;
     }
