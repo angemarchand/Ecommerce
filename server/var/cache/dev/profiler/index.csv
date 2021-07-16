@@ -87,3 +87,6 @@ fe4d74,::1,POST,https://localhost:8000/authentication_token,1626189587,,404
 e2f0da,::1,POST,https://localhost:8000/authentication_token,1626189595,,200
 a7a71a,::1,POST,https://localhost:8000/authentication_token,1626189754,,200
 d8c18f,::1,GET,https://localhost:8000/api/users,1626189764,,200
+642575,::1,GET,https://localhost:8000/api/docs,1626428561,,200
+2b6dc8,::1,GET,https://localhost:8000/favicon.ico,1626428562,3a81aa,404
+3a81aa,::1,GET,https://localhost:8000/favicon.ico,1626428562,,404
