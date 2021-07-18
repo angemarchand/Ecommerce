@@ -664,3 +664,7 @@ de0d44,::1,PATCH,https://localhost:8000/api/products/1,1626617281,,200
 7326bd,::1,GET,https://localhost:8000/api/products,1626617595,,200
 3d89d5,::1,PATCH,https://localhost:8000/api/products/1,1626617599,,200
 9704cf,::1,PATCH,https://localhost:8000/api/products/1,1626617616,,200
+77e4e2,::1,OPTIONS,https://localhost:8000/api/products,1626620260,,200
+4020cd,::1,GET,https://localhost:8000/api/products,1626620260,,200
+322464,::1,OPTIONS,https://localhost:8000/api/products/1,1626620308,,200
+621669,::1,PATCH,https://localhost:8000/api/products/1,1626620309,,200
