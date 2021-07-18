@@ -1,7 +1,7 @@
 import  { Fragment } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "../components/Home"
-import Products from "../views/Products";
+import ListingProducts from "../views/ListingProducts";
 import Registration from "../views/Registration";
 
 export default function AppRouter() {
@@ -11,7 +11,7 @@ export default function AppRouter() {
                 <Switch>
                     <Route path="/" component={Home} exact={true} />
                     <Route path="/users/register" component={Registration} exact={true} />
-                    <Route path="/products" component={Products} exact={true} />
+                    <Route path="/products" component={ListingProducts} exact={true} />
                 </Switch>
             </Fragment>
         </BrowserRouter>

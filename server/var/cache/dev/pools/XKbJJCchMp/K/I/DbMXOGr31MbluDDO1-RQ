@@ -11,6 +11,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
     ],
     null,
     [
@@ -23,6 +24,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'price',
                 'created_at',
                 'modified_at',
+                'pictures',
                 'createdAt',
                 'modifiedAt',
             ],
@@ -34,12 +36,16 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'price' => $o[4],
                     'created_at' => $o[5],
                     'modified_at' => $o[6],
-                    'createdAt' => $o[7],
-                    'modifiedAt' => $o[8],
+                    'pictures' => $o[7],
+                    'createdAt' => $o[8],
+                    'modifiedAt' => $o[9],
                 ],
             ],
             'groups' => [
-                2 => [
+                1 => [
+                    'product:read',
+                ],
+                [
                     'product:read',
                     'product:write',
                 ],
@@ -56,6 +62,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 ],
                 [
                     'product:read',
+                ],
+                [
+                    'product:read, product:write',
                 ],
             ],
         ],
