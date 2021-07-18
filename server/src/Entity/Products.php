@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProductsRepository;
 
 /**
  * @ApiResource(
@@ -20,6 +21,7 @@ class Products
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"product:read"})
      */
     private $id;
 
@@ -54,6 +56,7 @@ class Products
     private $modified_at;
 
     /**
+     * @Groups({"product:read, product:write"})
      * @ORM\Column(type="array", nullable=true)
      */
     private $pictures = [];
