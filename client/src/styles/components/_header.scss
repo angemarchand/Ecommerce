@@ -1,0 +1,19 @@
+#header{
+
+    margin-top: 2%;
+    height: 50vh;
+    background-color: $white;
+    border: 1px solid gray;
+    .news{
+        display: flex;
+        justify-content: flex-start;
+        background-color: $secondary-2;
+
+        text-align: center;
+        .best{       
+            padding: 10px;
+            width: 15vh;
+            background-color: $primary-2;
+        }
+    }
+}

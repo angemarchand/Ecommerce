@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProductsRepository;
 
 /**
  * @ApiResource(
@@ -20,6 +21,7 @@ class Products
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"product:read"})
      */
     private $id;
 
@@ -52,6 +54,12 @@ class Products
      * @ORM\Column(type="datetime")
      */
     private $modified_at;
+
+    /**
+     * @Groups({"product:read, product:write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $pictures = [];
 
     /**
     * @ORM\PrePersist
@@ -126,6 +134,18 @@ class Products
     public function setModifiedAt(\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    public function getPictures(): ?array
+    {
+        return $this->pictures;
+    }
+
+    public function setPictures(?array $pictures): self
+    {
+        $this->pictures = $pictures;
 
         return $this;
     }
