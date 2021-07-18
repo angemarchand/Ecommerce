@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div id="navbar">
       <div className="wrapper">
-        <img src={logo} className="logo"></img>
+        <img src={logo} className="logo" alt="logo"></img>
         <div className="navLinks">
           <a href="#">PORTABLE</a>
           <a href="#">ACCESSOIRES</a>
@@ -17,9 +17,9 @@ export default function Navbar() {
           <a href="#">COMMUNAUTÉ</a>
         </div>
         <div className="navIcons">
-          <img src={search}></img>
-          <img src={cart}></img>
-          <img src={profile}></img>
+          <img src={search} alt="search icon"></img>
+          <img src={cart} alt="cart icon"></img>
+          <img src={profile} alt="profile icon"></img>
         </div>
       </div>
     </div>
