@@ -3,7 +3,7 @@ import Axios from 'axios';
 // import logo from "../assets/img/logo.png";
 
 function Registration() {
-    const url="http://localhost:8000/api/users";
+    const url="https://localhost:8000/api/users";
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -35,13 +35,13 @@ function Registration() {
                 <form onSubmit = {handleSubmit}>
                     <h2> INSCRIPTION </h2>
                     <div id="register">
-                        <label for="name"> Nom d'utilisateur </label>
+                        <label htmlFor="name"> Nom d'utilisateur </label>
                         <input id="name" type="text" required onChange={e => setName(e.target.value)} 
                                 placeholder="Entrer votre nom d'utilisateur"></input>
-                        <label for="email"> Email </label>
+                        <label htmlFor="email"> Email </label>
                         <input id="email" type="email" required onChange={e => setEmail(e.target.value)} 
                                 placeholder="Entrer votre addresse mail"></input>
-                        <label for="password"> Mot de passe </label>
+                        <label htmlFor="password"> Mot de passe </label>
                         <input id="password" type="password" required onChange={e => setPlainPassword(e.target.value)} 
                                 placeholder="Entrer votre mot de passe"></input>
                     </div>
