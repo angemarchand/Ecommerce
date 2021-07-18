@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerTueixaR\App_KernelDevDebugContainer([
     'container.build_hash' => 'TueixaR',
-    'container.build_id' => '1241e426',
-    'container.build_time' => 1626429400,
+    'container.build_id' => '5c954e38',
+    'container.build_time' => 1626608034,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerTueixaR');
