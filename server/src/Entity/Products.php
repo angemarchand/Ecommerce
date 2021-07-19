@@ -62,6 +62,11 @@ class Products
     private $pictures = [];
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
+
+    /**
     * @ORM\PrePersist
     * @ORM\PreUpdate
     */
@@ -146,6 +151,18 @@ class Products
     public function setPictures(?array $pictures): self
     {
         $this->pictures = $pictures;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }
