@@ -56,12 +56,13 @@ class Products
     private $modified_at;
 
     /**
-     * @Groups({"product:read, product:write"})
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="array", nullable=true)
      */
     private $pictures = [];
 
     /**
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="integer")
      */
     private $stock;
