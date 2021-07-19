@@ -9,7 +9,7 @@ export default function AppRouter() {
             <Fragment>
                 <Switch>
                     <Route path="/" component={Home} exact={true} />
-                    <Route path="/users" component={Registration} exact={true} />
+                    <Route path="/users/register" component={Registration} exact={true} />
                 </Switch>
             </Fragment>
         </BrowserRouter>
