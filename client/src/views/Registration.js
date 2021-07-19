@@ -3,7 +3,7 @@ import Axios from 'axios';
 // import logo from "../assets/img/logo.png";
 
 function Registration() {
-    const url="https://localhost:8000/api/users";
+    const url="http://localhost:8000/api/users";
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
