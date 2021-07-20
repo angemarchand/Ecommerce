@@ -12,7 +12,9 @@ function FooterRegister(){
         <div id="footer">
             <div className="logo">
                 <div className="image">
-                    <img src={logo} alt="logo" />
+                    <div className="bg-logo">
+                        <img src={logo} alt="logo" />
+                    </div>
                     <h5> OMEGA GAMING</h5>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -23,11 +25,39 @@ function FooterRegister(){
                 </div>
             </div>
             <div className="link">
-                <ul>
-                    <Link to="/"> Home </Link>
-                    <Link to="/"> Login </Link>
-                    <Link to="/"> Logout </Link>
-                </ul>
+                <div className="footer-nav">
+                    <Link to="/"> PRODUITS </Link>
+                    <div>
+                        <Link to="/"> zadazdaed </Link>
+                        <Link to="/"> Pharetra in </Link>
+                        <Link to="/"> Aliquam </Link>
+                    </div>
+                </div>
+                <div className="footer-nav">
+                    <Link to="/"> ACCESSOIRES </Link>
+                    <div>
+                        <Link to="/"> zadazdaed </Link>
+                        <Link to="/"> Pharetra in </Link>
+                        <Link to="/"> Aliquam </Link>
+                    </div>
+                </div>
+                <div className="footer-nav">
+                    <Link to="/"> PERIPHERIQUES </Link>
+                    <div>
+                        <Link to="/"> zadazdaed </Link>
+                        <Link to="/"> Pharetra in </Link>
+                        <Link to="/"> Aliquam </Link>
+                    </div>
+                </div>
+                <div className="footer-nav">
+                    <Link to="/"> ADMIN </Link>
+                    <div>
+                        <Link to="/"> zadazdaed </Link>
+                        <Link to="/"> Pharetra in </Link>
+                        <Link to="/"> Aliquam </Link>
+                    </div>
+                </div>
+
             </div>
         </div>
     )
