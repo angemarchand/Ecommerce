@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom"
 // import logo from "../assets/img/logo.png";
 
 function Registration() {
-    const url="http://localhost:8000/api/users";
+    const url="https://localhost:8000/api/users";
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
