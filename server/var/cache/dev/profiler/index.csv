@@ -104,3 +104,9 @@ dcef99,127.0.0.1,POST,http://localhost:8000/api/users,1626336062,,500
 d51633,127.0.0.1,POST,http://localhost:8000/api/users,1626338392,,500
 3bf988,127.0.0.1,OPTIONS,http://localhost:8000/api/users,1626342784,,200
 3b9d11,127.0.0.1,POST,http://localhost:8000/api/users,1626342786,,201
+f2760b,127.0.0.1,GET,http://127.0.0.1:8000/,1626727274,,404
+242bd9,127.0.0.1,GET,http://127.0.0.1:8000/api/products,1626727286,c205ee,500
+c205ee,127.0.0.1,GET,http://127.0.0.1:8000/api/products,1626727286,,500
+6324ad,127.0.0.1,GET,http://127.0.0.1:8000/api,1626727301,,200
+79768e,127.0.0.1,OPTIONS,http://localhost:8000/api/users,1626770120,,200
+b380ac,127.0.0.1,POST,http://localhost:8000/api/users,1626770122,,201

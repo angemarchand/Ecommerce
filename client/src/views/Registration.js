@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Axios from 'axios';
 import HeaderRegister from "../components/HeaderRegister";
 import FooterRegister from "../components/FooterRegister";
+import { useHistory } from "react-router-dom"
 // import logo from "../assets/img/logo.png";
 
 function Registration() {
@@ -10,6 +11,8 @@ function Registration() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [plainPassword, setPlainPassword] = useState('');
+    
+    const history = useHistory();
 
     const handleSubmit = e =>{
         e.preventDefault();
@@ -20,9 +23,9 @@ function Registration() {
         })
         .then(response => {
             console.log(response);
+            history.push("/users/login");
             return response;
 
-            
         })
         .catch(error => {
             console.log(error);
