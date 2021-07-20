@@ -22,6 +22,7 @@ const Admin = () => {
         })
         const products = await response.json();
         setProducts(products);
+        console.log(products);
     }
 
     return (
@@ -31,14 +32,21 @@ const Admin = () => {
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">NAME</th>
-                        <th scope="col">DESCRIPTION</th>
                         <th scope="col">PRICE</th>
-                        <th scope="col">created_at</th>
-                        <th scope="col">modified_at</th>
+                        <th scope="col">STOCK</th>
+                        <th className="col-button" scope="col">
+                            <button type="button" className="btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                modifier
+                            </button>
+                        </th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {products ? products.map(item => <AdminProduct key={item.id} id={item.id} name={item.name} description={item.description} price={item.price} created_at={item.created_at} modified_at={item.modified_at} />) : <tr><th><p>Aucun produit enregistré</p></th></tr>}
+                    {products ?
+                        products.map(item => <AdminProduct key={item.id} id={item.id} name={item.name} description={item.description} price={item.price} created_at={item.created_at} modified_at={item.modified_at} stock={item.stock} />)
+                        :
+                        <tr><th><p>Aucun produit enregistré</p></th></tr>}
                 </tbody>
             </table>
         </div>
