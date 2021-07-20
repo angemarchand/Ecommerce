@@ -43,14 +43,22 @@ const AdminProduct = props => {
                     <div className="modal-dialog modal-fullscreen">
                         <div className="modal-content">
                             <div className="modal-body">
-                                <form>
+                                <form className="container">
                                     <div className="mb-3">
-                                        <label className="form-label">Name</label>
-                                        <input placeholder={props.name} type="text" className="form-control" />
+                                        <label className="form-label" for="name">Name</label>
+                                        <input placeholder={props.name} type="text" id="name" className="form-control" />
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label">Description</label>
                                         <textarea rows="10" placeholder={props.description} type="text" className="form-control" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">Price</label>
+                                        <input placeholder={props.name} type="number" className="form-control" />
+                                    </div>
+                                    <div className="mb-3 custom-file">
+                                        <label className="custom-file-label mr-3" for="customFile">Choose picture</label>
+                                        <input type="file" className="custom-file-input ml-3" id="customFile" />
                                     </div>
                                 </form>
                             </div>
