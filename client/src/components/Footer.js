@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 
 export default function Navbar() {
@@ -11,60 +12,49 @@ export default function Navbar() {
               <img src={logo}></img>
             </div>
             <div className="logo-text">
-              <p className="omega">OMEGA</p>
+              <p className="omega">OMEGA </p>
               <p className="gaming">GAMING</p>
             </div>
           </div>
           <p className="lorem">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque eget.
           </p>
         </div>
         <div className="footer-right">
             <div className="link-list">
-                <a className="main-link">Wingard</a>
+              <Link to="/products"> PRODUITS </Link>
                 <a className="link">zadazdaed</a>
                 <a className="link">Pharetra in.</a>
                 <a className="link">Aliquam.</a>
-                <a className="link">Nec non.</a>
-                <a className="link">Ipsum.</a>
-                <a className="link">Aliquam.</a>
+
             </div>
             <div className="link-list">
-                <a className="main-link">diumle</a>
+              <Link to="/users/register"> ACCESSOIRES </Link>
                 <a className="link">zadazdaed</a>
                 <a className="link">Pharetra in.</a>
                 <a className="link">Aliquam.</a>
-                <a className="link">Nec non.</a>
-                <a className="link">Ipsum.</a>
-                <a className="link">Aliquam.</a>
+
             </div>
             <div className="link-list">
-                <a className="main-link">Viosa</a>
+              <Link to="/peripherique"> PERIPHERIQUES </Link>
                 <a className="link">zadazdaed</a>
                 <a className="link">Pharetra in.</a>
                 <a className="link">Aliquam.</a>
-                <a className="link">Nec non.</a>
-                <a className="link">Ipsum.</a>
-                <a className="link">Aliquam.</a>
+
             </div>
             <div className="link-list">
-                <a className="main-link">Ideticona</a>
+              <Link to="/admin"> ADMIN </Link>  
                 <a className="link">zadazdaed</a>
                 <a className="link">Pharetra in.</a>
                 <a className="link">Aliquam.</a>
-                <a className="link">Nec non.</a>
-                <a className="link">Ipsum.</a>
-                <a className="link">Aliquam.</a>
+
             </div>
             <div className="link-list">
-                <a className="main-link">Dolorisa</a>
+              <Link to="/communaute"> COMMUNAUTÉ </Link>
                 <a className="link">zadazdaed</a>
                 <a className="link">Pharetra in.</a>
                 <a className="link">Aliquam.</a>
-                <a className="link">Nec non.</a>
-                <a className="link">Ipsum.</a>
-                <a className="link">Aliquam.</a>
+
             </div>
         </div>
       </div>

@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'aquawaxblack';
+    src: url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'aquawaxlight';
+    src: url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'aquawaxmedium';
+    src: url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#footer{
+    font-family: 'aquawaxmedium';
+    background-color: $bg-color-2;
+    margin-top: 10%;
+    height: 35vh;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    .logo{
+        width: 25vh;
+        .image{
+            display: flex;
+
+            img{
+                width: 3em;
+                margin-right: 10%;
+            }
+        }
+        p{
+            margin-top: 10%;
+        }
+    }
+
+    .social-icons{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        img{
+            margin-top: 10%;
+        }
+    }
+    .link{
+        a{
+            font-family: 'aquawaxmedium';
+            color: $bg-color;
+            margin-left: 20px;
+        }
+    }
+}
