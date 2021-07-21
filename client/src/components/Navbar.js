@@ -19,7 +19,6 @@ export default function Navbar() {
                 <Link to="/users/register"> ACCESSOIRES </Link>
                 <Link to="/peripherique"> PERIPHERIQUES </Link>
                 <Link to="/admin"> ADMIN </Link>
-                <Link to="/communaute"> COMMUNAUTÉ </Link>
                 <Link to="/search"><img  src={search} alt="search icon"/></Link>
                 <Link to="/search"><img src={cart} alt="cart icon"/></Link>
                 <Link to="/profile"><img src={profile} alt="profile icon"/></Link>

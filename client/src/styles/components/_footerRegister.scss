@@ -31,19 +31,32 @@
     font-family: 'aquawaxmedium';
     background-color: $bg-color-2;
     margin-top: 10%;
-    height: 35vh;
     display: flex;
+    height: 40%;
     justify-content: space-around;
-    padding-top: 25px;
-    padding-bottom: 10px;
+    padding-top: 5%;
     .logo{
         width: 25vh;
         .image{
             display: flex;
-
+            .bg-logo{
+                background-color: $bg-color-1;
+                width: 7rem;
+                height: 5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.5rem;
+                margin-right: 2rem;
+            }
+            h5{
+                font-family: 'adam_boldbold';
+                margin-top: 0.2em;
+                font-size: 1.2em;
+            }
             img{
-                width: 3em;
-                margin-right: 10%;
+                // padding: 1em;
+                width: 2.5em;
             }
         }
         p{
@@ -60,6 +73,21 @@
         }
     }
     .link{
+        display: flex;
+        flex-wrap: wrap;
+        .footer-nav{
+            margin-left: 20px;
+            div{
+                margin-top: 1em;
+                display: flex;
+                flex-direction: column;
+                a{
+                    color: $bg-color;
+                    margin-left: 20px;
+                    margin-top: 1em;
+                }
+            }
+        }
         a{
             font-family: 'aquawaxmedium';
             color: $bg-color;

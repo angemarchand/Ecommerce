@@ -17,7 +17,7 @@ function ListingProducts() {
   }, [])
 
   const getProducts = async () => {
-    const response = await fetch('https://localhost:8000/api/products', {
+    const response = await fetch('http://localhost:8000/api/products', {
       method: "GET",
       headers: {
         'Accept': 'application/json',
@@ -44,5 +44,6 @@ function ListingProducts() {
     </div>
   );
 }
+
 
 export default ListingProducts;
