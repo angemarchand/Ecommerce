@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from 'axios';
 import HeaderRegister from "../components/HeaderRegister";
-import FooterRegister from "../components/FooterRegister";
+import Footer from "../components/Footer";
 import { useHistory } from "react-router-dom"
 // import logo from "../assets/img/logo.png";
 
@@ -59,7 +59,7 @@ function Registration() {
                 </form>
             </div>
             <div>
-                 <FooterRegister />
+                 <Footer />
             </div>
                 
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
-import FooterRegister from "../components/FooterRegister";
+import Footer from "../components/Footer";
 
 function ListingProducts() {
 
@@ -40,7 +40,7 @@ function ListingProducts() {
             null
         }
       </div>
-      <FooterRegister />
+      <Footer />
     </div>
   );
 }
