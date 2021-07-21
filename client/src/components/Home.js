@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import Navbar from "./Navbar";
-import FooterRegister from "../components/FooterRegister";
 import Footer from "./Footer";
 
 export default function Home() {
@@ -8,7 +7,7 @@ export default function Home() {
     <Fragment>
       <Navbar />
       <p style={{height:"40rem"}}></p>
-      <FooterRegister />
+      <Footer />
     </Fragment>
   );
 }
