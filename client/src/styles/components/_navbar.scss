@@ -1,10 +1,15 @@
-#nav{
+#navbar{
   background-color: $bg-color-1;
   color: $primary-1;
   display: flex;
   padding: 5px;
   justify-content: space-around;
 
+  .logo{
+    img{
+      width: 40px;
+    }
+  }
   .navigation{
     width: 150vh;
     margin-top: 10px;
@@ -14,7 +19,5 @@
     }
 
   }
-  .imgLogo{
-    width: 30px !important;
-  }
+
 }

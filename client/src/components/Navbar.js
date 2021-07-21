@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 
 
-function HeaderRegister() {
+function Navbar() {
 
     return (
         <div id="navbar">
@@ -14,8 +14,9 @@ function HeaderRegister() {
             <div>
                 <ul>
                     <Link to="/"> Home </Link>
-                    <Link to="/products"> PRODUITS </Link>
-                    <Link to="/"> Login </Link>
+                    <Link to="/products"> Produits </Link>
+                    <Link to="/users/register"> Register </Link>
+                    <Link to="/user/login"> Login </Link>
                     <Link to="/"> Logout </Link>
                 </ul>
             </div>
@@ -23,4 +24,4 @@ function HeaderRegister() {
     )
 }
 
-export default HeaderRegister;
+export default Navbar;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
 
@@ -31,7 +30,6 @@ function ListingProducts() {
   return (
     <div>
       <Navbar />
-      <Header />
       <div className="containerProducts">
         {
           products ?
