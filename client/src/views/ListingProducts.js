@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
-import Footer from "../components/Footer";
+import FooterRegister from "../components/FooterRegister";
 
 function ListingProducts() {
 
@@ -17,7 +17,7 @@ function ListingProducts() {
   }, [])
 
   const getProducts = async () => {
-    const response = await fetch('https://localhost:8000/api/products', {
+    const response = await fetch('http://localhost:8000/api/products', {
       method: "GET",
       headers: {
         'Accept': 'application/json',
@@ -40,9 +40,10 @@ function ListingProducts() {
             null
         }
       </div>
-      <Footer />
+      <FooterRegister />
     </div>
   );
 }
+
 
 export default ListingProducts;
