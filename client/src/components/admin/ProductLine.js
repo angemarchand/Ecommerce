@@ -10,7 +10,7 @@ const AdminProductLine = props => {
             <td scope="col">{props.price}</td>
             <td scope="col">{props.stock}</td>
             <td className="col-button" scope="col">
-                <button type="button" className="btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target={`#${props.name.replace(/\s+/g, '')}`}>
+                <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target={`#${props.name.replace(/\s+/g, '')}`}>
                     modifier
                 </button>
             </td>

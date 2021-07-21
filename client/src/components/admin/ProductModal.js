@@ -54,9 +54,9 @@ const AdminProductModal = props => {
                         </form>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" id="btn-del" className="btn btn-lg btn-danger" data-bs-dismiss="modal" onClick={props.name ? () => del() : null}>Supprimer</button>
-                        <button type="button" className="btn btn-lg btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                        <button type="button" className="btn btn-lg btn-success" data-bs-dismiss="modal" onClick={props.name ? () => patch() : () => post()}>Sauvegarder</button>
+                        <button type="button" id="btn-del" className="btn btn-danger" data-bs-dismiss="modal" onClick={props.name ? () => del() : null}>Supprimer</button>
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" className="btn btn-success" data-bs-dismiss="modal" onClick={props.name ? () => patch() : () => post()}>Sauvegarder</button>
                     </div>
                 </div>
             </div>

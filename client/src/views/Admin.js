@@ -25,7 +25,7 @@ const Admin = () => {
                         <th scope="col">PRICE</th>
                         <th scope="col">STOCK</th>
                         <th className="col-button" scope="col">
-                            <button type="button" className="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#add-product">
+                            <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-product">
                                 Ajouter
                             </button>
                         </th>
