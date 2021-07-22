@@ -3,38 +3,31 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\CategoryRepository;
-use Symfony\Component\Serializer\Annotation\Groups;
+use App\Repository\CategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource(
- *      normalizationContext={"groups"={"category:read"}},
- *      denormalizationContext={"groups"={"category:write"}}
- * )
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ApiResource()
+ * @ORM\Entity(repositoryClass=CategoriesRepository::class)
  */
-class Category
+class Categories
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"category:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Groups({"category:read", "category:write"})
      */
     private $name;
 
     /**
      * @ORM\ManyToMany(targetEntity=Products::class, mappedBy="categories")
-     * @Groups({"category:read"})
      */
     private $products;
 
