@@ -17,7 +17,7 @@ function ListingProducts() {
   }, [])
 
   const getProducts = async () => {
-    const response = await fetch('https://localhost:8000/api/products', {
+    const response = await fetch('http://localhost:8000/api/products', {
       method: "GET",
       headers: {
         'Accept': 'application/json',
@@ -32,13 +32,18 @@ function ListingProducts() {
     <div>
       <Navbar />
       <Header />
-      <div className="containerProducts">
-        {
-          products ?
-            products.map(items => <CardProduct name={items.name} description={items.description} price={items.price} />)
-            :
-            null
-        }
+      <div className="container ">
+        <div className="row ">
+          <div className="col-md-5">
+              {
+              products ?
+                products.map(items => <CardProduct name={items.name} description={items.description} price={items.price} />)
+                :
+                null
+              }
+          </div>
+
+        </div>
       </div>
       <Footer />
     </div>
