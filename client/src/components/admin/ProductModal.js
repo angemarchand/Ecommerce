@@ -27,7 +27,7 @@ const AdminProductModal = props => {
 
     return (
         <div className="modal fade" id={props.name ? props.name.replace(/\s+/g, '') : "add-product"} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-fullscreen">
+            <div className="modal-dialog modal-fullscreen"> 
                 <div className="modal-content">
                     <div className="modal-body">
                         <form className="container">
