@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <Fragment>
       <Navbar />
-      <p style={{height:"40rem"}}></p>
+      <p style={{ height: "40rem" }}></p>
       <Footer />
     </Fragment>
   );

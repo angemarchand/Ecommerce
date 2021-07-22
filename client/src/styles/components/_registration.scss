@@ -1,8 +1,114 @@
+
+@font-face {
+    font-family: 'robotoblack';
+    src: url('../../fonts/roboto/roboto-black-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('../../fonts/roboto/roboto-bold-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('../../fonts/roboto/roboto-medium-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-medium-webfont.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../../fonts/roboto/roboto-regular-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aquawaxblack';
+    src: url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'aquawaxlight';
+    src: url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'aquawaxmedium';
+    src: url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'adam_boldbold';
+    src: url('../../fonts/adam1/adam-bold-webfont.woff2') format('woff2'),
+         url('../../fonts/adam1/adam-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'adam_lightlight';
+    src: url('../../fonts/adam1/adam-light-webfont.woff2') format('woff2'),
+         url('../../fonts/adam1/adam-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'adam_mediummedium';
+    src: url('../../fonts/adam1/adam-medium-webfont.woff2') format('woff2'),
+         url('../../fonts/adam1/adam-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 #form{
-    
+    font-family: 'robotoregular';
     background-color: $primary-3;
     width: 50vh;
-    height: 70vh;
+    height: 70%;
     margin-top: 7%;
     margin-left: auto;
     margin-right: auto;
@@ -12,7 +118,7 @@
         background-color: $white;
         border: 1px solid $secondary-2;
         padding: 15%;
-        height: 70vh;
+        height: 70%;
 
         div{
             display: flex;
@@ -31,10 +137,13 @@
                 border-right: none;
             }
         }
-        h2{
+        h1{
             text-align: center;
             margin-bottom: 5%;
             margin-top: 5%;
+            font-family: 'adam_mediummedium';
+            font-size: 2em;
+            color: $bg-color;
         }
         button{
             background-color: $primary-3;
@@ -42,7 +151,7 @@
             margin: auto;
             border: none;
             margin-top: 20%;
-            padding: 10px;
+            padding: 3%;
             width: 45%;
         }
     }

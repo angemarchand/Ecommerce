@@ -56,10 +56,16 @@ class Products
     private $modified_at;
 
     /**
-     * @Groups({"product:read, product:write"})
+     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="array", nullable=true)
      */
     private $pictures = [];
+
+    /**
+     * @Groups({"product:read", "product:write"})
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
 
     /**
     * @ORM\PrePersist
@@ -146,6 +152,18 @@ class Products
     public function setPictures(?array $pictures): self
     {
         $this->pictures = $pictures;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }

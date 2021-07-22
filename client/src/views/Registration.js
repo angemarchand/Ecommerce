@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Axios from 'axios';
-// import logo from "../assets/img/logo.png";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { useHistory } from "react-router-dom";
+import { GETUsers, POSTUsers } from "../api/Users";
 
 function Registration() {
     const url="http://localhost:8000/api/users";
@@ -8,32 +11,25 @@ function Registration() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [plainPassword, setPlainPassword] = useState('');
+    
+    const history = useHistory();
 
-    const handleSubmit = e =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        Axios.post(url, {
-            name: name,
-            email: email,
-            plainPassword: plainPassword
-        })
-        .then(response => {
-            console.log(response);
-            return response;
-
-            
-        })
-        .catch(error => {
-            console.log(error);
-            return error;
-        })            
+        const response = await POSTUsers(name, email, plainPassword);
+        history.push("/users/login");
     }
 
     
     
     return (
-        <div id="form">
+        <div>
+            <div>
+                <Navbar />
+            </div>
+            <div id="form">
                 <form onSubmit = {handleSubmit}>
-                    <h2> INSCRIPTION </h2>
+                    <h1> INSCRIPTION </h1>
                     <div id="register">
                         <label htmlFor="name"> Nom d'utilisateur </label>
                         <input id="name" type="text" required onChange={e => setName(e.target.value)} 
@@ -48,6 +44,11 @@ function Registration() {
 
                     <button type="submit">Envoyer</button>
                 </form>
+            </div>
+            <div>
+                 <Footer />
+            </div>
+                
         </div>
     );       
   }
