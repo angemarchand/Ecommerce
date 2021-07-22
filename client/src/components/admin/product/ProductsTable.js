@@ -3,7 +3,7 @@ import AdminProductLine from "./ProductLine";
 import ProductModal from "./ProductModal"
 import {GETProducts} from "../../../api/Products"
 
-const ProductTable = () => {
+const AdminProductTable = () => {
 
     const [products, setProducts] = useState(null);
 
@@ -45,11 +45,11 @@ const ProductTable = () => {
                             stock={item.stock}
                         />)
                         :
-                        <tr><th><p>Aucun produit enregistré</p></th></tr>}
+                        <tr><th><p>No data</p></th></tr>}
                 </tbody>
             </table>
         </div>
     );
 }
 
-export default ProductTable;
+export default AdminProductTable;

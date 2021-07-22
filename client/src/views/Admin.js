@@ -1,5 +1,6 @@
 import { useState } from "react";
-import ProductTable from "../components/admin/product/ProductTable";
+import AdminProductTable from "../components/admin/product/ProductsTable";
+import AdminCategoriesTable from "../components/admin/category/CategoriesTable";
 import { MenuOpen } from '@material-ui/icons';
 
 const Admin = () => {
@@ -8,8 +9,8 @@ const Admin = () => {
     const [content, setContent] = useState("products")
 
     const displayContent = () => {
-        if(content == "products") return <ProductTable />
-        if(content == "categories") return <categoriesTable />
+        if(content == "products") return <AdminProductTable />
+        if(content == "categories") return <AdminCategoriesTable />
     }
 
     return (
