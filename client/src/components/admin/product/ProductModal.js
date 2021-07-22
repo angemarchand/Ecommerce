@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PATCHProducts, POSTProducts, DELETEProducts } from "../../api/Products";
+import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../api/Products";
 import { Redirect } from "react-router-dom";
 
 const AdminProductModal = props => {
