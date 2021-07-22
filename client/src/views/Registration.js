@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 import { GETUsers, POSTUsers } from "../api/Users";
 
 function Registration() {
-    // const url="https://localhost:8000/api/users";
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,7 +18,6 @@ function Registration() {
 
         const response = await POSTUsers(name, email, plainPassword);
         history.push("/users/login");
-        // console.log(response);           
     }
 
     
