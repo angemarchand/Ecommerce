@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { PATCHProducts, POSTProducts, DELETEProducts } from "../../api/Products";
-import { Redirect } from "react-router-dom";
+import { PATCHProducts, POSTProducts, DELETEProducts } from "../../services/api/Products";
 
 const AdminProductModal = props => {
 
@@ -8,7 +7,6 @@ const AdminProductModal = props => {
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
     const [stock, setStock] = useState(props.stock);
-    const [pricture, setPicture] = useState(props.pricture);
 
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
@@ -45,7 +43,7 @@ const AdminProductModal = props => {
                             </div>
                             <label className="custom-file-label" htmlFor="customFile">Choose picture</label>
                             <div className="mb-4 custom-file">
-                                <input onChange={(e) => setPicture(e.target.value)} type="file" className="custom-file-input ml-3" id="customFile" />
+                                <input type="file" className="custom-file-input ml-3" id="customFile" />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Stock</label>

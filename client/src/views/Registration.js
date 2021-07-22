@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Axios from 'axios';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useHistory } from "react-router-dom";
-import { GETUsers, POSTUsers } from "../api/Users";
+import { POSTUsers } from "../services/api/Users";
 
 function Registration() {
     const url="http://localhost:8000/api/users";

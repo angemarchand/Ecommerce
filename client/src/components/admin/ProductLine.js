@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProductModal from "./ProductModal"
 
 const AdminProductLine = props => {

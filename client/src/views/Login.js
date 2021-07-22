@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Axios from 'axios';
-
+import { GETToken, setToken } from "../services/authentication/User";
 
 
 function Login() {
@@ -8,23 +7,14 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = e =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
         
-        const data = {
-            email: email,
-            password: password
-        }
-
-        Axios.post('https://localhost:8000/api/users', data)
-        .then(res => {
-            localStorage.setItem('token', res.data.token);
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        
+        const token = await GETToken(email, password)
+        const response = await setToken(token);
+        console.log(response);
     }
+        
     return (
         <div id="form">
                 <form onSubmit = {handleSubmit} method="POST">

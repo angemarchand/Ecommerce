@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AdminProductLine from "../components/admin/ProductLine";
 import ProductModal from "../components/admin/ProductModal"
-import {GETProducts} from "../api/Products"
+import {GETProducts} from "../services/api/Products"
 
 const Admin = () => {
 
