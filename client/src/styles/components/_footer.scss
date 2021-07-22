@@ -1,3 +1,58 @@
+@font-face {
+  font-family: 'aquawaxblack';
+  src: url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff2') format('woff2'),
+       url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'aquawaxlight';
+  src: url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff2') format('woff2'),
+       url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'aquawaxmedium';
+  src: url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff2') format('woff2'),
+       url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'adam_boldbold';
+  src: url('../../fonts/adam1/adam-bold-webfont.woff2') format('woff2'),
+       url('../../fonts/adam1/adam-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'adam_lightlight';
+  src: url('../../fonts/adam1/adam-light-webfont.woff2') format('woff2'),
+       url('../../fonts/adam1/adam-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'adam_mediummedium';
+  src: url('../../fonts/adam1/adam-medium-webfont.woff2') format('woff2'),
+       url('../../fonts/adam1/adam-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 #footer {
   background-color: $secondary-1;
   height: 40rem;
@@ -15,33 +70,32 @@
         display: flex;
         .bg-logo {
           background-color: $bg-color-1;
-          width: 8rem;
-          height: 7.2rem;
+          width: 6rem;
+          height: 6rem;
           display: flex;
           justify-content: center;
           align-items: center;
           border-radius: 0.5rem;
           margin-right: 2rem;
           img {
-            width: 7rem;
+            width: 4rem;
           }
         }
         .logo-text {
           .omega {
-            font-family: $lato;
-            font-size: 2.5rem;
+            font-family: 'adam_boldbold';
+            font-size: 1.5em;
             font-weight: 100;
           }
           .gaming {
-            font-family: $lato;
-            font-size: 2.5rem;
+            font-family: 'adam_boldbold';
+            font-size: 1.5em;
             font-weight: 400;
           }
         }
       }
       .lorem {
-        font-family: $raleway;
-        font-weight: 300;
+        font-family: 'aquawaxmedium';
         font-size: 2.2rem;
         padding-top: 3rem;
       }
@@ -55,14 +109,12 @@
         flex-direction: column;
         justify-content: center;
         width: 8vw;
-        .main-link {
-          font-family: $raleway;
-          font-weight: 300;
-          font-size: 2.2rem;
+        a {
+          font-family: 'aquawaxblack';
           padding-bottom: 2rem;
         }
         .link {
-          font-family: $raleway;
+          font-family: 'aquawaxmedium';
           font-weight: 300;
           font-size: 1.6rem;
           line-height: 4.5rem;

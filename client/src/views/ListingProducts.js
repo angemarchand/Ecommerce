@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
+import { GETProducts} from "../api/Products";
 
 function ListingProducts() {
 
@@ -17,37 +17,25 @@ function ListingProducts() {
   }, [])
 
   const getProducts = async () => {
-    const response = await fetch('http://localhost:8000/api/products', {
-      method: "GET",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    const products = await response.json();
+    const products = await GETProducts();
     setProducts(products);
   }
 
   return (
     <div>
       <Navbar />
-      <Header />
-      <div className="container ">
-        <div className="row ">
-          <div className="col-md-5">
-              {
-              products ?
-                products.map(items => <CardProduct name={items.name} description={items.description} price={items.price} />)
-                :
-                null
-              }
-          </div>
-
-        </div>
+      <div className="containerProducts">
+        {
+          products ?
+            products.map(items => <CardProduct name={items.name} description={items.description} price={items.price} />)
+            :
+            null
+        }
       </div>
       <Footer />
     </div>
   );
 }
+
 
 export default ListingProducts;
