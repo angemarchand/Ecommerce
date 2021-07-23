@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductsRepository;
@@ -57,15 +59,19 @@ class Products
 
     /**
      * @Groups({"product:read", "product:write"})
-     * @ORM\Column(type="array", nullable=true)
-     */
-    private $pictures = [];
-
-    /**
-     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="integer")
      */
     private $stock;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Categories::class, inversedBy="products")
+     */
+    private $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
 
     /**
     * @ORM\PrePersist
@@ -144,18 +150,6 @@ class Products
         return $this;
     }
 
-    public function getPictures(): ?array
-    {
-        return $this->pictures;
-    }
-
-    public function setPictures(?array $pictures): self
-    {
-        $this->pictures = $pictures;
-
-        return $this;
-    }
-
     public function getStock(): ?int
     {
         return $this->stock;
@@ -167,4 +161,29 @@ class Products
 
         return $this;
     }
+
+    /**
+     * @return Collection|Categories[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categories $category): self
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
+    }
+
 }

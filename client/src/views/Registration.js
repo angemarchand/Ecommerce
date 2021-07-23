@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Axios from 'axios';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useHistory } from "react-router-dom"
-// import logo from "../assets/img/logo.png";
+import { useHistory } from "react-router-dom";
+import { POSTUsers } from "../services/api/Users";
 
 function Registration() {
-    const url="https://localhost:8000/api/users";
+    const url="http://localhost:8000/api/users";
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -14,23 +13,10 @@ function Registration() {
     
     const history = useHistory();
 
-    const handleSubmit = e =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        Axios.post(url, {
-            name: name,
-            email: email,
-            plainPassword: plainPassword
-        })
-        .then(response => {
-            console.log(response);
-            history.push("/users/login");
-            return response;
-
-        })
-        .catch(error => {
-            console.log(error);
-            return error;
-        })            
+        const response = await POSTUsers(name, email, plainPassword);
+        history.push("/users/login");
     }
 
     

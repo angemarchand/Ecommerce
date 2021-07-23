@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
-import { GETProducts} from "../api/Products";
+import { GETProducts } from "../services/api/Products";
 
 function ListingProducts() {
 
@@ -24,14 +24,24 @@ function ListingProducts() {
   return (
     <div>
       <Navbar />
-      <div className="containerProducts">
+      <div className="container-fluid container-lg" style={{ border: "soid" }}>
+        <div className="row">
+            {
+              products ?
+                products.map(items => <div className="col"><CardProduct name={items.name} description={items.description} price={items.price} /></div>)
+                :
+                null
+            }
+        </div>
+      </div>
+      {/* <div className="containerProducts">
         {
           products ?
             products.map(items => <CardProduct name={items.name} description={items.description} price={items.price} />)
             :
             null
         }
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

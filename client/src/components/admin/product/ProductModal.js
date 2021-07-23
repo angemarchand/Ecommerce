@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { PATCHProducts, POSTProducts, DELETEProducts } from "../../api/Products";
-import { POSTPicture } from "../../api/Pictures";
+import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../services/api/Products";
+import { POSTPicture } from "../../../services/api/Pictures";
 import { Redirect } from "react-router-dom";
 
 const AdminProductModal = props => {
@@ -9,7 +9,6 @@ const AdminProductModal = props => {
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
     const [stock, setStock] = useState(props.stock);
-    const [picture, setPicture] = useState(props.pricture);
 
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
@@ -37,7 +36,7 @@ const AdminProductModal = props => {
         }
 
         const picture = product ? await POSTPicture(tabName, product.id, tabImagesB64) : false;
-        // document.location.reload();
+        document.location.reload();
     }
 
     const del = async () => {
@@ -65,7 +64,7 @@ const AdminProductModal = props => {
                             </div>
                             <label className="custom-file-label" htmlFor="customFile">Choose picture</label>
                             <div className="mb-4 custom-file">
-                                <input onChange={(e) => setPicture(e.target.value)} type="file" multiple className="custom-file-input ml-3" id="customFile" />
+                                <input type="file" multiple className="custom-file-input ml-3" id="customFile" />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Stock</label>

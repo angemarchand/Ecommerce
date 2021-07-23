@@ -11,7 +11,7 @@ export const GETProducts = async () => {
 }
 
 export const POSTProducts = async (name, description, price, stock) => {
-    if (window.confirm("Valider la création du produit ?")) {
+    if (window.confirm("Create a new product ?")) {
         const response = await fetch('https://localhost:8000/api/products', {
             method: "POST",
             headers: {
@@ -31,7 +31,7 @@ export const POSTProducts = async (name, description, price, stock) => {
 }
 
 export const PATCHProducts = async (id, name, description, price, stock) => {
-    if (window.confirm("Appliquer les modifications ?")) {
+    if (window.confirm("Apply modification ?")) {
         const response = await fetch(`https://localhost:8000/api/products/${id}`, {
             method: "PATCH",
             headers: {
@@ -51,7 +51,7 @@ export const PATCHProducts = async (id, name, description, price, stock) => {
 
 export const DELETEProducts = async (id) => {
     if (window.confirm("Valider la suppression du produit ?")) {
-        const response = await fetch(`https://localhost:8000/api/products/${id}`, {
+        const response = await fetch(`http://localhost:8000/api/products/${id}`, {
             method: "DELETE"
         })
     }
