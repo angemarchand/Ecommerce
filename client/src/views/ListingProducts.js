@@ -22,9 +22,9 @@ function ListingProducts() {
   }
 
   return (
-    <div>
+    <div id="products-background">
       <Navbar />
-      <div className="container-fluid container-lg" style={{ border: "soid" }}>
+      <div className="container-fluid container-lg mt-3" style={{ border: "soid" }}>
         <div className="row">
             {
               products ?

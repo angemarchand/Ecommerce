@@ -1,17 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CardProduct = (props) => {
 
     return (
-        <div className="card mx-auto mt-3" style={{ width: "18rem" }}>
-            <img className="card-img-top" src="#" />
+        <div className="card mx-auto mt-4" style={{ width: "16rem" }}>
+            <Link to="/product">
+                <img className="card-img-top" src="#" />
+            </Link>
             <div className="card-body">
                 <div className="card-title">
-                    <h3>{props.name}</h3>
+                    <h4>{props.name}</h4>
                 </div>
                 <div className="card-text">
                     <p>{props.description}</p>
                     <p>{props.price}</p>
+                    <button></button>
                 </div>
             </div>
         </div>

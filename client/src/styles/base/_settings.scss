@@ -3,9 +3,9 @@
 $black: #000;
 $white: #fff;
  
-$primary-1: #BAA64F;
-$primary-2: #CDBE7C;
-$primary-3: #E0D5A5;
+$primary-1: #d6cda8;
+$primary-2: #baa64f;
+// $primary-3: #E0D5A5;
  
 $secondary-1: #353A35;
 $secondary-2: #868885;
@@ -13,36 +13,130 @@ $secondary-3: #D6D6D6;
  
 $bg-color: #1D1D1B;
 
-$primary-1: #baa64f;
-$primary-2: #d6cea9;
 
 $secondary-1: #c4c4c4;
-$secondary-2: #d6d6d6;
 
 $bg-color-1: #1d1d1b;
-$bg-color-2: #e5e5e5;
+$bg-color-2: #ececec;
 
 /*------------------- FONT-FAMILY -------------------*/
 
-@mixin googleFonts($font) {
-  @import url("https://fonts.googleapis.com/css2?family=#{$font}");
+@font-face {
+    font-family: 'robotoblack';
+    src: url('../../fonts/roboto/roboto-black-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-@include googleFonts("Hind+Siliguri:wght@300&display=swap");
-@include googleFonts(
-  "family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-);
-@include googleFonts(
-  "family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"
-);
+@font-face {
+    font-family: 'robotobold';
+    src: url('../../fonts/roboto/roboto-bold-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
-$lato: "Lato", sans-serif;
-$raleway: "Raleway", sans-serif;
+}
+
+
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('../../fonts/roboto/roboto-medium-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-medium-webfont.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../../fonts/roboto/roboto-regular-webfont.woff2') format('woff2'),
+         url('../../fonts/roboto/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'adam_boldbold';
+    src: url('../../fonts/adam1/adam-bold-webfont.woff2') format('woff2'),
+         url('../../fonts/adam1/adam-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  @font-face {
+    font-family: 'adam_lightlight';
+    src: url('../../fonts/adam1/adam-light-webfont.woff2') format('woff2'),
+         url('../../fonts/adam1/adam-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  
+  @font-face {
+    font-family: 'adam_mediummedium';
+    src: url('../../fonts/adam1/adam-medium-webfont.woff2') format('woff2'),
+         url('../../fonts/adam1/adam-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+
+@font-face {
+    font-family: 'aquawaxblack';
+    src: url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'aquawaxlight';
+    src: url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'aquawaxmedium';
+    src: url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff2') format('woff2'),
+         url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// @mixin googleFonts($font) {
+//   @import url("https://fonts.googleapis.com/css2?family=#{$font}");
+// }
+
+// @include googleFonts("Hind+Siliguri:wght@300&display=swap");
+// @include googleFonts(
+//   "family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+// );
+// @include googleFonts(
+//   "family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"
+// );
+
+// $lato: "Lato", sans-serif;
+// $raleway: "Raleway", sans-serif;
 
 /*----------- FONT-SIZE -----------*/
 
-$s-size: 1.3rem;
-$m-size: 1.8rem;
-$h1-size: 10rem;
-$h2-size: 7rem;
-$h3-size: 5rem;
+// $s-size: 1.3rem;
+// $m-size: 1.8rem;
+// $h1-size: 10rem;
+// $h2-size: 7rem;
+// $h3-size: 5rem;

@@ -22,7 +22,7 @@ function Registration() {
     
     
     return (
-        <div>
+        <div id="registration-background">
             <div>
                 <Navbar />
             </div>

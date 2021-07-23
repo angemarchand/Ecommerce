@@ -1,32 +1,3 @@
-@font-face {
-    font-family: 'aquawaxblack';
-    src: url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff2') format('woff2'),
-         url('../../fonts/aquamax1/aquawax_black_trial-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
-    font-family: 'aquawaxlight';
-    src: url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff2') format('woff2'),
-         url('../../fonts/aquamax1/aquawax_light_trial-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
-    font-family: 'aquawaxmedium';
-    src: url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff2') format('woff2'),
-         url('../../fonts/aquamax1/aquawax_medium_trial-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 #footer{
     font-family: 'aquawaxmedium';
     background-color: $bg-color-2;

@@ -1,4 +1,14 @@
-.card-img-top{
-	height: 150px;
-	background-color: grey;
+.card {
+	border-radius: 0;
+	box-shadow: -14px -10px 1px $primary-1;
+
+	.card-img-top{
+		height: 150px;
+		background-color: grey;
+	}
+
+	.card-body {
+		background-color: $secondary-3;
+	}
 }
+
