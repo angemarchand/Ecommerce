@@ -21,8 +21,8 @@ export const POSTProducts = async (name, description, price, stock) => {
             body: JSON.stringify({
                 name: name,
                 description: description,
-                price: parseInt(price),
-                stock: parseInt(stock)
+                price: parseInt(price, 10),
+                stock: parseInt(stock, 10)
             })
         })
         const product = await response.json();
@@ -31,6 +31,7 @@ export const POSTProducts = async (name, description, price, stock) => {
 }
 
 export const PATCHProducts = async (id, name, description, price, stock) => {
+    console.log(id, name, description, price, stock);
     if (window.confirm("Apply modification ?")) {
         const response = await fetch(`https://localhost:8000/api/products/${id}`, {
             method: "PATCH",
@@ -40,8 +41,8 @@ export const PATCHProducts = async (id, name, description, price, stock) => {
             body: JSON.stringify({
                 name: name,
                 description: description,
-                price: price,
-                stock: stock
+                price: parseInt(price, 10),
+                stock: parseInt(stock, 10)
             })
         })
         const product = await response.json();

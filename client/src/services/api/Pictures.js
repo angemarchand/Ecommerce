@@ -12,7 +12,7 @@ export const POSTPicture = async (tabName, id_product, tabImagesB64) => {
             },
             body: JSON.stringify({
                 name: element,
-                idProduct: parseInt(id_product),
+                id_product: parseInt(id_product, 10),
                 alt: null,
                 imageB64: tabImagesB64[i]
             })

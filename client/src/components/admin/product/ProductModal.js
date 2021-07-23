@@ -12,7 +12,7 @@ const AdminProductModal = props => {
 
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
-        document.location.reload();
+        // document.location.reload();
     }
 
     const toBase64 = file => new Promise((resolve, reject) => {
