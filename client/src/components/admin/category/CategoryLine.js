@@ -1,5 +1,5 @@
 import AdminCategoryModal from "./CategoryModal"
-import { DELETECategories } from "../../../api/Categories";
+import { DELETECategories } from "../../../services/api/Categories";
 
 const AdminCategoryLine = props => {
 

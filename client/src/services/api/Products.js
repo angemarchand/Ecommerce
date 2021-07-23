@@ -51,7 +51,7 @@ export const PATCHProducts = async (id, name, description, price, stock) => {
 
 export const DELETEProducts = async (id) => {
     if (window.confirm("Valider la suppression du produit ?")) {
-        const response = await fetch(`https://localhost:8000/api/products/${id}`, {
+        const response = await fetch(`http://localhost:8000/api/products/${id}`, {
             method: "DELETE"
         })
     }

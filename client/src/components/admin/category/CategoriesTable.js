@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AdminCategoryLine from "./CategoryLine";
 import AdminCategoryModal from "./CategoryModal"
-import {GETCategories} from "../../../api/Categories"
+import {GETCategories} from "../../../services/api/Categories"
 
 const CategoriesTable = () => {
 

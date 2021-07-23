@@ -1,5 +1,3 @@
-//////// CRUD BASIC ////////
-
 export const GETUsers = async () => {
     const response = await fetch('https://localhost:8000/api/users', {
         method: 'GET',

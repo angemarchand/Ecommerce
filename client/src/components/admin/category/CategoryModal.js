@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { POSTCategories } from "../../../api/Categories";
+import { POSTCategories } from "../../../services/api/Categories";
 
 const AdminCategoryModal = props => {
 
