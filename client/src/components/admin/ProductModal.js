@@ -25,9 +25,7 @@ const AdminProductModal = props => {
 
     const post = async () => {
         const product = await POSTProducts(name, description, price, stock);
-
-        console.log(product)
-
+        
         let files = document.getElementById('customFile').files;
 
         let tabName = [];
