@@ -1,18 +1,4 @@
-.cardProduct {
-	width: 200px;
-	height: 450px;
-	background: gray;
-	border: 1px solid;
-	margin-left: 1%;
-	display: block;
-	flex: 1 0 auto; 
-	.cardTop {
-		background: white;
-		width: 200px;
-		height: 200px;
-	}
-	.cardBottom {
-		width: 200px;
-		height: 250px;
-	}
+.card-img-top{
+	height: 200px;
+	background-color: grey;
 }
