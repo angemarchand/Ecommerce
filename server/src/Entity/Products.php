@@ -59,12 +59,6 @@ class Products
 
     /**
      * @Groups({"product:read", "product:write"})
-     * @ORM\Column(type="array", nullable=true)
-     */
-    private $pictures = [];
-
-    /**
-     * @Groups({"product:read", "product:write"})
      * @ORM\Column(type="integer")
      */
     private $stock;
@@ -152,18 +146,6 @@ class Products
     public function setModifiedAt(\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
-
-        return $this;
-    }
-
-    public function getPictures(): ?array
-    {
-        return $this->pictures;
-    }
-
-    public function setPictures(?array $pictures): self
-    {
-        $this->pictures = $pictures;
 
         return $this;
     }
