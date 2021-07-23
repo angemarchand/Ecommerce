@@ -10,7 +10,6 @@ const CategoriesTable = () => {
     useEffect(() => {
         async function getData() {
             setCategories(await GETCategories());
-            console.log(categories)
         }
         getData();
     }, [])
