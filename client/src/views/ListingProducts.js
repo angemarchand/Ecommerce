@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
-import { GETProducts} from "../api/Products";
+import { GETProducts} from "../services/api/Products";
 
 function ListingProducts() {
 
