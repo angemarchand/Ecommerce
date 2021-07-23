@@ -1,53 +1,49 @@
-import { useEffect, useState } from "react";
-import AdminProductLine from "../components/admin/ProductLine";
-import ProductModal from "../components/admin/ProductModal"
-import {GETProducts} from "../services/api/Products"
+import { useState } from "react";
+import AdminProductTable from "../components/admin/product/ProductsTable";
+import AdminCategoriesTable from "../components/admin/category/CategoriesTable";
+import { MenuOpen } from '@material-ui/icons';
 
 const Admin = () => {
 
-    const [products, setProducts] = useState(null);
+    const [active, setActive] = useState(false)
+    const [content, setContent] = useState("products")
 
-    useEffect(() => {
-        async function getData() {
-            setProducts(await GETProducts());
-        }
-        getData();
-    }, [])
+    const displayContent = () => {
+        if(content == "products") return <AdminProductTable />
+        if(content == "categories") return <AdminCategoriesTable />
+    }
 
     return (
-        <div className="container-fluid">
-            <ProductModal />
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">NAME</th>
-                        <th scope="col">PRICE</th>
-                        <th scope="col">STOCK</th>
-                        <th className="col-button" scope="col">
-                            <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-product">
-                                Ajouter
-                            </button>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products ?
-                        products.map(item => <AdminProductLine
-                            key={item.id}
-                            id={item.id}
-                            name={item.name}
-                            description={item.description}
-                            price={item.price}
-                            created_at={item.created_at}
-                            modified_at={item.modified_at}
-                            stock={item.stock}
-                        />)
-                        :
-                        <tr><th><p>Aucun produit enregistré</p></th></tr>}
-                </tbody>
-            </table>
+        <div className="wrapper">
+
+            <nav id={active ? "sidebar" : "sidebarActive"}>
+                <div className="sidebar-header">
+                    <h3>Omega Admin</h3>
+                </div>
+
+                <ul className="list-unstyled components">
+                    <li className={content == "products" ? "linkActive" : null}>
+                        <a onClick={() => setContent("products")} >Products</a>
+                    </li>
+                    <li className={content == "categories" ? "linkActive" : null}>
+                        <a onClick={() => setContent("categories")} >Categories</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id={active ? "contentActive" : "content"}>
+                <nav id="navbarTop" className="navbar navbar-expand-lg navbar-light">
+                    <div className="container-fluid">
+                        <button type="button" id="sidebarButton" onClick={() => active ? setActive(false) : setActive(true)} className="btn">
+                            <MenuOpen />
+                        </button>
+                    </div>
+                </nav>
+                {
+                    displayContent()
+                }
+            </div>
+
         </div>
     );
 }

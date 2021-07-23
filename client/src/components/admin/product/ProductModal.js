@@ -1,5 +1,10 @@
 import { useState } from "react";
+<<<<<<< HEAD:client/src/components/admin/ProductModal.js
 import { PATCHProducts, POSTProducts, DELETEProducts } from "../../services/api/Products";
+=======
+import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../api/Products";
+import { Redirect } from "react-router-dom";
+>>>>>>> 27-crud-category-back-front:client/src/components/admin/product/ProductModal.js
 
 const AdminProductModal = props => {
 
