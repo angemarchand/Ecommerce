@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CardProduct = (props) => {
 
     return (
-        <div id="product-card" className="card mx-auto mt-4" style={{ width: "16rem" }}>
+        <div id="product-card" className="card mx-auto mt-4">
             <Link to="/product">
                 <img className="card-img-top" src="#" />
             </Link>

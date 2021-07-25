@@ -23,7 +23,7 @@ function ListingProducts() {
 
   return (
     <div id="products-background">
-      <div className="container-fluid container-lg pt-3 pb-3" style={{ border: "soid" }}>
+      <div className="container-fluid container-lg pt-3 pb-3">
         <div className="row">
             {
               products ?

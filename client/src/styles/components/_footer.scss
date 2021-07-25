@@ -1,85 +1,36 @@
 #footer {
-  
+  background-color: $secondary-1;
+  padding-left: 35px !important;
+  padding-right: 35px !important;
+
+  .footer-social-icons{
+    font-size: 60px;
+    margin: 20px;
+  }
+
+  #container-logo {
+    height: 98px;
+    width: 98px;
+    border: 1px solid;
+    background-color: $bg-color;
+  }
 
   .footer-logo {
     height: 70px;
-    width: 80px;
+    // width: 80px;
   }
   .footer-text-logo {
     margin-left: 20px;
+    font-size: 36px;
+
+    #logo-omega{
+      font-family: adam_mediummedium;
+      height: 40px;
+    }
+
+    #logo-gaming {
+      font-family: adam_boldbold;
+      margin: 0;
+    }
   }
 }
-
-
-
-
-// #footer {
-//   background-color: $secondary-1;
-//   height: 40rem;
-//   display: flex;
-//   justify-content: center;
-//   .wrapper {
-//       justify-content: space-evenly;
-//     .footer-left {
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       width: 20vw;
-//       padding-left: 2rem;
-//       .identity {
-//         display: flex;
-//         .bg-logo {
-//           background-color: $bg-color-1;
-//           width: 6rem;
-//           height: 6rem;
-//           display: flex;
-//           justify-content: center;
-//           align-items: center;
-//           border-radius: 0.5rem;
-//           margin-right: 2rem;
-//           img {
-//             width: 4rem;
-//           }
-//         }
-//         .logo-text {
-//           .omega {
-//             font-family: 'adam_boldbold';
-//             font-size: 1.5em;
-//             font-weight: 100;
-//           }
-//           .gaming {
-//             font-family: 'adam_boldbold';
-//             font-size: 1.5em;
-//             font-weight: 400;
-//           }
-//         }
-//       }
-//       .lorem {
-//         font-family: 'aquawaxmedium';
-//         font-size: 2.2rem;
-//         padding-top: 3rem;
-//       }
-//     }
-//     .footer-right {
-//       display: flex;
-//       justify-content: space-evenly;
-//       width: 60vw;
-//       .link-list {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         width: 8vw;
-//         a {
-//           font-family: 'aquawaxblack';
-//           padding-bottom: 2rem;
-//         }
-//         .link {
-//           font-family: 'aquawaxmedium';
-//           font-weight: 300;
-//           font-size: 1.6rem;
-//           line-height: 4.5rem;
-//         }
-//       }
-//     }
-//   }
-// }
