@@ -1,22 +1,13 @@
 #registration-background {
-
-    background-color: $bg-color-2;
-    
+    background-color: $bg-color-2;  
+      
     #form{
         font-family: 'robotoregular';
         background-color: $primary-2;
         width: 50vh;
-        height: 70%;
-        margin-top: 7%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
         box-shadow: -16px -16px 1px $primary-1;
-        form{
-            background-color: $white;
-            border: 1px solid $secondary-3;
-            padding: 15%;
-            height: 70%;
+        background-color: $white;
+        border: 1px solid $secondary-3;
     
             div{
                 display: flex;
@@ -52,7 +43,9 @@
                 padding: 3%;
                 width: 45%;
             }
-        }
+            button:hover {
+                outline: 1px solid $secondary-2;
+            }
     }
 }
 

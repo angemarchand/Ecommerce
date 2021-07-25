@@ -6,11 +6,20 @@ import twitter from '../assets/img/icons8-twitter.svg'
 import facebook from '../assets/img/icons8-facebook.svg'
 
 
-function Footer(){
+function Footer() {
 
     return (
-        <div id="footer">
-            <div className="logo">
+        <div id="footer" className="container-fluid border mt-auto border-danger">
+            <div className="row">
+                <div className="col d-flex">
+                    <img src={logo} alt="logo" className="footer-logo rounded" />
+                    <div className="footer-text-logo">
+                        <p className="adam" >OMEGA</p>
+                        <p className="adam" >GAMING</p>
+                    </div>
+                </div>
+            </div>
+            {/* <div className="logo">
                 <div className="image">
                     <div className="bg-logo">
                         <img src={logo} alt="logo" />
@@ -58,7 +67,7 @@ function Footer(){
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -23,8 +23,7 @@ function ListingProducts() {
 
   return (
     <div id="products-background">
-      <Navbar />
-      <div className="container-fluid container-lg mt-3" style={{ border: "soid" }}>
+      <div className="container-fluid container-lg pt-3 pb-3" style={{ border: "soid" }}>
         <div className="row">
             {
               products ?
@@ -34,15 +33,6 @@ function ListingProducts() {
             }
         </div>
       </div>
-      {/* <div className="containerProducts">
-        {
-          products ?
-            products.map(items => <CardProduct name={items.name} description={items.description} price={items.price} />)
-            :
-            null
-        }
-      </div> */}
-      <Footer />
     </div>
   );
 }

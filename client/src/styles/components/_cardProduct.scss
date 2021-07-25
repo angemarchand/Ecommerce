@@ -1,14 +1,17 @@
-.card {
-	border-radius: 0;
-	box-shadow: -14px -10px 1px $primary-1;
+#product-card {
 
-	.card-img-top{
-		height: 150px;
-		background-color: grey;
-	}
+		border-radius: 0;
+		box-shadow: -14px -10px 1px $primary-1;
 
-	.card-body {
-		background-color: $secondary-3;
-	}
+
 }
+.card-img-top{
+	height: 150px;
+	background-color: grey;
+}
+
+.product-card-body {
+	background-color: $secondary-3;
+}
+
 

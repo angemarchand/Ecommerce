@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GETToken, setToken } from "../services/authentication/User";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+// import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
 
 function Login() {
 
@@ -17,27 +17,25 @@ function Login() {
     }
 
     return (
-        <div id="registration-background">
-            <div>
-                <Navbar />
-            </div>
-            <div id="form">
-                <form onSubmit={handleSubmit} method="POST">
-                    <h2>Connexion</h2>
-                    <div id="register">
-                        <label htmlFor="email"> Email </label>
-                        <input id="email" type="email" required onChange={e => setEmail(e.target.value)}
-                            placeholder="Entrer votre addresse mail"></input>
+        <div id="registration-background" className="container-fluid vh-100">
+            <div className="row g-0 h-100 align-items-center justify-content-center">
+                <div className="col-sm-6 w-75">
+                    <div id="form" className="card p-4 mx-auto">
+                        <div className="card-body">
+                            <div className="card-title">
+                                <h2>Connexion</h2>
+                            </div>
+                            <label htmlFor="email"> Email </label>
+                            <input id="email" type="email" required onChange={e => setEmail(e.target.value)}
+                                placeholder="Entrer votre addresse mail"></input>
 
-                        <label htmlFor="password"> Mot de passe </label>
-                        <input id="password" type="password" required onChange={e => setPassword(e.target.value)}
-                            placeholder="Entrer votre mot de passe"></input>
+                            <label htmlFor="password"> Mot de passe </label>
+                            <input id="password" type="password" required onChange={e => setPassword(e.target.value)}
+                                placeholder="Entrer votre mot de passe"></input>
+                            <button onClick={() => handleSubmit} type="submit">Se connecter</button>
+                        </div>
                     </div>
-                    <button type="submit">Se connecter</button>
-                </form>
-            </div>
-            <div>
-                <Footer />
+                </div>
             </div>
         </div>
     );
