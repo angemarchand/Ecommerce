@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../services/api/Products";
+import { POSTPicture } from "../../../services/api/Pictures";
 import { Redirect } from "react-router-dom";
 
 const AdminProductModal = props => {
@@ -11,11 +12,30 @@ const AdminProductModal = props => {
 
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
-        document.location.reload();
+        // document.location.reload();
     }
 
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+
     const post = async () => {
-        const resp = await POSTProducts(name, description, price, stock);
+        const product = await POSTProducts(name, description, price, stock);
+        
+        let files = document.getElementById('customFile').files;
+
+        let tabName = [];
+        let tabImagesB64 = [];
+
+        for (var i = 0; i < files.length; i++) {
+            tabName.push(files[i].name);
+            tabImagesB64.push(await toBase64(files[i]));
+        }
+
+        const picture = product ? await POSTPicture(tabName, product.id, tabImagesB64) : false;
         document.location.reload();
     }
 
@@ -26,7 +46,7 @@ const AdminProductModal = props => {
 
     return (
         <div className="modal fade" id={props.name ? props.name.replace(/\s+/g, '') : "add-product"} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-fullscreen">
+            <div className="modal-dialog modal-fullscreen"> 
                 <div className="modal-content">
                     <div className="modal-body">
                         <form className="container">
@@ -44,7 +64,7 @@ const AdminProductModal = props => {
                             </div>
                             <label className="custom-file-label" htmlFor="customFile">Choose picture</label>
                             <div className="mb-4 custom-file">
-                                <input type="file" className="custom-file-input ml-3" id="customFile" />
+                                <input type="file" multiple className="custom-file-input ml-3" id="customFile" />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Stock</label>

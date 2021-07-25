@@ -18,6 +18,7 @@ export default function AppRouter() {
                     <Route path="/admin" component={Admin} exact={true} />
                     <Route path="/users/register" component={Registration} exact={true} />
                     <Route path="/users/login" component={Login} exact={true} />
+                    <Route path="/products" component={ListingProducts} exact={true} />
                     <Route path="/" component={ListingProducts} exact={true} />
                 </Switch>
                 <Footer />
