@@ -15,7 +15,6 @@ const CardProduct = (props) => {
                 <div className="card-text">
                     <p>{props.description}</p>
                     <p>{props.price}</p>
-                    <button></button>
                 </div>
             </div>
         </div>
