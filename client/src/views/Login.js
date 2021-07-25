@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { GETToken, setToken } from "../services/authentication/User";
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
+import { useHistory } from "react-router-dom";
 
 function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const history = useHistory();
 
+    const handleSubmit = async (e) => {
         const token = await GETToken(email, password)
         const response = await setToken(token);
-        console.log(response);
+        history.push("/products");
+
     }
 
     return (
@@ -32,7 +32,7 @@ function Login() {
                             <label htmlFor="password"> Mot de passe </label>
                             <input id="password" type="password" required onChange={e => setPassword(e.target.value)}
                                 placeholder="Entrer votre mot de passe"></input>
-                            <button onClick={() => handleSubmit} type="submit">Se connecter</button>
+                            <button onClick={() => handleSubmit()} type="submit">Se connecter</button>
                         </div>
                     </div>
                 </div>

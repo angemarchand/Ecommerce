@@ -2,6 +2,10 @@ nav{
   background-color: $bg-color-1;
   font-family: 'aquawaxmedium';
 
+  .navbar-toggler {
+    background-color: $primary-2;
+  }
+
   a{
       margin-left: 50px !important;
       color: $primary-2 !important;

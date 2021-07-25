@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Admin from "../views/Admin";
 import ListingProducts from "../views/ListingProducts";
@@ -7,7 +7,10 @@ import Login from "../views/Login";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-
+// useEffect(() => {
+    
+// }, [])
+// console.log(window.location.pathname);
 
 export default function AppRouter() {
     return (

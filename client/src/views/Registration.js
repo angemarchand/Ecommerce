@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { POSTUsers } from "../services/api/Users";
 
 function Registration() {
-    const url = "http://localhost:8000/api/users";
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -12,7 +11,6 @@ function Registration() {
     const history = useHistory();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
         const response = await POSTUsers(name, email, plainPassword);
         history.push("/users/login");
     }
@@ -42,7 +40,7 @@ function Registration() {
                             <input id="password" type="password" required onChange={e => setPlainPassword(e.target.value)}
                                 placeholder="Entrer votre mot de passe">
                             </input>
-                            <button onClick={() => handleSubmit}>S'inscrire</button>
+                            <button onClick={() => handleSubmit()}>S'inscrire</button>
                         </div>
                     </div>
                 </div>
