@@ -28,7 +28,7 @@ function Registration() {
             </div>
             <div id="form">
                 <form onSubmit = {handleSubmit}>
-                    <h1> INSCRIPTION </h1>
+                    <h2> INSCRIPTION </h2>
                     <div id="register">
                         <label htmlFor="name"> Nom d'utilisateur </label>
                         <input id="name" type="text" required onChange={e => setName(e.target.value)} 
@@ -47,7 +47,6 @@ function Registration() {
             <div>
                  <Footer />
             </div>
-                
         </div>
     );       
   }
