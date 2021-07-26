@@ -34,12 +34,14 @@
 
     #large-card-product-left-chevron {
         font-size: 70px;
-        color: $primary-2;            
+        color: $primary-2;
+        cursor: pointer;            
     }
 
     #large-card-product-right-chevron {
         font-size: 70px;
-        color: $primary-2;    
+        color: $primary-2;
+        cursor: pointer;    
     }
     #large-card-product-add-product {
         font-size: 30px;
@@ -61,5 +63,10 @@
         background-color: $primary-2;
         width: 200px;
         color: white;
+        transition: transform 0.3s;
+    }
+
+    #large-card-product-buy-btn:hover {
+        transform: scale(1.1);
     }
 }
