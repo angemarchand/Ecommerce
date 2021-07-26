@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-// import Navbar from "../components/Navbar";
-// import CardProduct from "../components/CardProduct";
-// import Footer from "../components/Footer";
 import { GETProduct } from "../services/api/Products";
 import { useLocation, useHistory } from "react-router";
 import SearchBar from "../components/SearchBar";
+import BreadCrumb from "../components/BreadCrumb";
+import LargeCardProduct from "../components/LargeCardProduct";
 
 function OneProduct() {
 
@@ -23,13 +22,14 @@ function OneProduct() {
     const getProduct = async () => {
         const product = await GETProduct(new URLSearchParams(search).get('id'));
         setProduct(product);
-        console.log(product);
     }
 
     return (
         <div id="products-background">
-            <div className="container-fluid container-lg pt-3 pb-3">
+            <div className="container-fluid container-lg pt-4 pb-4">
                 <SearchBar />
+                <BreadCrumb page="OneProduct" />
+                {product ? <LargeCardProduct product={product} /> : null}
             </div>
         </div>
     );

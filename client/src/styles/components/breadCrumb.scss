@@ -1,0 +1,12 @@
+.breadcrumb-item+.breadcrumb-item::before {
+    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAyLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+);
+    filter: invert(72%) sepia(8%) saturate(2452%) hue-rotate(11deg) brightness(91%) contrast(85%); // https://codepen.io/sosuke/pen/Pjoqqp
+    transform: scale(2);
+    position: relative;
+    bottom: 5px;
+    margin-left: 10px;
+}
+
+.breadcrumb-item a {
+    color: $tertiary-1;
+}

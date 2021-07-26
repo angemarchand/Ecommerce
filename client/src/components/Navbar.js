@@ -6,7 +6,7 @@ import logo from "../assets/img/logo.png";
 function Navbar() {
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light">
+        <nav id='navbar' className="navbar navbar-expand-lg navbar-light">
             <div className="container-xl">
                 <Link to="/" className="navbar-brand logo">
                     <img src={logo} alt="logo" />

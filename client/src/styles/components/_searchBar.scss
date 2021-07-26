@@ -1,5 +1,11 @@
 #products-background {
-    // #search-bar-input
+
+    #search-icon {
+        font-size: 35px;
+        top: 2px;
+        right: 50px;
+        background-color: white;
+    }
     #search-bar-input:focus {
         outline: none;
         border: 1px solid $primary-1;
