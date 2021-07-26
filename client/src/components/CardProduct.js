@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const CardProduct = (props) => {
 
     return (
         <div id="product-card" className="card mx-auto mt-4">
-            <Link to="/product">
+            <Link to={`/product?id=${props.id}`}>
                 <img className="card-img-top" src="#" />
             </Link>
             <div id="product-card-body" className="card-body">

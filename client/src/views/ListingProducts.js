@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
 import { GETProducts } from "../services/api/Products";
+import SearchBar from "../components/SearchBar";
 
 function ListingProducts() {
 
@@ -24,13 +25,14 @@ function ListingProducts() {
   return (
     <div id="products-background">
       <div className="container-fluid container-lg pt-3 pb-3">
+        <SearchBar />
         <div className="row">
-            {
-              products ?
-                products.map(items => <div key={items.id} className="col"><CardProduct name={items.name} description={items.description} price={items.price} /></div>)
-                :
-                null
-            }
+          {
+            products ?
+              products.map(items => <div key={items.id} className="col"><CardProduct id={items.id} name={items.name} description={items.description} price={items.price} /></div>)
+              :
+              null
+          }
         </div>
       </div>
     </div>
