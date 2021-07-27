@@ -4,7 +4,7 @@ export const POSTPicture = async (tabName, id_product, tabImagesB64) => {
     let product = [];
     for (let element of tabName)
     {
-        const response = await fetch('https://localhost:8000/api/pictures', {
+        const response = await fetch('http://localhost:8000/api/pictures', {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
