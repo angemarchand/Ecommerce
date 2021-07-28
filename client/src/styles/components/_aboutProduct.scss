@@ -1,0 +1,41 @@
+#about-product {
+    background-color: $white;
+
+    #about-product-tabs-col {
+        background-color: $secondary-1;
+        height: 60px;
+
+        .about-product-tab {
+            background-color: $primary-1;
+            cursor: pointer;
+            min-width: 280px;
+        }
+        #active-tab {
+            background-color: $white;
+        }
+    }
+
+    .about-product-p {
+        color: $secondary-2;
+    }
+
+    #about-product-banner-desc {
+        min-width: 300px;
+    }
+
+    #about-product-desc-picture {
+        background-color: grey;
+        width: 400px;
+        height: 300px;
+    }
+
+    #about-product-desc-bottom {
+        background-color: $secondary-1;
+        color: white;
+
+    }
+
+    .fake-content {
+        height: 750px;
+    }
+}

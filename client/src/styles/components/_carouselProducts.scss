@@ -1,0 +1,46 @@
+#carousel-product {
+    background-color: $white;
+
+    .carousel-product-chevron {
+        color: $primary-1;
+        font-size: 140px;
+    }
+
+    #carousel-product-tabs-col {
+        background-color: $secondary-1;
+        height: 60px;
+
+        .carousel-product-tab {
+            background-color: $primary-1;
+            cursor: pointer;
+            min-width: 280px;
+        }
+        #active-tab {
+            background-color: $white;
+        }
+    }
+
+    .carousel-product-p {
+        color: $secondary-2;
+    }
+
+    #carousel-product-banner-desc {
+        min-width: 300px;
+    }
+
+    #carousel-product-desc-picture {
+        background-color: grey;
+        width: 400px;
+        height: 300px;
+    }
+
+    #carousel-product-desc-bottom {
+        background-color: $secondary-1;
+        color: white;
+
+    }
+
+    .fake-content {
+        height: 250px;
+    }
+}

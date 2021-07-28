@@ -16,7 +16,7 @@ const LargeCardProduct = (props) => {
                     <div className="row">
                         <div className="col m-4 mt-0 mb-3">
                             <h2 className="fs-1">{props.product.name}</h2>
-                            <p className="large-card-product-p fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p className="large-card-product-p fs-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
                     <div className="row">
@@ -31,12 +31,12 @@ const LargeCardProduct = (props) => {
                             </div>
                         </div>
                         <div className="col">
-                            <p id="large-card-product-banner-desc" className="large-card-product-p mt-3">Quisque nec condimentum nibh, eget consequat magna. Nunc congue varius porttitor. Aenean nec dapibus dui. Nullam ipsum lorem, mollis accumsan accumsan eget, tincidunt id mauris. Phasellus mattis nisi vitae libero aliquam accumsan. Vivamus enim ipsum, maximus ut elementum non, tempor facilisis purus. Donec ut facilisis sapien. Suspendisse lorem enim, efficitur nec ex eu, aliquet ornare felis. Fusce egestas id tortor id bibendum.</p>
+                            <p id="large-card-product-banner-desc" className="large-card-product-p mt-3 fs-5">Quisque nec condimentum nibh, eget consequat magna. Nunc congue varius porttitor. Aenean nec dapibus dui. Nullam ipsum lorem, mollis accumsan accumsan eget, tincidunt id mauris. Phasellus mattis nisi vitae libero aliquam accumsan. Vivamus enim ipsum, maximus ut elementum non, tempor facilisis purus. Donec ut facilisis sapien. Suspendisse lorem enim, efficitur nec ex eu, aliquet ornare felis. Fusce egestas id tortor id bibendum.</p>
                         </div>
                     </div>
                 </div>
                 <div id="large-card-product-banner-right" className="col col-sm-3 m-0">
-                    <div className="row">
+                    <div className="row mt-3">
                         <div className="col d-flex justify-content-center">
                             <p className="fs-1">{props.product.price}€</p>
                         </div>

@@ -4,6 +4,8 @@ import { useLocation, useHistory } from "react-router";
 import SearchBar from "../components/SearchBar";
 import BreadCrumb from "../components/BreadCrumb";
 import LargeCardProduct from "../components/LargeCardProduct";
+import AboutProduct from "../components/AboutProduct";
+import CarouselProducts from "../components/CarouselProducts";
 
 function OneProduct() {
 
@@ -30,6 +32,12 @@ function OneProduct() {
                 <SearchBar />
                 <BreadCrumb page="OneProduct" />
                 {product ? <LargeCardProduct product={product} /> : null}
+                <div className="mt-4">
+                    {product ? <AboutProduct product={product} /> : null}
+                </div>
+                <div className="mt-4">
+                    <CarouselProducts />
+                </div>
             </div>
         </div>
     );
