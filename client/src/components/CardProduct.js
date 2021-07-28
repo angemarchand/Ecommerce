@@ -1,13 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GETPicturesByProductId } from "../services/api/Pictures";
+import { ChevronRight, ChevronLeft } from "@material-ui/icons";
+
 
 const CardProduct = (props) => {
 
+    // console.log(props)
+    const [pictures, setPictures] = useState(null);
+    const [currentPicture, setCurrentPicture] = useState(null);
+    const [currentPictureId, setCurrentPictureId] = useState(null);
+
+    //get picture by id_product
+    useEffect(() => {
+        async function getData() {
+          await getPictures();
+        }
+        getData();
+    
+      }, [])
+
+    const getPictures = async () => {
+        console.log(props.idProduct);
+        const pictures = await GETPicturesByProductId(props.idProduct);
+        setPictures(pictures);
+        console.log(pictures);
+        setCurrentPictureId(0);
+        if (pictures[0])
+        {
+            console.log(pictures[0].name);
+            setCurrentPicture(pictures[0].imageB64)
+        }
+      }
+    //set picture with get data
+
+    const nextImage = () => {
+        let id = currentPictureId + 1;
+        setCurrentPictureId(id);
+        if(pictures[currentPictureId] != null)
+        {
+            setCurrentPicture(pictures[currentPictureId].imageB64);
+        }
+        else
+            setCurrentPictureId(0);
+    } 
+
+    const previousImage = () => {
+        let id = currentPictureId - 1;
+        setCurrentPictureId(id);
+        if(pictures[currentPictureId] != null)
+        {
+            setCurrentPicture(pictures[currentPictureId].imageB64);
+        }
+        else
+            setCurrentPictureId(pictures.length - 1)
+    }    
+
     return (
         <div id="product-card" className="card mx-auto mt-4">
-            <Link to="/product">
-                <img className="card-img-top" src="#" />
-            </Link>
+            {/* <Link to="/product">                 */}
+            <div className="d-flex card-product-container-pic position-relative">
+                <ChevronLeft classNAme="card-product-chevron-pic position-absolute" style={{fontSize: "80px"}} onClick={() => previousImage()} />
+                    <img className="card-img-top" src={currentPicture} />
+                <ChevronRight classNAme="card-product-chevron-pic position-absolute" style={{fontSize: "80px"}} onClick={() => nextImage()} />
+            </div>
+            {/* </Link> */}
             <div id="product-card-body" className="card-body">
                 <div className="card-title">
                     <h4>{props.name}</h4>

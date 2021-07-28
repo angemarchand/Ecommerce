@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
+use App\Controller\PicturesByProduct;
+
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PicturesRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @ApiResource(
@@ -14,6 +17,18 @@ use Doctrine\ORM\Mapping as ORM;
  * )
  * @ORM\Entity(repositoryClass=PicturesRepository::class)
  */
+
+#[ApiResource (
+    collectionOperations: [
+        'getImagesByProductId' => [
+            'path' => 'pictures/product',
+            'method' => 'get',
+            'controller' => PicturesByProduct::class,
+        ],
+        'get',
+        'post'
+    ]
+)]
 
 class Pictures
 {
