@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GETPicturesByProductId } from "../services/api/Pictures";
 
 const AboutProduct = (props) => {
 
@@ -6,7 +7,17 @@ const AboutProduct = (props) => {
     const [activeTab, setActiveTab] = useState("descriptif");
 
     useEffect(() => {
-    })
+        async function getData() {
+            await getPictures();
+        }
+        getData();
+
+    }, [])
+
+    const getPictures = async () => {
+        const pictures = await GETPicturesByProductId(props.product.id);
+        setPictures(pictures);
+    }
 
     return (
         <div id="about-product" className="container-fluid">
@@ -37,7 +48,7 @@ const AboutProduct = (props) => {
                             <p id="about-product-banner-desc" className="about-product-p mt-3 fs-5">Quisque nec condimentum nibh, eget consequat magna. Nunc congue varius porttitor. Aenean nec dapibus dui. Nullam ipsum lorem, mollis accumsan accumsan eget, tincidunt id mauris. Phasellus mattis nisi vitae libero aliquam accumsan. Vivamus enim ipsum, maximus ut elementum non, tempor facilisis purus. Donec ut facilisis sapien. Suspendisse lorem enim, efficitur nec ex eu, aliquet ornare felis. Fusce egestas id tortor id bibendum.</p>
                         </div>
                         <div className="col d-flex justify-content-center">
-                            <img className="m-1" id="about-product-desc-picture" src="#" />
+                            <img style={{objectFit: "contain"}} className="m-1" id="about-product-desc-picture" src={pictures ? pictures[0].imageB64 : "#"} />
                         </div>
                     </div>
                     <div id="about-product-desc-bottom" className="row p-4 text-resume">

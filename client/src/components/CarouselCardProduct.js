@@ -11,10 +11,10 @@ const CarouselCardProducts = (props) => {
 
     return (
         <div id="carousel-card-product" className="card rounded-0">
-                <img className="card-img-top" src="#" />
+                <img className="carousel-card-product-img-top" src="#" />
             <div className="card-body">
                 <div className="card-title">
-                    <h4>{props.name}</h4>
+                    <h4>{props.product.name}</h4>
                 </div>
                 <div className="card-text">
                     <p>{props.product.price}</p>

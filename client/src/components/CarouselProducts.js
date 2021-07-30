@@ -39,7 +39,7 @@ const CarouselProducts = (props) => {
                 <div className="row justify-contet-around align-items-center">
                     <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
-                        {products.map(item => <CarouselCardProducts product={item} />)}
+                        {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
                     </div>
                     <ChevronRight className="carousel-product-chevron col-1" />
                 </div>
@@ -50,7 +50,7 @@ const CarouselProducts = (props) => {
                 <div className="row justify-contet-around align-items-center">
                     <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
-                        {products.map(item => <CarouselCardProducts product={item} />)}
+                        {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
                     </div>
                     <ChevronRight className="carousel-product-chevron col-1" />
                 </div>
@@ -61,7 +61,7 @@ const CarouselProducts = (props) => {
                 <div className="row justify-contet-around align-items-center">
                     <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
-                        {products.map(item => <CarouselCardProducts product={item} />)}
+                        {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
                     </div>
                     <ChevronRight className="carousel-product-chevron col-1" />
                 </div>

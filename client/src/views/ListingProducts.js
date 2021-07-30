@@ -27,12 +27,12 @@ function ListingProducts() {
       <div className="container-fluid container-lg pt-3 pb-3">
         <SearchBar />
         <div className="row">
-          {
-            products ?
-              products.map(items => <div key={items.id} className="col"><CardProduct id={items.id} name={items.name} description={items.description} price={items.price} /></div>)
-              :
-              null
-          }
+            {
+              products ?
+                products.map(items => <div key={items.id} className="col"><CardProduct name={items.name} description={items.description} price={items.price} id={items.id} /></div>)
+                :
+                null
+            }
         </div>
       </div>
     </div>

@@ -1,13 +1,63 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ChevronRight, ChevronLeft, Add, Remove } from '@material-ui/icons';
+import { GETPicturesByProductId } from "../services/api/Pictures";
 
 const LargeCardProduct = (props) => {
 
-    const [pictures, setPictures] = useState([1, 2, 3]);
+    const [pictures, setPictures] = useState(null);
+    const [currentPicture, setCurrentPicture] = useState(null);
+    const [currentPictureId, setCurrentPictureId] = useState(0);
     const [numberOfProduct, setNumberOfProduct] = useState(1);
+    const isInitialMount = useRef(true);
 
     useEffect(() => {
-    })
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+            async function getData() {
+                await getPictures();
+            }
+            getData();
+        } else {
+            console.log(pictures[currentPictureId])
+            setCurrentPicture(pictures[currentPictureId].imageB64);
+        }
+    }, [currentPictureId])
+
+    const getPictures = async () => {
+        const pictures = await GETPicturesByProductId(props.product.id);
+        setPictures(pictures);
+        if (pictures[0]) {
+            setCurrentPicture(pictures[0].imageB64)
+        }
+    }
+    //set picture with get data
+
+    // const nextImage = () => {
+    //     setCurrentPictureId("hey");
+    //     // let id = currentPictureId + 1;
+    //     // console.log(id)
+    //     console.log(currentPictureId)
+    //     if (pictures[currentPictureId]) {
+    //         // console.log(currentPictureId);
+    //         // console.log(pictures[currentPictureId]);
+
+    //         setCurrentPicture(pictures[currentPictureId].imageB64);
+    //     }
+    //     else {
+    //         // setCurrentPictureId(0);
+    //         // setCurrentPicture(pictures[currentPictureId].imageB64);
+    //     }
+    // }
+
+    // const previousImage = () => {
+    //     let id = currentPictureId - 1;
+    //     setCurrentPictureId(id);
+    //     if (pictures[currentPictureId] != null) {
+    //         setCurrentPicture(pictures[currentPictureId].imageB64);
+    //     }
+    //     else
+    //         setCurrentPictureId(pictures.length - 1)
+    // }
 
     return (
         <div id="large-card-product" className="container-fluid p-4">
@@ -21,13 +71,17 @@ const LargeCardProduct = (props) => {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <img className="m-1" id="large-card-product-banner-picture" src="#" />
+                            <img style={{ objectFit: "contain" }} className="m-1" id="large-card-product-banner-picture" src={currentPicture} />
                             <div id="large-card-product-carousel" className="d-flex justify-content-between align-items-center mt-3">
-                                <ChevronLeft id="large-card-product-left-chevron" />
-                                {pictures.map(item => {
-                                    return <img key={item} className="large-card-product-banner-picture-min" src="#" />
-                                })}
-                                <ChevronRight id="large-card-product-right-chevron" />
+                                <ChevronLeft id="large-card-product-left-chevron" onClick={() => pictures[currentPictureId - 1] ? setCurrentPictureId(currentPictureId - 1) : setCurrentPictureId(pictures.length - 1)} />
+                                {pictures ?
+                                    pictures.map(item => {
+                                        return <img id={currentPicture == item.imageB64 ? "large-card-product-pic-active" : null} key={item.id} style={{ objectFit: "contain" }} className="large-card-product-banner-picture-min img-fluid" src={item.imageB64} />
+                                    })
+                                    :
+                                    null
+                                }
+                                <ChevronRight id="large-card-product-right-chevron" onClick={() => pictures[currentPictureId + 1] ? setCurrentPictureId(currentPictureId + 1) : setCurrentPictureId(0)} />
                             </div>
                         </div>
                         <div className="col">

@@ -12,7 +12,7 @@
     }
 
     #large-card-product-banner-picture {
-        background-color: grey;
+        background-color: $secondary-3;
         width: 400px;
         height: 300px;
 
@@ -24,7 +24,11 @@
         .large-card-product-banner-picture-min {
             width: 65px;
             height: 65px;
-            background-color: grey;
+            background-color: $secondary-3;
+        }
+
+        #large-card-product-pic-active {
+            box-shadow: 0 0 0 0.13rem $secondary-2;
         }
      }
 
