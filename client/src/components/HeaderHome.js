@@ -9,9 +9,9 @@ function HeaderHome(){
     return(
         <div>
             <div class="container">
-                <div class="row align-items-center ">
+                <div class="row align-items-center">
                     <div class="col-12">
-                        <div class="card  align-items-center ">
+                        <div class="card  align-items-center rounded-0">
                             <div class="iconLeft">
                                 <ArrowBackIosIcon fontSize="large"></ArrowBackIosIcon>
                             </div>
