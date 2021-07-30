@@ -11,7 +11,6 @@ const AdminProductModal = props => {
     const [price, setPrice] = useState(props.price);
     const [stock, setStock] = useState(props.stock);
     const [imageTab, setImageTab] = useState([]);
-    const [imageNameTab, setImageNameTab] = useState([]);
     
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
@@ -34,7 +33,7 @@ const AdminProductModal = props => {
         let tabImagesB64 = [];
 
         for (var i = 0; i < imageTab.length; i++) {
-            tabName.push(imageNameTab[i]);
+            tabName.push(imageTab[i].props.name);
             tabImagesB64.push(imageTab[i].props.src);
         }
 
@@ -42,41 +41,33 @@ const AdminProductModal = props => {
         document.location.reload();
     }
 
-    const displayImages = async() => {
+    const createImages = async() => {
         let files = document.getElementById('customFile').files;
 
         let imageB64;
         let tab = [];
-        let tabName = [];
 
         for (var i = 0; i < files.length; i++) {
             imageB64 = await toBase64(files[i]);
-            tab.push(<img name={files[i].name} src={imageB64} key={imageTab.length + i} style={{width: "175px"}} onclick={}/>);
-            tabName.push(files[i].name)
-            console.log(files[i].name) 
+            tab.push(<img id={imageTab.length + i} name={files[i].name} src={imageB64} key={imageTab.length + i} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>);
         }
-        setImageNameTab(imageNameTab.concat(tabName));
-        setImageTab(imageTab.concat(tab));
+       
+        setImageTab(imageTab.concat(tab));        
     }    
+
+    const rmPictureFromTab = async (event) => {
+
+        let idImg = event;
+        console.log(idImg);
+        // const test =  imageTab.filter((image, id) => id !== idImg);
+        // setImageTab(test)
+        console.log(imageTab);
+    }
 
     const del = async () => {
         const resp = await DELETEProducts(props.id);
         document.location.reload();
     }
-
-    //function {
-    //     if (props.name exist)
-    //     {
-    //         alors chercher depuis bdd
-    // display
-    //     }
-    // }
-
-    // on change file {
-    //        alors chercher depuis pc admin
-    // display
-    // }
-    //props.name exist: modif, si non, ajout
 
     console.log("rerender")
     
@@ -101,7 +92,7 @@ const AdminProductModal = props => {
                             </div>
                             <label className="custom-file-label" htmlFor="customFile">Choose picture</label>
                             <div className="mb-4 custom-file">
-                                <input type="file" multiple onChange={(e) => displayImages(e.target.value)} className="custom-file-input ml-3" id="customFile" />
+                                <input type="file" multiple onChange={(e) => createImages(e.target.value)} className="custom-file-input ml-3" id="customFile" />
                                 {imageTab}
                             </div>
                             <div className="mb-3">
