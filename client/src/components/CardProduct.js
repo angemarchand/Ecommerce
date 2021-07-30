@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { GETPicturesByProductId } from "../services/api/Pictures";
 import { ChevronRight, ChevronLeft } from "@material-ui/icons";
 
 
 const CardProduct = (props) => {
 
-    // console.log(props)
     const [pictures, setPictures] = useState(null);
     const [currentPicture, setCurrentPicture] = useState(null);
     const [currentPictureId, setCurrentPictureId] = useState(null);
@@ -21,14 +20,11 @@ const CardProduct = (props) => {
       }, [])
 
     const getPictures = async () => {
-        console.log(props.idProduct);
         const pictures = await GETPicturesByProductId(props.idProduct);
         setPictures(pictures);
-        console.log(pictures);
         setCurrentPictureId(0);
         if (pictures[0])
         {
-            console.log(pictures[0].name);
             setCurrentPicture(pictures[0].imageB64)
         }
       }
@@ -60,9 +56,9 @@ const CardProduct = (props) => {
         <div id="product-card" className="card mx-auto mt-4">
             {/* <Link to="/product">                 */}
             <div className="d-flex card-product-container-pic position-relative">
-                <ChevronLeft classNAme="card-product-chevron-pic position-absolute" style={{fontSize: "80px"}} onClick={() => previousImage()} />
-                    <img className="card-img-top" src={currentPicture} />
-                <ChevronRight classNAme="card-product-chevron-pic position-absolute" style={{fontSize: "80px"}} onClick={() => nextImage()} />
+                <ChevronLeft /*className="card-product-chevron-pic position-absolute"*/ style={{fontSize: "80px"}} onClick={() => previousImage()} />
+                    <img className="card-img-top" src={currentPicture} alt=""/>
+                <ChevronRight /*className="card-product-chevron-pic position-absolute"*/ style={{fontSize: "80px"}} onClick={() => nextImage()} />
             </div>
             {/* </Link> */}
             <div id="product-card-body" className="card-body">
