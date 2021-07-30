@@ -9,9 +9,12 @@ use Symfony\Component\Security\Core\Security;
 
 class PicturesByProduct extends AbstractController
 {
-    public function __construct(private Security $security)
-    {
 
+    private $security;
+
+    public function __construct( Security $security)
+    {
+        $this->security = $security;
     }
 
     public function __invoke(PicturesRepository $pictureRepository)
