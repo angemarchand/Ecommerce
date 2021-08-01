@@ -9,8 +9,8 @@ const Admin = () => {
     const [content, setContent] = useState("products")
 
     const displayContent = () => {
-        if(content == "products") return <AdminProductTable />
-        if(content == "categories") return <AdminCategoriesTable />
+        if(content === "products") return <AdminProductTable />
+        if(content === "categories") return <AdminCategoriesTable />
     }
 
     return (
@@ -22,10 +22,10 @@ const Admin = () => {
                 </div>
 
                 <ul className="list-unstyled components">
-                    <li className={content == "products" ? "linkActive" : null}>
+                    <li className={content === "products" ? "linkActive" : null}>
                         <a onClick={() => setContent("products")} >Products</a>
                     </li>
-                    <li className={content == "categories" ? "linkActive" : null}>
+                    <li className={content === "categories" ? "linkActive" : null}>
                         <a onClick={() => setContent("categories")} >Categories</a>
                     </li>
                 </ul>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { GETPicturesByProductId } from "../services/api/Pictures";
 import { ChevronRight, ChevronLeft } from "@material-ui/icons";
 
