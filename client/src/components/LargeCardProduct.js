@@ -30,34 +30,6 @@ const LargeCardProduct = (props) => {
             setCurrentPicture(pictures[0].imageB64)
         }
     }
-    //set picture with get data
-
-    // const nextImage = () => {
-    //     setCurrentPictureId("hey");
-    //     // let id = currentPictureId + 1;
-    //     // console.log(id)
-    //     console.log(currentPictureId)
-    //     if (pictures[currentPictureId]) {
-    //         // console.log(currentPictureId);
-    //         // console.log(pictures[currentPictureId]);
-
-    //         setCurrentPicture(pictures[currentPictureId].imageB64);
-    //     }
-    //     else {
-    //         // setCurrentPictureId(0);
-    //         // setCurrentPicture(pictures[currentPictureId].imageB64);
-    //     }
-    // }
-
-    // const previousImage = () => {
-    //     let id = currentPictureId - 1;
-    //     setCurrentPictureId(id);
-    //     if (pictures[currentPictureId] != null) {
-    //         setCurrentPicture(pictures[currentPictureId].imageB64);
-    //     }
-    //     else
-    //         setCurrentPictureId(pictures.length - 1)
-    // }
 
     return (
         <div id="large-card-product" className="container-fluid p-4">

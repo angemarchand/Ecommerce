@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../services/api/Products";
 import { POSTPicture } from "../../../services/api/Pictures";
 import { Redirect } from "react-router-dom";
@@ -9,6 +9,10 @@ const AdminProductModal = props => {
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
     const [stock, setStock] = useState(props.stock);
+
+    useEffect(() => {
+        console.log(props);
+    }, [])
 
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
