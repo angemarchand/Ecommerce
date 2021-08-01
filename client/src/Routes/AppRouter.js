@@ -18,7 +18,7 @@ export default function AppRouter() {
     useEffect(() => {
 
         const url = window.location.pathname;
-        url == "/admin" ? setAdmin(true) : setAdmin(null);
+        url === "/admin" ? setAdmin(true) : setAdmin(null);
         
     }, [])
 

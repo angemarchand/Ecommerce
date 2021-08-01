@@ -4,6 +4,24 @@
 	border-radius: 0;
 	box-shadow: -14px -10px 1px $primary-1;
 
+	.card-product-chevron-pic {
+		cursor: pointer;
+		font-size: 70px;
+	}
+
+	#card-product-chevron-pic-left {
+		top: 55px;
+	}
+
+	#card-product-chevron-pic-right {
+		top: 55px;
+		right: 0px;
+	}
+
+	.card-product-container-pic {
+		height: 180px;
+		width: 300px; 
+	}
 
 }
 .card-img-top{

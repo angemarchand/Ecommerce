@@ -19,6 +19,8 @@ class PicturesRepository extends ServiceEntityRepository
         parent::__construct($registry, Pictures::class);
     }
 
+    
+
     // /**
     //  * @return Pictures[] Returns an array of Pictures objects
     //  */
@@ -47,4 +49,14 @@ class PicturesRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getPicturesByProductId($productId)
+    {
+        return $this->createQueryBuilder('pictures')
+            ->where("pictures.id_product = $productId")
+            ->setMaxResults(30)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
