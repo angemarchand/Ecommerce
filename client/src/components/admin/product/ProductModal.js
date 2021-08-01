@@ -59,8 +59,8 @@ const AdminProductModal = props => {
 
         let idImg = event;
         console.log(idImg);
-        // const test =  imageTab.filter((image, id) => id !== idImg);
-        // setImageTab(test)
+        const test =  imageTab.filter((image, id) => id !== idImg);
+        setImageTab(test)
         console.log(imageTab);
     }
 
