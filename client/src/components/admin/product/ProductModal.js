@@ -49,7 +49,7 @@ const AdminProductModal = props => {
 
         for (var i = 0; i < files.length; i++) {
             imageB64 = await toBase64(files[i]);
-            tab.push(<img id={imageTab.length + i} name={files[i].name} src={imageB64} key={imageTab.length + i} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>);
+            tab.push(<img className="m-2" id={imageTab.length + i} name={files[i].name} src={imageB64} key={imageTab.length + i} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>);
         }
        
         setImageTab(imageTab.concat(tab));        
