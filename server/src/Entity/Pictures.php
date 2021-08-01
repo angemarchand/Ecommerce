@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Controller\PicturesByProduct;
-
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PicturesRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
