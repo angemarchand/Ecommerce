@@ -16,7 +16,7 @@ const AboutProduct = (props) => {
 
     const getPictures = async () => {
         const pictures = await GETPicturesByProductId(props.product.id);
-        setPictures(pictures);
+        if(pictures[0]) setPictures(pictures);
     }
 
     return (

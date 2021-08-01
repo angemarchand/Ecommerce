@@ -20,7 +20,7 @@ const CardProduct = (props) => {
             }
             getData();
         } else {
-            setCurrentPicture(pictures[currentPictureId].imageB64);
+            if(pictures[currentPictureId]) setCurrentPicture(pictures[currentPictureId].imageB64);
         }
     }, [currentPictureId])
 
