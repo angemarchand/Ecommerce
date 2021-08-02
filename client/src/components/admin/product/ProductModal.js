@@ -9,72 +9,81 @@ const AdminProductModal = props => {
     const [name, setName] = useState(props.name);
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
-    const [stock, setStock] = useState(props.stock);
     const [pictures, setPictures] = useState(null);
+    const [stock, setStock] = useState(props.stock);
+    const [fileLists, setFilesLists] = useState(null);
     const isInitialMount = useRef(true);
 
     useEffect(() => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
         } else {
-            // setPictures("hey")
-            // console.log(pictures);
+            if (fileLists.length) {
+                const ftp = async () => {
+                    const test = await fileListsToPictures();
+                    setPictures(test);
+                }
+                ftp();
+            }
         }
-    }, [pictures])
-    
+    }, [fileLists])
+
+    const fileListsToPictures = async () => {
+        let cache = [];
+        let filePathsPromises = [];
+        if (fileLists) {
+            Array.from(fileLists).forEach(file => {
+                filePathsPromises.push(toBase64(file));
+            });
+            const filePaths = await Promise.all(filePathsPromises);
+            for (let i = 0; i < fileLists.length; i++) {
+                cache.push({
+                    name: fileLists[i].name,
+                    src: filePaths[i]
+                })
+            }
+        }
+        if (pictures) {
+            pictures.forEach(item => {
+                if (cache.some(e => e.name != item.name)) {
+                    cache.push({
+                        name: item.name,
+                        src: item.src
+                    })
+                }
+            })
+        }
+        return cache;
+    };
+
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
         // document.location.reload();
     }
 
-    const toBase64 = file => new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-    });
+    const toBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    };
 
     const post = async () => {
+        console.log(props)
         const product = await POSTProducts(name, description, price, stock);
-        
-        let files = document.getElementById('customFile').files;
-
-        let tabName = [];
-        let tabImagesB64 = [];
-
-        for (var i = 0; i < pictures.length; i++) {
-            tabName.push(pictures[i].props.name);
-            tabImagesB64.push(pictures[i].props.src);
+        if (pictures) {
+            for (const item of pictures) {
+                const resp = await POSTPicture(product.id, item.name, item.src);
+              }
         }
-
-        const picture = product ? await POSTPicture(tabName, product.id, tabImagesB64) : false;
-        document.location.reload();
     }
-
-    const addPictures = async () => {
-        let files = document.getElementById('customFile').files;
-        // console.log(files);
-        // await setPictures("hey");
-        // await console.log(pictures);
-
-        // let imageB64;
-        // let tab = [];
-
-        // for (var i = 0; i < files.length; i++) {
-        //     imageB64 = await toBase64(files[i]);
-        //     tab.push(<img className="m-2" id={imageTab.length + i} key={imageTab.length + i} name={files[i].name} src={imageB64} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>);
-        // }
-       
-        // setImageTab(imageTab.concat(tab));      
-        
-        // console.log(imageTab);
-    }    
 
     const rmPictureFromTab = (idImg) => {
 
-        // console.log(idImg);
         console.log(pictures);
-        const test =  pictures.filter((image, id) => id !== idImg);
+        const test = pictures.filter((image, id) => id !== idImg);
         console.log(test);
 
         setPictures(test)
@@ -85,12 +94,9 @@ const AdminProductModal = props => {
         document.location.reload();
     }
 
-    // console.log("rerender")
-    
-
     return (
         <div className="modal fade" id={props.name ? props.name.replace(/\s+/g, '') : "add-product"} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-fullscreen"> 
+            <div className="modal-dialog modal-fullscreen">
                 <div className="modal-content">
                     <div className="modal-body">
                         <form className="container">
@@ -108,13 +114,12 @@ const AdminProductModal = props => {
                             </div>
                             <label className="custom-file-label" htmlFor="customFile">Choose picture</label>
                             <div className="mb-4 custom-file">
-                                <input type="file" multiple onChange={() => setPictures(document.getElementById('customFile').files)} className="custom-file-input ml-3" id="customFile" />
+                                <input type="file" multiple onChange={() => setFilesLists(document.getElementById('customFile').files)} className="custom-file-input ml-3" id="customFile" />
                                 {pictures ?
-                                    pictures.map(item => {
-                                        // console.log(item);
-                                        return <img className="m-2" id={item.name} key={item.name} name={item.name} src={toBase64(item)} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>
+                                    Array.from(pictures).map(item => {
+                                        return <img className="m-2" id={item.name} key={item.name} name={item.name} src={item.src} style={{ width: "175px" }} onClick={(e) => rmPictureFromTab(e.target.id)} />
                                     })
-                                :
+                                    :
                                     null
                                 }
                             </div>
