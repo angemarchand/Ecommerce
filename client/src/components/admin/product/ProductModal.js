@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../services/api/Products";
 import { POSTPicture } from "../../../services/api/Pictures";
 import { Redirect } from "react-router-dom";
@@ -10,7 +10,17 @@ const AdminProductModal = props => {
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
     const [stock, setStock] = useState(props.stock);
-    const [imageTab, setImageTab] = useState([]);
+    const [pictures, setPictures] = useState(null);
+    const isInitialMount = useRef(true);
+
+    useEffect(() => {
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+        } else {
+            // setPictures("hey")
+            // console.log(pictures);
+        }
+    }, [pictures])
     
     const patch = async () => {
         const resp = await PATCHProducts(props.id, name, description, price, stock);
@@ -32,36 +42,42 @@ const AdminProductModal = props => {
         let tabName = [];
         let tabImagesB64 = [];
 
-        for (var i = 0; i < imageTab.length; i++) {
-            tabName.push(imageTab[i].props.name);
-            tabImagesB64.push(imageTab[i].props.src);
+        for (var i = 0; i < pictures.length; i++) {
+            tabName.push(pictures[i].props.name);
+            tabImagesB64.push(pictures[i].props.src);
         }
 
         const picture = product ? await POSTPicture(tabName, product.id, tabImagesB64) : false;
         document.location.reload();
     }
 
-    const createImages = async() => {
+    const addPictures = async () => {
         let files = document.getElementById('customFile').files;
+        // console.log(files);
+        // await setPictures("hey");
+        // await console.log(pictures);
 
-        let imageB64;
-        let tab = [];
+        // let imageB64;
+        // let tab = [];
 
-        for (var i = 0; i < files.length; i++) {
-            imageB64 = await toBase64(files[i]);
-            tab.push(<img className="m-2" id={imageTab.length + i} name={files[i].name} src={imageB64} key={imageTab.length + i} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>);
-        }
+        // for (var i = 0; i < files.length; i++) {
+        //     imageB64 = await toBase64(files[i]);
+        //     tab.push(<img className="m-2" id={imageTab.length + i} key={imageTab.length + i} name={files[i].name} src={imageB64} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>);
+        // }
        
-        setImageTab(imageTab.concat(tab));        
+        // setImageTab(imageTab.concat(tab));      
+        
+        // console.log(imageTab);
     }    
 
-    const rmPictureFromTab = async (event) => {
+    const rmPictureFromTab = (idImg) => {
 
-        let idImg = event;
-        console.log(idImg);
-        const test =  imageTab.filter((image, id) => id !== idImg);
-        setImageTab(test)
-        console.log(imageTab);
+        // console.log(idImg);
+        console.log(pictures);
+        const test =  pictures.filter((image, id) => id !== idImg);
+        console.log(test);
+
+        setPictures(test)
     }
 
     const del = async () => {
@@ -69,7 +85,7 @@ const AdminProductModal = props => {
         document.location.reload();
     }
 
-    console.log("rerender")
+    // console.log("rerender")
     
 
     return (
@@ -92,8 +108,15 @@ const AdminProductModal = props => {
                             </div>
                             <label className="custom-file-label" htmlFor="customFile">Choose picture</label>
                             <div className="mb-4 custom-file">
-                                <input type="file" multiple onChange={(e) => createImages(e.target.value)} className="custom-file-input ml-3" id="customFile" />
-                                {imageTab}
+                                <input type="file" multiple onChange={() => setPictures(document.getElementById('customFile').files)} className="custom-file-input ml-3" id="customFile" />
+                                {pictures ?
+                                    pictures.map(item => {
+                                        // console.log(item);
+                                        return <img className="m-2" id={item.name} key={item.name} name={item.name} src={toBase64(item)} style={{width: "175px"}} onClick={(e) => rmPictureFromTab(e.target.id)}/>
+                                    })
+                                :
+                                    null
+                                }
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Stock</label>

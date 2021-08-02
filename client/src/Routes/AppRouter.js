@@ -7,6 +7,7 @@ import Registration from "../views/Registration";
 import Login from "../views/Login";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Home from "../views/Home";
 
 
 
@@ -31,7 +32,7 @@ export default function AppRouter() {
                     <Route path="/users/login" component={Login} exact={true} />
                     <Route path="/products" component={ListingProducts} exact={true} />
                     <Route path="/product" component={OneProduct} exact={true} />
-                    <Route path="/" component={ListingProducts} exact={true} />
+                    <Route path="/" component={Home} exact={true} />
                 </Switch>
                 {admin ? null : <Footer />}
             </Fragment>
