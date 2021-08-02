@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 import CardProduct from "../components/CardProduct";
-import Footer from "../components/Footer";
 import { GETProducts } from "../services/api/Products";
 import SearchBar from "../components/SearchBar";
 

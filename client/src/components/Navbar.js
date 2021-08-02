@@ -20,7 +20,7 @@ function Navbar() {
                             <Link className="nav-link" to="/"> Home </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/"> Produits </Link>
+                            <Link className="nav-link" to="/products"> Produits </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/users/register"> Register </Link>
