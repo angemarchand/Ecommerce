@@ -65,6 +65,7 @@ class Products
 
     /**
      * @ORM\ManyToMany(targetEntity=Categories::class, inversedBy="products")
+     * @Groups({"product:read"})
      */
     private $categories;
 

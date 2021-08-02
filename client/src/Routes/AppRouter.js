@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Admin from "../views/Admin";
 import ListingProducts from "../views/ListingProducts";
+import OneProduct from "../views/OneProduct";
 import Registration from "../views/Registration";
 import Login from "../views/Login";
 import Navbar from "../components/Navbar";
@@ -32,6 +33,7 @@ export default function AppRouter() {
                     <Route path="/users/login" component={Login} exact={true} />
                     <Route path="/products" component={ListingProducts} exact={true} />
                     <Route path="/" component={Home} exact={true} />
+                    <Route path="/product" component={OneProduct} exact={true} />
                 </Switch>
                 {admin ? null : <Footer />}
             </Fragment>
