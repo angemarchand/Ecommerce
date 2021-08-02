@@ -6,7 +6,7 @@ function Home() {
     return(
 
       <div>
-          <div class="container-fluid">
+          <div id="container-home" class="container-fluid">
               <HeaderHome />
           </div>
           <div>
