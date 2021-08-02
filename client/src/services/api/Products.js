@@ -1,6 +1,6 @@
 //// GET ALL ////
 export const GETProducts = async () => {
-    const response = await fetch('https://localhost:8000/api/products', {
+    const response = await fetch('http://localhost:8000/api/products', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -27,7 +27,7 @@ export const GETProduct = async (id) => {
 //// POST ONE ////
 export const POSTProducts = async (name, description, price, stock) => {
     if (window.confirm("Create a new product ?")) {
-        const response = await fetch('https://localhost:8000/api/products', {
+        const response = await fetch('http://localhost:8000/api/products', {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -49,7 +49,7 @@ export const POSTProducts = async (name, description, price, stock) => {
 export const PATCHProducts = async (id, name, description, price, stock) => {
     console.log(id, name, description, price, stock);
     if (window.confirm("Apply modification ?")) {
-        const response = await fetch(`https://localhost:8000/api/products/${id}`, {
+        const response = await fetch(`http://localhost:8000/api/products/${id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/merge-patch+json',
@@ -69,7 +69,7 @@ export const PATCHProducts = async (id, name, description, price, stock) => {
 //// DELETE ONE ////
 export const DELETEProducts = async (id) => {
     if (window.confirm("Valider la suppression du produit ?")) {
-        const response = await fetch(`https://localhost:8000/api/products/${id}`, {
+        const response = await fetch(`http://localhost:8000/api/products/${id}`, {
             method: "DELETE"
         })
     }
