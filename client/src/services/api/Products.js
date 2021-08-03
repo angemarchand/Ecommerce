@@ -74,3 +74,17 @@ export const DELETEProducts = async (id) => {
         })
     }
 }
+
+//// GET MOST VISITED ////
+
+export const GETMostVisitedProducts = async (id) => {
+    const response = await fetch(`https://localhost:8000/api/products/mostVisited?page=2`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+    })
+    const products = await response.json();
+    return products;
+}

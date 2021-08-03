@@ -4,7 +4,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 function MainHome(){
     return (
         <div class="container">
-            <div class="row ">
+            {/* <div class="row ">
                 <div class="col-12 specialProducts">
                     <div class="d-flex">
                         <div class="text-card">
@@ -27,8 +27,8 @@ function MainHome(){
                     </div>
 
                 </div>
-            </div>
-            <div class="row">
+            </div> */}
+            {/* <div class="row">
                     <div class="col-12">
                         <h5> Ici afficher des photos</h5>
                         <div class="d-flex">
@@ -53,7 +53,7 @@ function MainHome(){
                         </div>
 
                     </div>
-                </div>
+                </div> */}
         </div>
     )
 }
