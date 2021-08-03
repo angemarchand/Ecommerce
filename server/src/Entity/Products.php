@@ -86,7 +86,7 @@ class Products
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"product:read"})
+     * @Groups({"product:read", "product:write"})
      */
     private $visits;
 
