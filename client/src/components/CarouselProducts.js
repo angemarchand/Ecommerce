@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CarouselCardProducts from "./CarouselCardProduct";
 import { GETMostVisitedProducts } from "../services/api/Products";
 
@@ -8,16 +8,24 @@ const CarouselProducts = (props) => {
 
     const [activeTab, setActiveTab] = useState("memeCategorie");
     const [visitedProducts, setVisitedProducts] = useState(null);
+    const isMounted = useRef(false);
 
     useEffect(() => {
         async function getData() {
           await getVisitedProducts();
         }
         getData();
-        console.log(visitedProducts);
     
       }, [])
     
+      useEffect(() => {
+        if (isMounted.current) {
+            console.log(visitedProducts)
+          } else {
+            isMounted.current = true;
+          }
+      }, [visitedProducts])
+      
       const getVisitedProducts = async () => {
         const visitedProducts = await GETMostVisitedProducts();
         setVisitedProducts(visitedProducts);
