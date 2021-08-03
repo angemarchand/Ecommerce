@@ -46,7 +46,7 @@ export const POSTProducts = async (name, description, price, stock) => {
 }
 
 //// UPDATE ONE ////
-export const PATCHProducts = async (id, name, description, price, stock) => {
+export const PATCHProducts = async (id, name, description, price, stock, visits) => {
     if (window.confirm("Apply modification ?")) {
         const response = await fetch(`https://localhost:8000/api/products/${id}`, {
             method: "PATCH",
@@ -57,12 +57,30 @@ export const PATCHProducts = async (id, name, description, price, stock) => {
                 name: name,
                 description: description,
                 price: parseInt(price, 10),
-                stock: parseInt(stock, 10)
+                stock: parseInt(stock, 10),
+                visits: parseInt(visits, 10)
             })
         })
         const product = await response.json();
         return product;
     }
+}
+
+// ADD VISITS //
+
+export const PATCHProductVisits = async (id, visits) => {
+    // console.log(id, visits);
+    const response = await fetch(`https://localhost:8000/api/products/${id}`, {
+        method: "PATCH",
+        headers: {
+            'Content-Type': 'application/merge-patch+json',
+        },
+        body: JSON.stringify({
+            visits: parseInt(visits, 10)
+        })
+    })
+    const product = await response.json();
+    return product;
 }
 
 //// DELETE ONE ////
