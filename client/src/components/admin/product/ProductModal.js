@@ -58,19 +58,14 @@ const AdminProductModal = props => {
     const rmPictureFromTab = async (event) => {
 
         let idImg = event;
-        console.log(idImg);
         const test =  imageTab.filter((image, id) => id !== idImg);
         setImageTab(test)
-        console.log(imageTab);
     }
 
     const del = async () => {
         const resp = await DELETEProducts(props.id);
         document.location.reload();
     }
-
-    console.log("rerender")
-    
 
     return (
         <div className="modal fade" id={props.name ? props.name.replace(/\s+/g, '') : "add-product"} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
