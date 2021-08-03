@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../services/api/Products";
-import { POSTPicture, GETPicturesByProductId } from "../../../services/api/Pictures";
+import { POSTPicture, GETPicturesByProductId, DELETEPictures } from "../../../services/api/Pictures";
 import { Redirect } from "react-router-dom";
 
 
@@ -11,6 +11,7 @@ const AdminProductModal = props => {
     const [price, setPrice] = useState(props.price);
     const [pictures, setPictures] = useState(null);
     const [picturesToDb, setPicturesToDb] = useState(null);
+    const [picturesFromDb, setPicturesFromDb] = useState(null);
     const [stock, setStock] = useState(props.stock);
     const [fileLists, setFilesLists] = useState(null);
     const [filteredFileLists, setFilteredFilesLists] = useState(null);
@@ -25,6 +26,7 @@ const AdminProductModal = props => {
                     const response = await GETPicturesByProductId(props.id);
                     if (response.length) {
                         setPictures(response);
+                        setPicturesFromDb(response);
                         setPicturesToDb(response);
                     }
                 }
@@ -126,11 +128,12 @@ const AdminProductModal = props => {
     };
 
     const patch = async () => {
-        console.log(picturesToDb)
         const resp = await PATCHProducts(props.id, name, description, price, stock);
         if (picturesToDb) {
-            for (const item of picturesToDb) {
-                const resp = await POSTPicture(props.id, item.name, item.imageB64);
+            if (picturesToDb != picturesFromDb) {
+                for (const item of picturesToDb) {
+                    const resp = await POSTPicture(props.id, item.name, item.imageB64);
+                }
             }
         }
         // document.location.reload();
@@ -154,7 +157,27 @@ const AdminProductModal = props => {
         }
     }
 
+    const rmPictureInDb = async (name) => {
+        if (picturesFromDb) {
+            let cache;
+            picturesFromDb.forEach(async item => {
+                if (item.name === name) {
+                    const test = await DELETEPictures(item.id);
+                    // console.log(item.name, item.id);
+                    // let index = cache.findIndex(item => item.name === item.name)
+                    // cache.splice(index, 1);
+                }
+            })
+            // for (const item of picturesFromDb) {
+
+            //     const response = await DELETEPictures(item.id);
+            //     console.log(response);
+            // }
+        }
+    }
+
     const rmPicture = (name) => {
+        rmPictureInDb(name);
         const index = pictures.findIndex(item => item.name === name);
         let cache = pictures;
         cache.splice(index, 1);

@@ -47,7 +47,6 @@ export const POSTProducts = async (name, description, price, stock) => {
 
 //// UPDATE ONE ////
 export const PATCHProducts = async (id, name, description, price, stock) => {
-    console.log(id, name, description, price, stock);
     if (window.confirm("Apply modification ?")) {
         const response = await fetch(`https://localhost:8000/api/products/${id}`, {
             method: "PATCH",

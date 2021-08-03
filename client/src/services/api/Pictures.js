@@ -28,3 +28,10 @@ export const GETPicturesByProductId = async (id) => {
     return pictures;
 }
 
+//// DELETE ONE ////
+export const DELETEPictures = async (id) => {
+    const response = await fetch(`https://localhost:8000/api/pictures/${id}`, {
+        method: "DELETE"
+    })
+}
+
