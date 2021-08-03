@@ -69,6 +69,12 @@ class Products
      */
     private $categories;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"product:read"})
+     */
+    private $visits;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -183,6 +189,18 @@ class Products
     public function removeCategory(Categories $category): self
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    public function getVisits(): ?int
+    {
+        return $this->visits;
+    }
+
+    public function setVisits(?int $visits): self
+    {
+        $this->visits = $visits;
 
         return $this;
     }
