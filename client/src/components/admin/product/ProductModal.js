@@ -14,7 +14,6 @@ const AdminProductModal = props => {
     const [picturesFromDb, setPicturesFromDb] = useState(null);
     const [stock, setStock] = useState(props.stock);
     const [fileLists, setFilesLists] = useState(null);
-    const [filteredFileLists, setFilteredFilesLists] = useState(null);
     const [removePicture, setRemovePicture] = useState(null);
     const isInitialMount = useRef(true);
 
@@ -136,7 +135,7 @@ const AdminProductModal = props => {
                 }
             }
         }
-        // document.location.reload();
+        document.location.reload();
     }
 
     const toBase64 = (file) => {
@@ -155,6 +154,7 @@ const AdminProductModal = props => {
                 const resp = await POSTPicture(product.id, item.name, item.imageB64);
             }
         }
+        document.location.reload();
     }
 
     const rmPictureInDb = async (name) => {
@@ -162,17 +162,9 @@ const AdminProductModal = props => {
             let cache;
             picturesFromDb.forEach(async item => {
                 if (item.name === name) {
-                    const test = await DELETEPictures(item.id);
-                    // console.log(item.name, item.id);
-                    // let index = cache.findIndex(item => item.name === item.name)
-                    // cache.splice(index, 1);
+                    const response = await DELETEPictures(item.id);
                 }
             })
-            // for (const item of picturesFromDb) {
-
-            //     const response = await DELETEPictures(item.id);
-            //     console.log(response);
-            // }
         }
     }
 
