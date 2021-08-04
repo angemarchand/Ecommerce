@@ -8,28 +8,42 @@ const CarouselProducts = (props) => {
 
     const [activeTab, setActiveTab] = useState("memeCategorie");
     const [visitedProducts, setVisitedProducts] = useState(null);
+    const [displayProducts, setDisplayProducts] = useState(null);
+    const [idTab, setIdTab] = useState(3);
     const isMounted = useRef(false);
-
+    
     useEffect(() => {
-        async function getData() {
-          await getVisitedProducts();
-        }
-        getData();
-    
-      }, [])
-    
-      useEffect(() => {
         if (isMounted.current) {
-            console.log(visitedProducts)
+            createDisplayProductsTab(idTab);
+            console.log("newhey")
           } else {
+            async function getData() {
+                await getVisitedProducts();
+                console.log("hey")
+              }
+              getData();
             isMounted.current = true;
           }
-      }, [visitedProducts])
+    }, [visitedProducts, idTab])
       
-      const getVisitedProducts = async () => {
+    const createDisplayProductsTab = (id) => {
+
+        let stockTab = [];
+
+        visitedProducts.forEach((element, key) => {
+            if (key <= id && key >= id - 3)
+            {
+                stockTab.push(element);
+            }
+        })
+
+        setDisplayProducts(stockTab);
+    }
+
+    const getVisitedProducts = async () => {
         const visitedProducts = await GETMostVisitedProducts();
         setVisitedProducts(visitedProducts);
-      }
+    }
 
     return (
         <div id="carousel-product" className="container-fluid">
@@ -65,11 +79,11 @@ const CarouselProducts = (props) => {
             }
             {activeTab == "plusvues" ?
                 <div className="row justify-contet-around align-items-center">
-                    <ChevronLeft className="carousel-product-chevron col-1" />
+                    <ChevronLeft onClick={() => (idTab - 4) < 3 ? setIdTab(11) : setIdTab(idTab - 4)} className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
-                        {visitedProducts.map(item => <CarouselCardProducts key={item.id} product={item} />)}
+                        {displayProducts.map(item => <CarouselCardProducts key={item.id} product={item} />)}
                     </div>
-                    <ChevronRight className="carousel-product-chevron col-1" />
+                    <ChevronRight onClick={() => (idTab + 4) > 11 ? setIdTab(3) : setIdTab(idTab + 4)} className="carousel-product-chevron col-1" />
                 </div>
                 :
                 null

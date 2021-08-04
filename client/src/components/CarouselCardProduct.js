@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { makeSmallerText } from "../services/helpers/makeSmallerText";
+
 
 const CarouselCardProducts = (props) => {
 
@@ -6,7 +8,7 @@ const CarouselCardProducts = (props) => {
     const [activeTab, setActiveTab] = useState(props.products);
 
     useEffect(() => {
-
+        console.log(props)
     }, [])
 
     return (
@@ -14,7 +16,7 @@ const CarouselCardProducts = (props) => {
                 <img className="carousel-card-product-img-top" src="#" />
             <div className="card-body">
                 <div className="card-title">
-                    <h4>{props.product.name}</h4>
+                    <h4 className="fs-5">{makeSmallerText(15, [props.product.name])}</h4>
                 </div>
                 <div className="card-text">
                     <p>{props.product.price}</p>
