@@ -19,7 +19,7 @@ const CarouselProducts = (props) => {
           } else {
             async function getData() {
                 await getVisitedProducts();
-                console.log("hey")
+                console.log(visitedProducts)
               }
               getData();
             isMounted.current = true;
