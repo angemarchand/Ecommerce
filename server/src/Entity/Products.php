@@ -8,15 +8,30 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductsRepository;
+use App\Controller\MostVisitedProducts;
+
 
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"product:read"}},
- *     denormalizationContext={"groups"={"product:write"}}
+ *     denormalizationContext={"groups"={"product:write"}},
+ *     attributes={"pagination_maximum_items_per_page"=4}
  * )
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
  * @ORM\HasLifecycleCallbacks
  */
+#[ApiResource (
+    collectionOperations: [
+        'getMostVisitedProducts' => [
+            'path' => 'products/mostVisited',
+            'method' => 'get',
+            'controller' => MostVisitedProducts::class,
+        ],
+        'get',
+        'post'
+    ]
+)]
+
 class Products
 {
     /**

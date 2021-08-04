@@ -47,4 +47,14 @@ class ProductsRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getMostVisitedProducts()
+    {
+        return $this->createQueryBuilder('products')
+            ->addOrderBy("products.visits", "DESC")
+            ->setMaxResults(12)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

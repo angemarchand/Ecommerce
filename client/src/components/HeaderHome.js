@@ -2,6 +2,7 @@ import React from "react";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import logo from "../assets/img/logo.png";
+import CarouselProducts from "./CarouselProducts";
 
 
 function HeaderHome(){
@@ -10,7 +11,7 @@ function HeaderHome(){
         <div>
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-12">
+                    {/* <div class="col-12">
                         <div class="card  align-items-center rounded-0">
                             <div class="iconLeft">
                                 <ArrowBackIosIcon fontSize="large"></ArrowBackIosIcon>
@@ -22,9 +23,10 @@ function HeaderHome(){
                             <h1> OMEGA PRO 14</h1>
                             <p>EVERYTHING YOU NEED, AT FINGERTIPS</p>
                             <img src="#" />
+                           
                         </div>
                             
-                    </div>
+                    </div> */}
                     <div className="col-12 logoArea">
                         <div className="d-flex align-items-center">
                             <div id="logo" className="col-2 d-flex justify-content-center align-items-center rounded">
@@ -41,6 +43,7 @@ function HeaderHome(){
                         </div>
 
                     </div>
+                    <CarouselProducts></CarouselProducts>
                 </div>
             </div>
         </div>
