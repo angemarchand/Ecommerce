@@ -79,11 +79,11 @@ const CarouselProducts = (props) => {
             }
             {activeTab == "plusvues" ?
                 <div className="row justify-contet-around align-items-center">
-                    <ChevronLeft onClick={() => (idTab - 4) < 3 ? setIdTab(11) : setIdTab(idTab - 4)} className="carousel-product-chevron col-1" />
+                    <ChevronLeft  className="carousel-product-chevron col-1" onClick={() => (idTab - 4) < 3 ? setIdTab(11) : setIdTab(idTab - 4)} />
                     <div className="col d-flex justify-content-center">
                         {displayProducts.map(item => <CarouselCardProducts key={item.id} product={item} />)}
                     </div>
-                    <ChevronRight onClick={() => (idTab + 4) > 11 ? setIdTab(3) : setIdTab(idTab + 4)} className="carousel-product-chevron col-1" />
+                    <ChevronRight className="carousel-product-chevron col-1" onClick={() => (idTab + 4) > 11 ? setIdTab(3) : setIdTab(idTab + 4)} />
                 </div>
                 :
                 null
