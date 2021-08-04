@@ -25,7 +25,7 @@ export const POSTPicture = async (tabName, id_product, tabImagesB64) => {
 }
 
 export const GETPicturesByProductId = async (id) => {
-    const response = await fetch('https://localhost:8000/api/pictures/product?productId=' + id, {
+    const response = await fetch('http://localhost:8000/api/pictures/product?productId=' + id, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',

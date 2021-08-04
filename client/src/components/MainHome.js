@@ -36,13 +36,33 @@ function MainHome(){
                                 <img src="#" alt="" />
                             </div>
                             <div class="somePics">
-                                <div class="leftProducts">
-                                    <img src="#" alt="" />
-                                    <img src="#" alt="" />
+                                <div class="d-flex leftProducts">
+                                    <div class="card-title mb-auto newDiv">
+                                        <img src="#" alt="" />
+                                        <h4> Le produit </h4>
+                                        <p> Description de l'article</p>
+                                        <p> 20$</p>
+                                    </div>
+                                    <div class="card-title mb-auto newDiv">
+                                        <img src="#" alt="" />
+                                        <h4> Le produit </h4>
+                                        <p> Description de l'article</p>
+                                        <p> 20$</p>
+                                    </div>
                                 </div>
-                                <div class="rightProducts">
-                                    <img src="#" alt="" />
-                                    <img src="#" alt="" />
+                                <div class="d-flex rightProducts">
+                                    <div class="card-title mb-auto newDiv">
+                                        <img src="#" alt="" />
+                                        <h4> Le produit </h4>
+                                        <p> Description de l'article</p>
+                                        <p> 20$</p>
+                                    </div>
+                                    <div class="card-title mb-auto newDiv">
+                                        <img src="#" alt="" />
+                                        <h4> Le produit </h4>
+                                        <p> Description de l'article</p>
+                                        <p> 20$</p>
+                                    </div>
                                 </div>
 
                             </div>

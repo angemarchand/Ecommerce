@@ -13,7 +13,7 @@ export const GETProducts = async () => {
 
 //// GET ONE ////
 export const GETProduct = async (id) => {
-    const response = await fetch(`https://localhost:8000/api/products/${id}`, {
+    const response = await fetch(`http://localhost:8000/api/products/${id}`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
