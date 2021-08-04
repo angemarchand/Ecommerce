@@ -48,7 +48,7 @@ const LargeCardProduct = (props) => {
                                 <ChevronLeft id="large-card-product-left-chevron" onClick={() => pictures[currentPictureId - 1] ? setCurrentPictureId(currentPictureId - 1) : setCurrentPictureId(pictures.length - 1)} />
                                 {pictures ?
                                     pictures.map(item => {
-                                        return <img id={currentPicture == item.imageB64 ? "large-card-product-pic-active" : null} key={item.id} style={{ objectFit: "contain" }} className="large-card-product-banner-picture-min img-fluid" src={item.imageB64} />
+                                        return <img id={currentPicture == item.imageB64 ? "large-card-product-pic-active" : null} key={item.id} style={{ objectFit: "contain" }} className="large-card-product-banner-picture-min img-fluid m-1" src={item.imageB64} />
                                     })
                                     :
                                     null
