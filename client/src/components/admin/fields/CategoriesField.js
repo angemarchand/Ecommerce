@@ -43,7 +43,7 @@ const CategoryField = (props) => {
 
     return (
         <div className="mb-3">
-            <label htmlFor="inputState">State</label>
+            <label htmlFor="inputState">Categories</label>
             <select value={categoryName} onChange={(e) => handleChange(e)} className="form-control mt-2">
                 {
                     categories ? categories.map(item => {
