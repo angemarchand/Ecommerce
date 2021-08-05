@@ -48,7 +48,7 @@ function OneProduct() {
         <div id="products-background">
             <div className="container-fluid container-lg pt-4 pb-4">
                 <SearchBar />
-                {product ? <BreadCrumb page="OneProduct" name={product.name} /> : null}
+                {product ? <BreadCrumb page="/oneProduct" name={product.name} /> : null}
                 {product ? <LargeCardProduct product={product} /> : null}
                 <div className="mt-4">
                     {product ? <AboutProduct product={product} /> : null}
