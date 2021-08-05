@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const BreadCrumb = (props) => {
 
     const [content, setContent] = useState(null)
+    const isMounted = useRef(true);
 
     useEffect(() => {
-        if(!content) contentBread();
+        if(!content) 
+            contentBread();
     })
 
     const contentBread = () => {
@@ -14,9 +16,24 @@ const BreadCrumb = (props) => {
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item fs-5"><a href="/">Home</a></li>
                     <li className="breadcrumb-item fs-5"><a href="/products">ListingProducts</a></li>
-                    <li className="breadcrumb-item active fs-5" aria-current="page">OneProduct</li>
+                    <li className="breadcrumb-item active fs-5" > {props.name}</li>
                 </ol>
             )
+        }
+        else if (props.page == "/products")
+        {
+            setContent(
+            <ol className="breadcrumb">
+                    <li className="breadcrumb-item fs-5"><a href="/">Home</a></li>
+                    <li className="breadcrumb-item active fs-5">ListingProducts</li>
+                </ol>)
+        }
+        else if (props.page == "/home")
+        {
+            setContent(
+            <ol className="breadcrumb">
+                    <li className="breadcrumb-item active fs-5">Home</li>
+            </ol>)
         }
     }
 
