@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CardProduct from "../components/CardProduct";
 import { GETProducts } from "../services/api/Products";
 import SearchBar from "../components/SearchBar";
+import BreadCrumb from "../components/BreadCrumb";
 
 function ListingProducts() {
 
@@ -24,6 +25,7 @@ function ListingProducts() {
     <div id="products-background">
       <div className="container-fluid container-lg pt-3 pb-3">
         <SearchBar />
+        <BreadCrumb page="/products" />
         <div className="row">
             {
               products ?

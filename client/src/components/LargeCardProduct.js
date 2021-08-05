@@ -18,7 +18,6 @@ const LargeCardProduct = (props) => {
             }
             getData();
         } else {
-            console.log(pictures[currentPictureId])
             setCurrentPicture(pictures[currentPictureId].imageB64);
         }
     }, [currentPictureId])

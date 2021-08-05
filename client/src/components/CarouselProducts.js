@@ -15,11 +15,9 @@ const CarouselProducts = (props) => {
     useEffect(() => {
         if (isMounted.current) {
             createDisplayProductsTab(idTab);
-            console.log("newhey")
           } else {
             async function getData() {
                 await getVisitedProducts();
-                console.log(visitedProducts)
               }
               getData();
             isMounted.current = true;

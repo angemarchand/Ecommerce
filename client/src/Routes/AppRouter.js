@@ -34,7 +34,6 @@ export default function AppRouter() {
                     <Route path="/products" component={ListingProducts} exact={true} />
                     <Route path="/" component={Home} exact={true} />
                     <Route path="/product" component={OneProduct} exact={true} />
-                    <Route path="/" component={Home} exact={true} />
                 </Switch>
                 {admin ? null : <Footer />}
             </Fragment>

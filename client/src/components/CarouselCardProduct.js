@@ -16,17 +16,14 @@ const CarouselCardProducts = (props) => {
             await getPictures();
           }
           getData();
-        console.log(props)
         
     }, [])
 
     useEffect(() => {
-        console.log(picture);
     }, [picture])
 
     const getPictures = async () => {
         let pictures = await GETPicturesByProductId(props.product.id);
-        console.log(pictures);
         if (pictures[0] !== undefined)
         {
             setPicture(pictures[0].imageB64);

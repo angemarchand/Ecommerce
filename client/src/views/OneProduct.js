@@ -7,6 +7,7 @@ import LargeCardProduct from "../components/LargeCardProduct";
 import AboutProduct from "../components/AboutProduct";
 import CarouselProducts from "../components/CarouselProducts";
 
+
 function OneProduct() {
 
     const [product, setProduct] = useState(null);
@@ -47,7 +48,7 @@ function OneProduct() {
         <div id="products-background">
             <div className="container-fluid container-lg pt-4 pb-4">
                 <SearchBar />
-                <BreadCrumb page="OneProduct" />
+                {product ? <BreadCrumb page="OneProduct" name={product.name} /> : null}
                 {product ? <LargeCardProduct product={product} /> : null}
                 <div className="mt-4">
                     {product ? <AboutProduct product={product} /> : null}
