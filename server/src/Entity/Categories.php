@@ -7,10 +7,12 @@ use App\Repository\CategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass=CategoriesRepository::class)
+ * @UniqueEntity("name")
  */
 class Categories
 {
@@ -22,7 +24,7 @@ class Categories
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, unique=true)
      */
     private $name;
 

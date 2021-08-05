@@ -6,7 +6,7 @@ const AdminCategoryModal = props => {
     const [name, setName] = useState(props.name);
 
     const post = async () => {
-        const resp = await POSTCategories(name);
+        await POSTCategories(name);
         document.location.reload();
     }
 

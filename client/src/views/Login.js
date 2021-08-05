@@ -11,7 +11,7 @@ function Login() {
 
     const handleSubmit = async (e) => {
         const token = await GETToken(email, password)
-        const response = await setToken(token);
+        await setToken(token);
         history.push("/products");
 
     }

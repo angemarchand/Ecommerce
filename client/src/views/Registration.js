@@ -11,7 +11,7 @@ function Registration() {
     const history = useHistory();
 
     const handleSubmit = async (e) => {
-        const response = await POSTUsers(name, email, plainPassword);
+        await POSTUsers(name, email, plainPassword);
         history.push("/users/login");
     }
 

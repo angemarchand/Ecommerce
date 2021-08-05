@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { GETProduct, PATCHProductVisits} from "../services/api/Products";
+import { GETProduct, PATCHProducts} from "../services/api/Products";
 import { useLocation, useHistory } from "react-router";
 import SearchBar from "../components/SearchBar";
 import BreadCrumb from "../components/BreadCrumb";
@@ -41,7 +41,7 @@ function OneProduct() {
 
     const addVisits = async () => {
         let visits = product.visits + 1;
-        const response = await PATCHProductVisits(product.id, visits );
+        await PATCHProducts(product.id, JSON.stringify({visits: visits}) );
     }
 
     return (

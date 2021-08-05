@@ -33,7 +33,7 @@ const AdminProductTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products ?
+                {products ?
                         products.map(item => <AdminProductLine
                             key={item.id}
                             id={item.id}
@@ -43,6 +43,7 @@ const AdminProductTable = () => {
                             created_at={item.created_at}
                             modified_at={item.modified_at}
                             stock={item.stock}
+                            category={item.categories}
                         />)
                         :
                         <tr><th><p>No data</p></th></tr>}

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ProductModal from "./ProductModal"
 
 const AdminProductLine = props => {
@@ -14,7 +15,7 @@ const AdminProductLine = props => {
                 </button>
             </td>
             <td>
-                <ProductModal
+            <ProductModal
                 id={props.id} 
                 name={props.name} 
                 description={props.description} 
@@ -22,6 +23,8 @@ const AdminProductLine = props => {
                 created_at={props.created_at} 
                 modified_at={props.modified_at} 
                 stock={props.stock}
+                category={props.category}
+                visits={props.visits}
                 />
             </td>
         </tr >

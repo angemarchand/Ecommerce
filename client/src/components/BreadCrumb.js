@@ -11,7 +11,7 @@ const BreadCrumb = (props) => {
     })
 
     const contentBread = () => {
-        if (props.page == "OneProduct") {    
+        if (props.page === "OneProduct") {
             setContent(
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item fs-5"><a href="/">Home</a></li>
