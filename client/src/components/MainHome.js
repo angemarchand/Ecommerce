@@ -3,61 +3,61 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 function MainHome(){
     return (
-        <div class="container">
-            <div class="row ">
-                <div class="col-12 specialProducts">
-                    <div class="d-flex">
-                        <div class="text-card">
+        <div className="container">
+            <div className="row ">
+                <div className="col-12 specialProducts">
+                    <div className="d-flex">
+                        <div className="text-card">
                             <h4>Accessoires</h4>
-                            <div class="triangles"></div>
+                            <div className="triangles"></div>
                         </div>
                          
-                        <div class="text-card">
+                        <div className="text-card">
                             <h4>Portables</h4>
-                            <div class="triangles"></div>
+                            <div className="triangles"></div>
                         </div>
-                        <div class="text-card">
+                        <div className="text-card">
                             <h4>Péripheriques</h4>
-                            <div class="triangles"></div>
+                            <div className="triangles"></div>
                         </div>
-                        <div class="text-card">
+                        <div className="text-card">
                             <h4>Customiseur</h4>
-                            <div class="triangles"></div>
+                            <div className="triangles"></div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div class="row">
-                    <div class="col-12">
+            <div className="row">
+                    <div className="col-12">
                         <h5> Ici afficher des photos</h5>
-                        <div class="d-flex">
-                            <div class="bigPic">
+                        <div className="d-flex">
+                            <div className="bigPic">
                                 <img src="#" alt="" />
                             </div>
-                            <div class="somePics">
-                                <div class="d-flex leftProducts">
-                                    <div class="card-title mb-auto newDiv">
+                            <div className="somePics">
+                                <div className="d-flex leftProducts">
+                                    <div className="card-title mb-auto newDiv">
                                         <img src="#" alt="" />
                                         <h4> Le produit </h4>
                                         <p> Description de l'article</p>
                                         <p> 20$</p>
                                     </div>
-                                    <div class="card-title mb-auto newDiv">
+                                    <div className="card-title mb-auto newDiv">
                                         <img src="#" alt="" />
                                         <h4> Le produit </h4>
                                         <p> Description de l'article</p>
                                         <p> 20$</p>
                                     </div>
                                 </div>
-                                <div class="d-flex rightProducts">
-                                    <div class="card-title mb-auto newDiv">
+                                <div className="d-flex rightProducts">
+                                    <div className="card-title mb-auto newDiv">
                                         <img src="#" alt="" />
                                         <h4> Le produit </h4>
                                         <p> Description de l'article</p>
                                         <p> 20$</p>
                                     </div>
-                                    <div class="card-title mb-auto newDiv">
+                                    <div className="card-title mb-auto newDiv">
                                         <img src="#" alt="" />
                                         <h4> Le produit </h4>
                                         <p> Description de l'article</p>
@@ -66,7 +66,7 @@ function MainHome(){
                                 </div>
 
                             </div>
-                            <div class="iconPrev">
+                            <div className="iconPrev">
                                 <ArrowForwardIosIcon fontSize="large"></ArrowForwardIosIcon>
                             </div>
 

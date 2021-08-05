@@ -6,37 +6,37 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 function SectionHome(){
 
     return (
-        <div id="homeSection" class="container-fluid">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="d-flex">
-                        <div class="iconLeft">
+        <div id="homeSection" className="container-fluid">
+            <div className="container">
+            <div className="row">
+                <div className="col-12">
+                    <div className="d-flex">
+                        <div className="iconLeft">
                             <ArrowBackIosIcon fontSize="large"></ArrowBackIosIcon>
                         </div>
-                        <div class="manyPics">
-                            <div class="d-flex leftPics">
-                                <div class="card-title newDiv">
+                        <div className="manyPics">
+                            <div className="d-flex leftPics">
+                                <div className="card-title newDiv">
                                     <img src="#" alt="" />
                                     <h4> Le produit </h4>
                                     <p> Description de l'article</p>
                                     <p> 20$</p>
                                 </div>
-                                <div class="card-title newDiv">
+                                <div className="card-title newDiv">
                                     <img src="#" alt="" />
                                     <h4> Le produit </h4>
                                     <p> Description de l'article</p>
                                     <p> 20$</p>
                                 </div>
                             </div>
-                            <div class=" d-flex rightPics">
-                                <div class="card-title newDiv">
+                            <div className=" d-flex rightPics">
+                                <div className="card-title newDiv">
                                     <img src="#" alt="" />
                                     <h4> Le produit </h4>
                                     <p> Description de l'article</p>
                                     <p> 20$</p>
                                 </div>
-                                <div class="card-title newDiv">
+                                <div className="card-title newDiv">
                                     <img src="#" alt="" />
                                     <h4> Le produit </h4>
                                     <p> Description de l'article</p>
@@ -46,7 +46,7 @@ function SectionHome(){
                             </div>
 
                         </div>
-                        <div class="onePic">
+                        <div className="onePic">
                             <img src="#" alt="" />
                         </div>
                     </div>
