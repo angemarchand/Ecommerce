@@ -1,7 +1,7 @@
 import  React from "react";
 import HeaderHome from "../components/HeaderHome";
 import MainHome from "../components/MainHome";
-import SectionHome from "../components/SectionHome";
+// import SectionHome from "../components/SectionHome";
 
 function Home() {
     return(
@@ -15,7 +15,7 @@ function Home() {
           </div>
 
           <div>
-              <SectionHome />
+              {/* <SectionHome /> */}
           </div>
           
       </div>

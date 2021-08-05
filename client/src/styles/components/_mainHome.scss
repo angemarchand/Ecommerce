@@ -1,261 +1,281 @@
-.container{
-    .row{
-        .specialProducts{
-            margin-top: 3%;
-            margin-bottom: 3%;
-            .text-card{
-                width: 250px;
-                height: 150px;
-                padding: 10px;
-                background-color: $primary-2;
-                margin-left: 2%;
-                box-shadow: -7px -7px 1px $secondary-3;
+#large-picture-left-banner{
+    width: 550px;
+    height: 400px;
+    background-color: gray;
+}
+.small-picture-right-banner{
+    width: 200px;
+    height: 180px;
+    background-color: gray;
+}
+
+#right-row-banner {
+    left: -50px;
+}
+#chevron-right-main-home{
+    font-size: 120px;
+}
 
 
-                h4{
-                    color: $white;
-                    margin-left: 42%;
-                    margin-top: 15%;
-                    -moz-transform: rotate(30deg);  
-                    -webkit-transform: rotate(30deg); 
-                }
-                .triangles{
-                    width: 0;
-                    height: 0;
-                    border-left: 1px solid transparent;
-                    border-right: 245px solid transparent;
-                    border-bottom: 145px solid $primary-1;
-                    top: -58%;
-                    left: -5%;
-                    // box-shadow: -16px -16px 1px $primary-2;
-                    position: relative;
-                }
-            }
-        }
-        .bigPic{
-            img{
-                width: 600px;
-                height: 480px;
-                background-color: gray;
-                box-shadow: -7px -7px 1px $primary-2;
-            }
 
-        }
-        .somePics{
-            div{
-                img{
-                    width: 200px;
-                    height: 100px;
-                    background-color: gray;
+// .container{
+//     .row{
+//        .specialProducts{
+//             margin-top: 3%;
+//             margin-bottom: 3%;
+//             .text-card{
+//                 width: 250px;
+//                 height: 150px;
+//                 padding: 10px;
+//                 background-color: $primary-2;
+//                 margin-left: 2%;
+//                 box-shadow: -7px -7px 1px $secondary-3;
+
+
+//                 h4{
+//                     color: $white;
+//                     margin-left: 42%;
+//                     margin-top: 15%;
+//                     -moz-transform: rotate(30deg);  
+//                     -webkit-transform: rotate(30deg); 
+//                 }
+//                 .triangles{
+//                     width: 0;
+//                     height: 0;
+//                     border-left: 1px solid transparent;
+//                     border-right: 245px solid transparent;
+//                     border-bottom: 145px solid $primary-1;
+//                     top: -58%;
+//                     left: -5%;
+//                     // box-shadow: -16px -16px 1px $primary-2;
+//                     position: relative;
+//                 }
+//             }
+//         } 
+        // .bigPic{
+            // img{
+                // width: 600px;
+                // height: 480px;
+                // background-color: gray;
+                // box-shadow: -7px -7px 1px $primary-2;
+            // }
+// 
+        // }
+        // .somePics{
+            // div{
+                // img{
+                    // width: 200px;
+                    // height: 100px;
+                    // background-color: gray;
                     // margin-right: 50px;
-                    
-                }
-            }
-            .leftProducts{
-                margin-left: -5%;
-                margin-top: 3%;
-                .newDiv{
-                    background-color: $secondary-3;
-                    margin-left: 2%;
-                }
-            }
-            .rightProducts{
-                margin-left: -5%;
-                margin-top: 3%;
-                .newDiv{
-                    background-color: $secondary-3;
-                    margin-left: 2%;
-                }
-            }
+                    // 
+                // }
+            // }
+            // .leftProducts{
+                // margin-left: -5%;
+                // margin-top: 3%;
+                // .newDiv{
+                    // background-color: $secondary-3;
+                    // margin-left: 2%;
+                // }
+            // }
+            // .rightProducts{
+                // margin-left: -5%;
+                // margin-top: 3%;
+                // .newDiv{
+                    // background-color: $secondary-3;
+                    // margin-left: 2%;
+                // }
+            // }
+// 
+        // }
+        // .iconPrev{
+            // position: relative;
+            // top: 200px;
+            // color: $bg-color-1;
+            // margin-left: 5%;
+        // }
 
-        }
-        .iconPrev{
-            position: relative;
-            top: 200px;
-            color: $bg-color-1;
-            margin-left: 5%;
-        }
-
-    }
-}
-@media screen and (max-width: 1024px) {
-    .container{
-        .row{
-            .specialProducts{
-                .text-card{
-                    width: 210px;
-                    height: 100px;
-
-                    h4{
-                        margin-top: 15%;
-                        font-size: 0.7em;
-                    }
-                    
-                    .triangles{
-                        border-right: 210px solid transparent;
-                        border-bottom: 100px solid $primary-1;
-                        top: -73%;
-                        left: -6%;
-                    }
-                }
-            }
-            .somePics{
-                div{
-                    img{
-                        width: 150px;
-                        height: 80px;
-                        
-                    }
-                }
-            }
-
-            .iconPrev{
-                margin-left: 4%;
-            }
-        }
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-    .container{
-        .row{
-            .specialProducts{
-                .text-card{
-                    width: 150px;
-                    height: 75px;
-
-                    h4{
-                        margin-top: 10%;
-                        font-size: 0.7em;
-                    }
-                    
-                    .triangles{
-                        border-right: 150px solid transparent;
-                        border-bottom: 75px solid $primary-1;
-                        top: -79%;
-                        left: -9%;
-                    }
-                }
-            }
-            .bigPic{
-                margin-left: 5%;
-            }
-
-            .somePics{
-                display: none;
-            }
-        }
-    }
-}
-@media screen  and (max-width: 576px) {
-    .container{
-        .row{
-            .specialProducts{
-                .text-card{
-                    width: 115px;
-                    height: 65px;
-                    box-shadow: -3px -3px 1px $secondary-3;
-
-                    h4{
-                        margin-top: 5%;
-                        font-size: 0.5em;
-                    }
-                    
-                    .triangles{
-                        border-right: 115px solid transparent;
-                        border-bottom: 65px solid $primary-1;
-                        top: -70%;
-                        left: -11%;
-                    }
-                }
-            }
-            .bigPic{
-                img{
-                    width: 400px;
-                    height: 280px;
-                }
-    
-            }
-
-            .iconPrev{
-                top: 100px;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .container{
-        .row{
-            .specialProducts{
-                .text-card{
-                    width: 88px;
-                    height: 65px;
-                    box-shadow: -3px -3px 1px $secondary-3;
-
-                    h4{
-                        margin-top: 2%;
-                        font-size: 0.5em;
-                    }
-                    
-                    .triangles{
-                        border-right: 85px solid transparent;
-                        border-bottom: 65px solid $primary-1;
-                        top: -62%;
-                        left: -16%;
-                    }
-                }
-            }
-            .bigPic{
-                img{
-                    width: 300px;
-                    height: 200px;
-                }
-    
-            }
-
-            .iconPrev{
-                top: 80px;
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 280px) {
-    .container{
-        .row{
-            .specialProducts{
-                .text-card{
-                    width: 60px;
-                    height: 45px;
-                    box-shadow: -3px -3px 1px $secondary-3;
-
-                    h4{
-                        margin-top: 2%;
-                        font-size: 0.3em;
-                    }
-                    
-                    .triangles{
-                        border-right: 60px solid transparent;
-                        border-bottom: 45px solid $primary-1;
-                        top: -95%;
-                        left: -27%;
-                    }
-                }
-            }
-            .bigPic{
-                img{
-                    width: 200px;
-                    height: 140px;
-                    margin-bottom: 5%;
-                }
-    
-            }
-
-            .iconPrev{
-                top: 50px;
-            }
-        }
-    }
-}
+//     }
+// }
+// @media screen and (max-width: 1024px) {
+    // .container{
+        // .row{
+            // .specialProducts{
+                // .text-card{
+                    // width: 210px;
+                    // height: 100px;
+// 
+                    // h4{
+                        // margin-top: 15%;
+                        // font-size: 0.7em;
+                    // }
+                    // 
+                    // .triangles{
+                        // border-right: 210px solid transparent;
+                        // border-bottom: 100px solid $primary-1;
+                        // top: -73%;
+                        // left: -6%;
+                    // }
+                // }
+            // }
+            // .somePics{
+                // div{
+                    // img{
+                        // width: 150px;
+                        // height: 80px;
+                        // 
+                    // }
+                // }
+            // }
+// 
+            // .iconPrev{
+                // margin-left: 4%;
+            // }
+        // }
+    // }
+// }
+// 
+// 
+// @media screen and (max-width: 768px) {
+    // .container{
+        // .row{
+            // .specialProducts{
+                // .text-card{
+                    // width: 150px;
+                    // height: 75px;
+// 
+                    // h4{
+                        // margin-top: 10%;
+                        // font-size: 0.7em;
+                    // }
+                    // 
+                    // .triangles{
+                        // border-right: 150px solid transparent;
+                        // border-bottom: 75px solid $primary-1;
+                        // top: -79%;
+                        // left: -9%;
+                    // }
+                // }
+            // }
+            // .bigPic{
+                // margin-left: 5%;
+            // }
+// 
+            // .somePics{
+                // display: none;
+            // }
+        // }
+    // }
+// }
+// @media screen  and (max-width: 576px) {
+    // .container{
+        // .row{
+            // .specialProducts{
+                // .text-card{
+                    // width: 115px;
+                    // height: 65px;
+                    // box-shadow: -3px -3px 1px $secondary-3;
+// 
+                    // h4{
+                        // margin-top: 5%;
+                        // font-size: 0.5em;
+                    // }
+                    // 
+                    // .triangles{
+                        // border-right: 115px solid transparent;
+                        // border-bottom: 65px solid $primary-1;
+                        // top: -70%;
+                        // left: -11%;
+                    // }
+                // }
+            // }
+            // .bigPic{
+                // img{
+                    // width: 400px;
+                    // height: 280px;
+                // }
+    // 
+            // }
+// 
+            // .iconPrev{
+                // top: 100px;
+            // }
+        // }
+    // }
+// }
+// 
+// @media screen and (max-width: 480px) {
+    // .container{
+        // .row{
+            // .specialProducts{
+                // .text-card{
+                    // width: 88px;
+                    // height: 65px;
+                    // box-shadow: -3px -3px 1px $secondary-3;
+// 
+                    // h4{
+                        // margin-top: 2%;
+                        // font-size: 0.5em;
+                    // }
+                    // 
+                    // .triangles{
+                        // border-right: 85px solid transparent;
+                        // border-bottom: 65px solid $primary-1;
+                        // top: -62%;
+                        // left: -16%;
+                    // }
+                // }
+            // }
+            // .bigPic{
+                // img{
+                    // width: 300px;
+                    // height: 200px;
+                // }
+    // 
+            // }
+// 
+            // .iconPrev{
+                // top: 80px;
+            // }
+        // }
+    // }
+// }
+// 
+// @media screen and (min-width: 280px) {
+    // .container{
+        // .row{
+            // .specialProducts{
+                // .text-card{
+                    // width: 60px;
+                    // height: 45px;
+                    // box-shadow: -3px -3px 1px $secondary-3;
+// 
+                    // h4{
+                        // margin-top: 2%;
+                        // font-size: 0.3em;
+                    // }
+                    // 
+                    // .triangles{
+                        // border-right: 60px solid transparent;
+                        // border-bottom: 45px solid $primary-1;
+                        // top: -95%;
+                        // left: -27%;
+                    // }
+                // }
+            // }
+            // .bigPic{
+                // img{
+                    // width: 200px;
+                    // height: 140px;
+                    // margin-bottom: 5%;
+                // }
+    // 
+            // }
+// 
+            // .iconPrev{
+                // top: 50px;
+            // }
+        // }
+    // }
+// }
