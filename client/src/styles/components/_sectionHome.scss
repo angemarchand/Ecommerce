@@ -137,3 +137,22 @@
         }
     }
 }
+
+@media screen and (min-width: 280px) {
+    #homeSection{
+        .row{
+            .col-12{
+                .onePic{
+                    img{
+                        width: 200px;
+                        height: 140px;
+                    }
+        
+                }
+                .iconLeft{
+                    top: 50px;
+                }
+            }
+        }
+    }
+}

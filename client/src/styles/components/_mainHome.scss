@@ -221,3 +221,41 @@
         }
     }
 }
+
+@media screen and (min-width: 280px) {
+    .container{
+        .row{
+            .specialProducts{
+                .text-card{
+                    width: 60px;
+                    height: 45px;
+                    box-shadow: -3px -3px 1px $secondary-3;
+
+                    h4{
+                        margin-top: 2%;
+                        font-size: 0.3em;
+                    }
+                    
+                    .triangles{
+                        border-right: 60px solid transparent;
+                        border-bottom: 45px solid $primary-1;
+                        top: -95%;
+                        left: -27%;
+                    }
+                }
+            }
+            .bigPic{
+                img{
+                    width: 200px;
+                    height: 140px;
+                    margin-bottom: 5%;
+                }
+    
+            }
+
+            .iconPrev{
+                top: 50px;
+            }
+        }
+    }
+}
