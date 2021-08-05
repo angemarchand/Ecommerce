@@ -9,11 +9,11 @@ const BreadCrumb = (props) => {
     })
 
     const contentBread = () => {
-        if (props.page == "OneProduct") {
+        if (props.page === "OneProduct") {
             setContent(
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item fs-5"><a href="#">Home</a></li>
-                    <li className="breadcrumb-item fs-5"><a href="#">ListingProducts</a></li>
+                    <li className="breadcrumb-item fs-5"><a href="/">Home</a></li>
+                    <li className="breadcrumb-item fs-5"><a href="/products">ListingProducts</a></li>
                     <li className="breadcrumb-item active fs-5" aria-current="page">OneProduct</li>
                 </ol>
             )

@@ -1,21 +1,38 @@
 import { useEffect, useState, useRef } from "react";
 import { PATCHProducts, POSTProducts, DELETEProducts } from "../../../services/api/Products";
 import { POSTPicture, GETPicturesByProductId, DELETEPictures } from "../../../services/api/Pictures";
-import { Redirect } from "react-router-dom";
-
+import { GETCategory } from "../../../services/api/Categories";
+import CategoriesField from "../fields/CategoriesField";
 
 const AdminProductModal = props => {
 
-    const [name, setName] = useState(props.name);
+    const [name, setName] = useState(props.name ? props.name : null);
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
     const [pictures, setPictures] = useState(null);
+    const [idCategory, setIdCategory] = useState(null);
     const [picturesToDb, setPicturesToDb] = useState(null);
     const [picturesFromDb, setPicturesFromDb] = useState(null);
     const [stock, setStock] = useState(props.stock);
     const [fileLists, setFilesLists] = useState(null);
     const [removePicture, setRemovePicture] = useState(null);
+    const [productCategory, setProductCategory] = useState(null);
     const isInitialMount = useRef(true);
+
+    useEffect(() => {
+        let id;
+        if (props.category && props.category.length) {
+            id = props.category[0];
+            id = id.substring(id.lastIndexOf('/') + 1);
+            if (id) {
+                async function getData() {
+                    const response = await GETCategory(id);
+                    setProductCategory(response.name);
+                }
+                getData();
+            }
+        }
+    }, [props.category])
 
     useEffect(() => {
         if (isInitialMount.current) {
@@ -78,7 +95,7 @@ const AdminProductModal = props => {
         if (picturesToDb) {
             picturesToDb.forEach(item => {
                 if (cache.some(e => e.name === item.name)) {
-                    let index = cache.findIndex(item => item.name === item.name)
+                    let index = cache.findIndex(o => o.name === item.name)
                     cache.splice(index, 1);
                 }
             })
@@ -91,7 +108,7 @@ const AdminProductModal = props => {
         if (picturesToDb) {
             picturesToDb.forEach(item => {
                 if (cache.some(e => e.name === item.name)) {
-                    let index = cache.findIndex(item => item.name === item.name)
+                    let index = cache.findIndex(o => o.name === item.name)
                     cache.splice(index, 1);
                 }
             })
@@ -99,7 +116,7 @@ const AdminProductModal = props => {
         if (pictures && cache.length) {
             pictures.forEach(item => {
                 if (cache.some(e => e.name === item.name)) {
-                    let index = cache.findIndex(item => item.name === item.name)
+                    let index = cache.findIndex(o => o.name === item.name)
                     cache.splice(index, 1);
                 }
             })
@@ -127,11 +144,21 @@ const AdminProductModal = props => {
     };
 
     const patch = async () => {
-        const resp = await PATCHProducts(props.id, name, description, price, stock);
+        const body = {
+            name: name,
+            description: description,
+            price: parseInt(price, 10),
+            stock: parseInt(stock, 10),
+            visits: parseInt(props.visits, 10)
+        }
+        if (idCategory !== null) body.categories = [`/api/categories/${idCategory}`]
+        if (window.confirm("Apply modification ?")) {
+            const test = await PATCHProducts(props.id, JSON.stringify(body));
+        }
         if (picturesToDb) {
-            if (picturesToDb != picturesFromDb) {
+            if (picturesToDb !== picturesFromDb) {
                 for (const item of picturesToDb) {
-                    const resp = await POSTPicture(props.id, item.name, item.imageB64);
+                    await POSTPicture(props.id, item.name, item.imageB64);
                 }
             }
         }
@@ -151,7 +178,7 @@ const AdminProductModal = props => {
         const product = await POSTProducts(name, description, price, stock);
         if (pictures) {
             for (const item of pictures) {
-                const resp = await POSTPicture(product.id, item.name, item.imageB64);
+                await POSTPicture(product.id, item.name, item.imageB64);
             }
         }
         document.location.reload();
@@ -159,10 +186,9 @@ const AdminProductModal = props => {
 
     const rmPictureInDb = async (name) => {
         if (picturesFromDb) {
-            let cache;
             picturesFromDb.forEach(async item => {
                 if (item.name === name) {
-                    const response = await DELETEPictures(item.id);
+                    await DELETEPictures(item.id);
                 }
             })
         }
@@ -177,7 +203,7 @@ const AdminProductModal = props => {
     }
 
     const del = async () => {
-        const resp = await DELETEProducts(props.id);
+        await DELETEProducts(props.id);
         document.location.reload();
     }
 
@@ -208,7 +234,7 @@ const AdminProductModal = props => {
                                     className="custom-file-input ml-3" id={props.name ? props.name.replace(/\s+/g, '') + "-customFile" : "add-product-customFile"} />
                                 {pictures ?
                                     Array.from(pictures).map(item => {
-                                        return <img className="m-2" id={item.name} key={item.name} name={item.name} src={item.imageB64} style={{ width: "175px" }} onClick={(e) => setRemovePicture(e.target.name)} />
+                                        return <img alt={item.name} className="m-2" id={item.name} key={item.name} name={item.name} src={item.imageB64} style={{ width: "175px" }} onClick={(e) => setRemovePicture(e.target.name)} />
                                     })
                                     :
                                     null
@@ -218,6 +244,7 @@ const AdminProductModal = props => {
                                 <label className="form-label">Stock</label>
                                 <input placeholder={props.stock} onChange={(e) => setStock(e.target.value)} type="number" className="form-control" />
                             </div>
+                            <CategoriesField handleId={(e) => setIdCategory(e)} selected={productCategory} />
                         </form>
                     </div>
                     <div className="modal-footer">

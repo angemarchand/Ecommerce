@@ -13,7 +13,7 @@ use App\Controller\MostVisitedProducts;
 
 /**
  * @ApiResource(
- *     normalizationContext={"groups"={"product:read"}},
+ *     normalizationContext={"skip_null_values" = false, "groups"={"product:read"}},
  *     denormalizationContext={"groups"={"product:write"}},
  *     attributes={"pagination_maximum_items_per_page"=4}
  * )
@@ -80,7 +80,7 @@ class Products
 
     /**
      * @ORM\ManyToMany(targetEntity=Categories::class, inversedBy="products")
-     * @Groups({"product:read"})
+     * @Groups({"product:read", "product:write"})
      */
     private $categories;
 

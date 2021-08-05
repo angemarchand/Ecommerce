@@ -14,22 +14,17 @@ const LargeCardProduct = (props) => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
             async function getData() {
-                await getPictures();
+                const pictures = await GETPicturesByProductId(props.product.id);
+                setPictures(pictures);
+                if (pictures[0]) {
+                    setCurrentPicture(pictures[0].imageB64)
+                }
             }
             getData();
         } else {
-            console.log(pictures[currentPictureId])
             setCurrentPicture(pictures[currentPictureId].imageB64);
         }
     }, [currentPictureId])
-
-    const getPictures = async () => {
-        const pictures = await GETPicturesByProductId(props.product.id);
-        setPictures(pictures);
-        if (pictures[0]) {
-            setCurrentPicture(pictures[0].imageB64)
-        }
-    }
 
     return (
         <div id="large-card-product" className="container-fluid p-4">
@@ -43,12 +38,12 @@ const LargeCardProduct = (props) => {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <img style={{ objectFit: "contain" }} className="m-1" id="large-card-product-banner-picture" src={currentPicture} />
+                            <img style={{ objectFit: "contain" }} alt={props.product.name} className="m-1" id="large-card-product-banner-picture" src={currentPicture} />
                             <div id="large-card-product-carousel" className="d-flex justify-content-between align-items-center mt-3">
                                 <ChevronLeft id="large-card-product-left-chevron" onClick={() => pictures[currentPictureId - 1] ? setCurrentPictureId(currentPictureId - 1) : setCurrentPictureId(pictures.length - 1)} />
                                 {pictures ?
                                     pictures.map(item => {
-                                        return <img id={currentPicture == item.imageB64 ? "large-card-product-pic-active" : null} key={item.id} style={{ objectFit: "contain" }} className="large-card-product-banner-picture-min img-fluid m-1" src={item.imageB64} />
+                                        return <img alt={item.name} id={currentPicture === item.imageB64 ? "large-card-product-pic-active" : null} key={item.id} style={{ objectFit: "contain" }} className="large-card-product-banner-picture-min img-fluid m-1" src={item.imageB64} />
                                     })
                                     :
                                     null
@@ -72,7 +67,7 @@ const LargeCardProduct = (props) => {
                             <p className="fs-4">Nombre</p>
                             <div className="row justify-content-center border border-2 m-1">
                                 <div className="col-3 d-flex justify-content-center border-2 border-end">
-                                    <Remove id="large-card-product-add-product" onClick={() => numberOfProduct == 0 ? 0 : setNumberOfProduct(numberOfProduct - 1)} style={{ cursor: "pointer" }} />
+                                    <Remove id="large-card-product-add-product" onClick={() => numberOfProduct === 0 ? 0 : setNumberOfProduct(numberOfProduct - 1)} style={{ cursor: "pointer" }} />
                                 </div>
                                 <div className="col-6 d-flex justify-content-center align-items-center">
                                     {numberOfProduct}
