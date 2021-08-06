@@ -90,9 +90,15 @@ class Products
      */
     private $visits;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Basket::class, mappedBy="Products")
+     */
+    private $baskets;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->baskets = new ArrayCollection();
     }
 
     /**
@@ -216,6 +222,33 @@ class Products
     public function setVisits(?int $visits): self
     {
         $this->visits = $visits;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Basket[]
+     */
+    public function getBaskets(): Collection
+    {
+        return $this->baskets;
+    }
+
+    public function addBasket(Basket $basket): self
+    {
+        if (!$this->baskets->contains($basket)) {
+            $this->baskets[] = $basket;
+            $basket->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBasket(Basket $basket): self
+    {
+        if ($this->baskets->removeElement($basket)) {
+            $basket->removeProduct($this);
+        }
 
         return $this;
     }

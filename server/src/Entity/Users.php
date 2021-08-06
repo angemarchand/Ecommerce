@@ -78,6 +78,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $modified_at;
 
     /**
+     * @ORM\OneToOne(targetEntity=Basket::class, mappedBy="Users", cascade={"persist", "remove"})
+     */
+    private $basket;
+
+    /**
     * @ORM\PrePersist
     * @ORM\PreUpdate
     */
@@ -215,6 +220,23 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setModifiedAt(\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    public function getBasket(): ?Basket
+    {
+        return $this->basket;
+    }
+
+    public function setBasket(Basket $basket): self
+    {
+        // set the owning side of the relation if necessary
+        if ($basket->getUsers() !== $this) {
+            $basket->setUsers($this);
+        }
+
+        $this->basket = $basket;
 
         return $this;
     }
