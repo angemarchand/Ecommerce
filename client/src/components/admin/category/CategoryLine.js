@@ -4,7 +4,7 @@ import { DELETECategories } from "../../../services/api/Categories";
 const AdminCategoryLine = props => {
 
     const del = async () => {
-        const resp = await DELETECategories(props.id);
+        await DELETECategories(props.id);
         document.location.reload();
     }
 

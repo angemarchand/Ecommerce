@@ -23,10 +23,10 @@ const Admin = () => {
 
                 <ul className="list-unstyled components">
                     <li className={content === "products" ? "linkActive" : null}>
-                        <a onClick={() => setContent("products")} >Products</a>
+                        <p className="button-sidebar" onClick={() => setContent("products")} >Products</p>
                     </li>
                     <li className={content === "categories" ? "linkActive" : null}>
-                        <a onClick={() => setContent("categories")} >Categories</a>
+                        <p className="button-sidebar" onClick={() => setContent("categories")} >Categories</p>
                     </li>
                 </ul>
             </nav>

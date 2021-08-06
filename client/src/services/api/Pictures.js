@@ -1,31 +1,23 @@
-export const POSTPicture = async (tabName, id_product, tabImagesB64) => {
-    
-    let i = 0;
-    let product = [];
-    for (let element of tabName)
-    {
-        const response = await fetch('http://localhost:8000/api/pictures', {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify({
-                name: element,
-                id_product: parseInt(id_product, 10),
-                alt: null,
-                imageB64: tabImagesB64[i]
-            })
+export const POSTPicture = async (id_product, name, base64) => {
+    const response = await fetch('https://localhost:8000/api/pictures', {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            name: name,
+            id_product: parseInt(id_product, 10),
+            alt: null,
+            imageB64: base64
         })
-        product.push(await response.json());
-        i++;
-    };
-    
-    return product;
+    })
+    const picture = await response.json();
+    return picture;
 }
 
 export const GETPicturesByProductId = async (id) => {
-    const response = await fetch('http://localhost:8000/api/pictures/product?productId=' + id, {
+    const response = await fetch('https://localhost:8000/api/pictures/product?productId=' + id, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -34,5 +26,13 @@ export const GETPicturesByProductId = async (id) => {
     })
     const pictures = await response.json();
     return pictures;
+}
+
+//// DELETE ONE ////
+export const DELETEPictures = async (id) => {
+    const response = await fetch(`https://localhost:8000/api/pictures/${id}`, {
+        method: "DELETE"
+    })
+    return response;
 }
 

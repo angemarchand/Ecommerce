@@ -7,52 +7,39 @@ function SectionHome(){
 
     return (
         <div id="homeSection" className="container-fluid">
-            <div className="container">
-            <div className="row">
-                <div className="col-12">
-                    <div className="d-flex">
-                        <div className="iconLeft">
-                            <ArrowBackIosIcon fontSize="large"></ArrowBackIosIcon>
-                        </div>
-                        <div className="manyPics">
-                            <div className="d-flex leftPics">
-                                <div className="card-title newDiv">
-                                    <img src="#" alt="" />
-                                    <h4> Le produit </h4>
-                                    <p> Description de l'article</p>
-                                    <p> 20$</p>
-                                </div>
-                                <div className="card-title newDiv">
-                                    <img src="#" alt="" />
-                                    <h4> Le produit </h4>
-                                    <p> Description de l'article</p>
-                                    <p> 20$</p>
-                                </div>
+        <div className="row mt-3 p-5 ">
+                <div className="col my-auto d-none d-lg-block">
+                    <div id="left-row-banner" className="row position-relative">
+                        <div className="col-7 d-flex align-items-center">
+                            <div className="border-white small-picture-background m-2">
+                                <img className="small-picture-left-banner" src="#" alt="" />
+                                <h4>Nom du produit </h4>
+                                <p> Prix </p>
                             </div>
-                            <div className=" d-flex rightPics">
-                                <div className="card-title newDiv">
-                                    <img src="#" alt="" />
-                                    <h4> Le produit </h4>
-                                    <p> Description de l'article</p>
-                                    <p> 20$</p>
-                                </div>
-                                <div className="card-title newDiv">
-                                    <img src="#" alt="" />
-                                    <h4> Le produit </h4>
-                                    <p> Description de l'article</p>
-                                    <p> 20$</p>
-                                </div>
-                                
+                            <div className="border-white small-picture-background m-2">
+                                <img className="small-picture-left-banner" src="#" alt="" />
+                                <h4>Nom du produit </h4>
+                                <p> Prix </p>
                             </div>
-
                         </div>
-                        <div className="onePic">
-                            <img src="#" alt="" />
+                        <div className="col-7 d-flex ">
+                            <div className="border-white small-picture-background m-2">
+                                <img className="small-picture-left-banner" src="#" alt="" />
+                                <h4>Nom du produit </h4>
+                                <p> Prix </p>
+                            </div>
+                            <div className="border-white small-picture-background m-2">
+                                <img className="small-picture-left-banner" src="#" alt="" />
+                                <h4>Nom du produit </h4>
+                                <p> Prix </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
+                </div>
+                <div id="large-pic-right-banner" className="col position-relative d-flex justify-content-start">
+                    <img src="#" alt="" id="large-picture-right-banner" />
+                </div>
             </div>
         </div>
     )

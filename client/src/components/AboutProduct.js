@@ -8,39 +8,36 @@ const AboutProduct = (props) => {
 
     useEffect(() => {
         async function getData() {
-            await getPictures();
+            const pictures = await GETPicturesByProductId(props.product.id);
+            if(pictures[0]) setPictures(pictures);
+            // await getPictures();
         }
         getData();
 
     }, [])
 
-    const getPictures = async () => {
-        const pictures = await GETPicturesByProductId(props.product.id);
-        if(pictures[0]) setPictures(pictures);
-    }
-
     return (
         <div id="about-product" className="container-fluid">
             <div className="row">
                 <div id="about-product-tabs-col" className="col d-flex p-0">
-                    <div id={activeTab == "descriptif" ? "active-tab" : null}
+                    <div id={activeTab === "descriptif" ? "active-tab" : null}
                         className="about-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
                         onClick={() => setActiveTab("descriptif")} >
                         <h3 className="m-3 fs-4">DESCRIPTIF</h3>
                     </div>
-                    <div id={activeTab == "ficheTechnique" ? "active-tab" : null}
+                    <div id={activeTab === "ficheTechnique" ? "active-tab" : null}
                         className="about-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
                         onClick={() => setActiveTab("ficheTechnique")} >
                         <h3 className="m-3 fs-4">FICHE TECHNIQUE</h3>
                     </div>
-                    <div id={activeTab == "avisClients" ? "active-tab" : null}
+                    <div id={activeTab === "avisClients" ? "active-tab" : null}
                         className="about-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
                         onClick={() => setActiveTab("avisClients")} >
                         <h3 className="m-3 fs-4">AVIS CLIENTS</h3>
                     </div>
                 </div>
             </div>
-            {activeTab == "descriptif" ?
+            {activeTab === "descriptif" ?
                 <div>
                     <div className="row p-4">
                         <div className="col m-4 mt- mb-3">
@@ -48,7 +45,7 @@ const AboutProduct = (props) => {
                             <p id="about-product-banner-desc" className="about-product-p mt-3 fs-5">Quisque nec condimentum nibh, eget consequat magna. Nunc congue varius porttitor. Aenean nec dapibus dui. Nullam ipsum lorem, mollis accumsan accumsan eget, tincidunt id mauris. Phasellus mattis nisi vitae libero aliquam accumsan. Vivamus enim ipsum, maximus ut elementum non, tempor facilisis purus. Donec ut facilisis sapien. Suspendisse lorem enim, efficitur nec ex eu, aliquet ornare felis. Fusce egestas id tortor id bibendum.</p>
                         </div>
                         <div className="col d-flex justify-content-center">
-                            <img style={{objectFit: "contain"}} className="m-1" id="about-product-desc-picture" src={pictures ? pictures[0].imageB64 : "#"} />
+                            <img style={{objectFit: "contain"}} alt={props.product.name} className="m-1" id="about-product-desc-picture" src={pictures ? pictures[0].imageB64 : "#"} />
                         </div>
                     </div>
                     <div id="about-product-desc-bottom" className="row p-4 text-resume">
@@ -68,14 +65,14 @@ const AboutProduct = (props) => {
                 :
                 null
             }
-            {activeTab == "ficheTechnique" ?
+            {activeTab === "ficheTechnique" ?
                 <div className="fake-content">
                     <h3>FICHE TECHNIQUE</h3>
                 </div>
                 :
                 null
             }
-            {activeTab == "avisClients" ?
+            {activeTab === "avisClients" ?
                 <div className="fake-content">
                     <h3>Avis Clients</h3>
                 </div>

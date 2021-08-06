@@ -8,15 +8,30 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductsRepository;
+use App\Controller\MostVisitedProducts;
+
 
 /**
  * @ApiResource(
- *     normalizationContext={"groups"={"product:read"}},
- *     denormalizationContext={"groups"={"product:write"}}
+ *     normalizationContext={"skip_null_values" = false, "groups"={"product:read"}},
+ *     denormalizationContext={"groups"={"product:write"}},
+ *     attributes={"pagination_maximum_items_per_page"=4}
  * )
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
  * @ORM\HasLifecycleCallbacks
  */
+#[ApiResource (
+    collectionOperations: [
+        'getMostVisitedProducts' => [
+            'path' => 'products/mostVisited',
+            'method' => 'get',
+            'controller' => MostVisitedProducts::class,
+        ],
+        'get',
+        'post'
+    ]
+)]
+
 class Products
 {
     /**
@@ -65,9 +80,15 @@ class Products
 
     /**
      * @ORM\ManyToMany(targetEntity=Categories::class, inversedBy="products")
-     * @Groups({"product:read"})
+     * @Groups({"product:read", "product:write"})
      */
     private $categories;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"product:read", "product:write"})
+     */
+    private $visits;
 
     public function __construct()
     {
@@ -183,6 +204,18 @@ class Products
     public function removeCategory(Categories $category): self
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    public function getVisits(): ?int
+    {
+        return $this->visits;
+    }
+
+    public function setVisits(?int $visits): self
+    {
+        $this->visits = $visits;
 
         return $this;
     }

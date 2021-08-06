@@ -4,155 +4,31 @@
     padding-top: 5%;
     padding-bottom: 3%;
     margin-bottom: 5%;
-    P{
-        color: $bg-color-1;
-    }
-    .row{
-        .col-12{
-            .manyPics{
-                z-index:  5;
-               img{
-                width: 200px;
-                height: 100px;
-                background-color: gray;
-               }
-               .leftPics{
-                    margin-right: -25%;
-                    margin-top: 1%;
-                    transform: skewY(2deg);
-                    .newDiv{
-                        width: 200px;
-                        // height: 200px;
-                        background-color: $secondary-3;
-                        margin-left: 2%;
-                    }
-                    
-               } 
-               .rightPics{
-                    margin-right: -25%;
-                    margin-top: 3%;
-                    transform: skewY(2deg);
-                    .newDiv{
-                        width: 200px;
-                        // height: 200px;
-                        background-color: $secondary-3;
-                        margin-left: 2%;
-                    }
-               }
-            }
-
-            .onePic{
-                img{
-                    width: 600px;
-                    height: 480px;
-                    background-color: gray;
-                    box-shadow: 7px -7px 1px $primary-2;
-                    transform: skewY(2deg);
-                }
-            }
-            .iconLeft{
-                position: relative;
-                top: 200px;
-                color: $secondary-1;
-                // margin-right: -10%;
-            }
-        }
-    }
+}
+#large-picture-right-banner{
+    width: 550px;
+    height: 400px;
+    background-color: gray;
+    box-shadow: 7px -7px 1px $primary-2;
+    
+}
+#large-pic-right-banner{
+    left: -120px;
+    transform: skewY(2deg);
+}
+.small-picture-left-banner{
+    width: 200px;
+    height: 100px;
+    background-color: gray;
+    
 }
 
-@media screen and (max-width: 1024px) {
-    #homeSection{
-        .row{
-            .col-12{
-                .manyPics{ 
-                    img{
-                        width: 150px;
-                        height: 80px;
-                        
-                    }
-                    .leftPics{
-                        .newDiv{
-                            width: 150px;
-                        }    
-                   }
-                    .rightPics{
-                        .newDiv{
-                            width: 150px;
-                        }  
-                    } 
-                }
-            }
-        }
-    }
-}
-
-
-
-@media screen and (max-width: 768px) {
-    #homeSection{
-        .row{
-            .col-12{
-                .manyPics{ 
-                    display: none;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 576px) {
-    #homeSection{
-        .row{
-            .col-12{
-                .onePic{
-                    img{
-                        width: 400px;
-                        height: 280px;
-                    }
-        
-                }
-                .iconLeft{
-                    top: 100px;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #homeSection{
-        .row{
-            .col-12{
-                .onePic{
-                    img{
-                        width: 300px;
-                        height: 200px;
-                    }
-        
-                }
-                .iconLeft{
-                    top: 80px;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 280px) {
-    #homeSection{
-        .row{
-            .col-12{
-                .onePic{
-                    img{
-                        width: 200px;
-                        height: 140px;
-                    }
-        
-                }
-                .iconLeft{
-                    top: 50px;
-                }
-            }
-        }
+#left-row-banner {
+    right: -100px;
+    transform: skewY(2deg);
+    z-index: 5;
+    bottom: 13px;
+    .small-picture-background{
+        background-color: $secondary-3;
     }
 }
