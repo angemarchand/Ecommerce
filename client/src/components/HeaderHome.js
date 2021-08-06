@@ -43,7 +43,7 @@ function HeaderHome(){
                         </div>
 
                     </div>
-                    <CarouselProducts></CarouselProducts>
+                    <CarouselProducts />
                 </div>
             </div>
         </div>
