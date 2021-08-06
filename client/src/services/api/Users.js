@@ -1,5 +1,5 @@
 export const GETUsers = async () => {
-    const response = await fetch('http://localhost:8000/api/users', {
+    const response = await fetch('https://localhost:8000/api/users', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -11,7 +11,7 @@ export const GETUsers = async () => {
 }
 
 export const POSTUsers = async (name, email, plainPassword) => {
-    const response = await fetch('http://localhost:8000/api/users', {
+    const response = await fetch('https://localhost:8000/api/users', {
         method: "POST",
         headers: {
             'Accept': 'application/json',
