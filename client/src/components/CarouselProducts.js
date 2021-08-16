@@ -15,11 +15,11 @@ const CarouselProducts = (props) => {
     useEffect(() => {
         if (isMounted.current) {
             createDisplayProductsTab(idTab);
-          } else {
+        } else {
             async function getData() {
                 await getVisitedProducts();
-              }
-              getData();
+            }
+            getData();
             isMounted.current = true;
         }
     }, [visitedProducts, idTab])
@@ -65,20 +65,20 @@ const CarouselProducts = (props) => {
             </div>
             {activeTab === "memeCategorie" ?
                 <div className="row justify-contet-around align-items-center">
-                    <ChevronLeft id="carousel-chevron-left" className="carousel-product-chevron col-1" />
+                    <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
                         {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
                     </div>
-                    <ChevronRight id="carousel-chevron-right" className="carousel-product-chevron col-1" />
+                    <ChevronRight className="carousel-product-chevron col-1" />
                 </div>
                 :
                 null
             }
             {activeTab === "plusvues" ?
-                <div className="row justify-contet-around align-items-center p-2">
+                <div className="row justify-content-around align-items-center p-2">
                     <ChevronLeft className="carousel-product-chevron col-1" onClick={() => (idTab - 4) < 3 ? setIdTab(11) : setIdTab(idTab - 4)} />
                     <div className="col d-flex justify-content-center">
-                        {displayProducts ? displayProducts.map(item => <CarouselCardProducts key={item.id} product={item} />) : null }
+                        {displayProducts ? displayProducts.map(item => <CarouselCardProducts key={item.id} product={item} />) : null}
                     </div>
                     <ChevronRight className="carousel-product-chevron col-1" onClick={() => (idTab + 4) > 11 ? setIdTab(3) : setIdTab(idTab + 4)} />
                 </div>
@@ -86,7 +86,7 @@ const CarouselProducts = (props) => {
                 null
             }
             {activeTab === "meilleursNotes" ?
-                <div className="row justify-contet-around align-items-center">
+                <div className="row justify-content-around align-items-center">
                     <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
                         {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
