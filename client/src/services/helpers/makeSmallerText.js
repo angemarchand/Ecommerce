@@ -10,7 +10,7 @@ export const makeSmallerText = (length, tabStr) => {
             str += "...";
             outputTab.push(str)
         }
-        else 
+        else
         {
             outputTab.push(element);
         }

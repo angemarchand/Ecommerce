@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronRight, ChevronLeft, Add, Remove } from '@material-ui/icons';
 import { GETPicturesByProductId } from "../services/api/Pictures";
+import { retrieveToken } from "../services/authentication/User";
 
 const LargeCardProduct = (props) => {
 
@@ -25,6 +26,32 @@ const LargeCardProduct = (props) => {
             setCurrentPicture(pictures[currentPictureId].imageB64);
         }
     }, [currentPictureId])
+
+    const checkIfLoggedIn = () => {
+        let token = retrieveToken();
+        console.log(token);
+    }
+
+    const addToBasket = () => {
+        console.log(props);
+        console.log(numberOfProduct);
+        if (numberOfProduct <= props.product.stock)
+        {
+            if(checkIfLoggedIn() === true)
+            {
+                //Add in db
+            }
+            else
+            {
+                //Ass in local storage
+            }
+            console.log("ici")
+        }
+        else
+        {
+            alert("Malheureusement notre stock n'est pas suffisant pour satisfaire votre demande.")
+        }
+    }
 
     return (
         <div id="large-card-product" className="container-fluid p-4">
@@ -85,7 +112,7 @@ const LargeCardProduct = (props) => {
                     </div>
                     <div className="row m-3">
                         <div className="col d-flex justify-content-center">
-                            <button id="large-card-product-add-cart" className="btn rounded-0 fs-4">Ajouter</button>
+                            <button id="large-card-product-add-cart" className="btn rounded-0 fs-4" onClick={() => addToBasket()} >Ajouter</button>
                         </div>
                     </div>
                     <div className="row m-3 mt-4">
