@@ -1,0 +1,34 @@
+#homeSection{
+    background-color: $white;
+    transform: skewY(-5deg);
+    padding-top: 5%;
+    padding-bottom: 3%;
+    margin-bottom: 5%;
+}
+#large-picture-right-banner{
+    width: 550px;
+    height: 400px;
+    background-color: gray;
+    box-shadow: 7px -7px 1px $primary-2;
+    
+}
+#large-pic-right-banner{
+    left: -170px;
+    transform: skewY(5deg);
+}
+.small-picture-left-banner{
+    width: 200px;
+    height: 100px;
+    background-color: gray;
+    
+}
+
+#left-row-banner {
+    right: -100px;
+    transform: skewY(5deg);
+    z-index: 5;
+    bottom: 30px;
+    .small-picture-background{
+        background-color: $secondary-3;
+    }
+}
