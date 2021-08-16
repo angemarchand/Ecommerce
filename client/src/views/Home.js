@@ -9,7 +9,7 @@ import SearchBar from "../components/SearchBar";
 function Home() {
     return (
         <div id="container-home" >
-            <div className="container-fluid container-lg pt-4 pb-4">
+            <div className="container-fluid container-lg pt-3 pb-4">
                 <SearchBar />
                 <BreadCrumb page="/home" />
                 <HeaderHome />

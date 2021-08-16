@@ -34,7 +34,7 @@ const CardProduct = (props) => {
     }
 
     return (
-        <div id="product-card" className="card border-0 mx-auto mt-4">
+        <div id="product-card" className="card border-0 mx-auto mb-4">
             <div className="card-product-container-pic position-relative">
                 <ChevronLeft onClick={() => pictures[currentPictureId - 1] ? setCurrentPictureId(currentPictureId - 1) : setCurrentPictureId(pictures.length - 1)} id="card-product-chevron-pic-left" className="card-product-chevron-pic position-absolute" />
                 <img className="card-products-img-top" alt={props.name} src={currentPicture} />
