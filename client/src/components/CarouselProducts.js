@@ -54,7 +54,7 @@ const CarouselProducts = (props) => {
                     <div id={activeTab == "plusvues" ? "active-tab" : null}
                         className="carousel-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
                         onClick={() => setActiveTab("plusvues")} >
-                        <h3 className="m-3 fs-4">LES PLUS VUES</h3>
+                        <h3 className="m-3 fs-4">LES PLUS POPULAIRES</h3>
                     </div>
                     {/* <div id={activeTab === "meilleursNotes" ? "active-tab" : null}
                         className="carousel-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
@@ -65,11 +65,11 @@ const CarouselProducts = (props) => {
             </div>
             {activeTab === "memeCategorie" ?
                 <div className="row justify-contet-around align-items-center">
-                    <ChevronLeft className="carousel-product-chevron col-1" />
+                    <ChevronLeft id="carousel-chevron-left" className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
                         {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
                     </div>
-                    <ChevronRight className="carousel-product-chevron col-1" />
+                    <ChevronRight id="carousel-chevron-right" className="carousel-product-chevron col-1" />
                 </div>
                 :
                 null
