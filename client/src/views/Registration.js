@@ -21,7 +21,7 @@ function Registration() {
         <div id="registration-background" className="container-fluid vh-100">
             <div className="row g-0 h-100 align-items-center justify-content-center">
                 <div className="col-sm-6 w-75">
-                    <div id="form" className="card p-4 mx-auto">
+                    <div id="form" className="card rounded-0 p-4 mx-auto">
                         <div className="card-body">
                             <div className="card-title">
                                 <h2>Inscription</h2>

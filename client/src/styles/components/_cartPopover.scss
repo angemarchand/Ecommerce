@@ -1,0 +1,13 @@
+#cart-icon-navbar {
+    color: $primary-2;
+    cursor: pointer;
+  }
+
+  #cart-popover-container {
+      z-index: 9999;
+      width: 300px;
+      height: 400px;
+      background-color: white;
+      top: 10px;
+      right: -10px;
+  }
