@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -78,9 +80,14 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $modified_at;
 
     /**
-     * @ORM\OneToOne(targetEntity=Basket::class, mappedBy="Users", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Cart::class, mappedBy="users", orphanRemoval=true)
      */
-    private $basket;
+    private $carts;
+
+    public function __construct()
+    {
+        $this->carts = new ArrayCollection();
+    }
 
     /**
     * @ORM\PrePersist
@@ -224,19 +231,32 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBasket(): ?Basket
+    /**
+     * @return Collection|Cart[]
+     */
+    public function getCarts(): Collection
     {
-        return $this->basket;
+        return $this->carts;
     }
 
-    public function setBasket(Basket $basket): self
+    public function addCart(Cart $cart): self
     {
-        // set the owning side of the relation if necessary
-        if ($basket->getUsers() !== $this) {
-            $basket->setUsers($this);
+        if (!$this->carts->contains($cart)) {
+            $this->carts[] = $cart;
+            $cart->setUsers($this);
         }
 
-        $this->basket = $basket;
+        return $this;
+    }
+
+    public function removeCart(Cart $cart): self
+    {
+        if ($this->carts->removeElement($cart)) {
+            // set the owning side to null (unless already changed)
+            if ($cart->getUsers() === $this) {
+                $cart->setUsers(null);
+            }
+        }
 
         return $this;
     }

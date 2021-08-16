@@ -91,14 +91,15 @@ class Products
     private $visits;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Basket::class, mappedBy="Products")
+     * @ORM\OneToMany(targetEntity=Cart::class, mappedBy="products", orphanRemoval=true)
      */
-    private $baskets;
+    private $carts;
+
 
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-        $this->baskets = new ArrayCollection();
+        $this->carts = new ArrayCollection();
     }
 
     /**
@@ -227,27 +228,30 @@ class Products
     }
 
     /**
-     * @return Collection|Basket[]
+     * @return Collection|Cart[]
      */
-    public function getBaskets(): Collection
+    public function getCarts(): Collection
     {
-        return $this->baskets;
+        return $this->carts;
     }
 
-    public function addBasket(Basket $basket): self
+    public function addCart(Cart $cart): self
     {
-        if (!$this->baskets->contains($basket)) {
-            $this->baskets[] = $basket;
-            $basket->addProduct($this);
+        if (!$this->carts->contains($cart)) {
+            $this->carts[] = $cart;
+            $cart->setProducts($this);
         }
 
         return $this;
     }
 
-    public function removeBasket(Basket $basket): self
+    public function removeCart(Cart $cart): self
     {
-        if ($this->baskets->removeElement($basket)) {
-            $basket->removeProduct($this);
+        if ($this->carts->removeElement($cart)) {
+            // set the owning side to null (unless already changed)
+            if ($cart->getProducts() === $this) {
+                $cart->setProducts(null);
+            }
         }
 
         return $this;
