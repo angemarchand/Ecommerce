@@ -1,12 +1,11 @@
-
-    #search-icon {
-        font-size: 35px;
-        top: 1px;
-        right: 50px;
-        background-color: white;
-    }
-    #search-bar-input:focus {
-        outline: none;
-        border: 1px solid $primary-1;
-        box-shadow: 0 0 0 0.15rem $primary-1;
-    }
+#search-icon {
+    font-size: 35px;
+    top: 1px;
+    right: 50px;
+    background-color: white;
+}
+#search-bar-input:focus {
+    outline: none;
+    border: 1px solid $primary-1;
+    box-shadow: 0 0 0 0.15rem $primary-1;
+}
