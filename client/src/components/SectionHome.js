@@ -6,8 +6,8 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 function SectionHome(){
 
     return (
-        <div id="homeSection" className="container-fluid">
-        <div className="row mt-3 p-5 ">
+        <div id="homeSection" className="container-fluid ">
+        <div className="row mt-3 p-5">
                 <div className="col my-auto d-none d-lg-block">
                     <div id="left-row-banner" className="row position-relative">
                         <div className="col-7 d-flex align-items-center">
@@ -37,7 +37,7 @@ function SectionHome(){
                     </div>
 
                 </div>
-                <div id="large-pic-right-banner" className="col position-relative d-flex justify-content-start">
+                <div id="large-pic-right-banner" className="col position-relative d-flex justify-content-start justify-content-md-end">
                     <img src="#" alt="" id="large-picture-right-banner" />
                 </div>
             </div>

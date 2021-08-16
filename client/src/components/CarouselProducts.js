@@ -64,7 +64,7 @@ const CarouselProducts = (props) => {
                 </div>
             </div>
             {activeTab === "memeCategorie" ?
-                <div className="row justify-contet-around align-items-center">
+                <div className="row justify-content-around align-items-center">
                     <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
                         {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
@@ -75,7 +75,7 @@ const CarouselProducts = (props) => {
                 null
             }
             {activeTab === "plusvues" ?
-                <div className="row justify-contet-around align-items-center">
+                <div className="row justify-content-around align-items-center p-2">
                     <ChevronLeft className="carousel-product-chevron col-1" onClick={() => (idTab - 4) < 3 ? setIdTab(11) : setIdTab(idTab - 4)} />
                     <div className="col d-flex justify-content-center">
                         {displayProducts ? displayProducts.map(item => <CarouselCardProducts key={item.id} product={item} />) : null }
@@ -86,7 +86,7 @@ const CarouselProducts = (props) => {
                 null
             }
             {activeTab === "meilleursNotes" ?
-                <div className="row justify-contet-around align-items-center">
+                <div className="row justify-content-around align-items-center">
                     <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
                         {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}
