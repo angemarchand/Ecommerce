@@ -27,17 +27,17 @@ function Registration() {
                                 <h2>Inscription</h2>
                             </div>
                             <label htmlFor="email"> Nom d'utilisateur </label>
-                            <input id="email" type="email" required onChange={e => setName(e.target.value)}
+                            <input id="email" type="email" className="form-control shadow-none" required onChange={e => setName(e.target.value)}
                                 placeholder="Entrer votre nom d'utilisateur">
                             </input>
 
                             <label htmlFor="email"> Email </label>
-                            <input id="email" type="email" required onChange={e => setEmail(e.target.value)}
+                            <input id="email" type="email" className="form-control shadow-none" required onChange={e => setEmail(e.target.value)}
                                 placeholder="Entrer votre addresse mail">
                             </input>
 
                             <label htmlFor="password"> Mot de passe </label>
-                            <input id="password" type="password" required onChange={e => setPlainPassword(e.target.value)}
+                            <input id="password" type="password" className="form-control shadow-none" required onChange={e => setPlainPassword(e.target.value)}
                                 placeholder="Entrer votre mot de passe">
                             </input>
                             <button onClick={() => handleSubmit()}>S'inscrire</button>

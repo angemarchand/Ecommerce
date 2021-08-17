@@ -91,7 +91,7 @@ const LargeCardProduct = (props) => {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <p className="fs-4">Nombre</p>
+                            <p className="fs-4">Quantité</p>
                             <div className="row justify-content-center border border-2 m-1">
                                 <div className="col-3 d-flex justify-content-center border-2 border-end">
                                     <Remove id="large-card-product-add-product" onClick={() => numberOfProduct === 0 ? 0 : setNumberOfProduct(numberOfProduct - 1)} style={{ cursor: "pointer" }} />

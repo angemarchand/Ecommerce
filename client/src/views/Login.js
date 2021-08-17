@@ -26,11 +26,11 @@ function Login() {
                                 <h2>Connexion</h2>
                             </div>
                             <label htmlFor="email"> Email </label>
-                            <input id="email" type="email" required onChange={e => setEmail(e.target.value)}
+                            <input id="email" type="email" className="form-control shadow-none" required onChange={e => setEmail(e.target.value)}
                                 placeholder="Entrer votre addresse mail"></input>
 
                             <label htmlFor="password"> Mot de passe </label>
-                            <input id="password" type="password" required onChange={e => setPassword(e.target.value)}
+                            <input id="password" type="password" className="form-control shadow-none" required onChange={e => setPassword(e.target.value)}
                                 placeholder="Entrer votre mot de passe"></input>
                             <button onClick={() => handleSubmit()} type="submit">Se connecter</button>
                         </div>
