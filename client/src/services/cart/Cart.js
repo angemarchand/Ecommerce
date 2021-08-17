@@ -1,10 +1,19 @@
 import React from 'react';
 import { getEmailFromToken, retrieveToken } from "../authentication/User";
+import { POSTCarts } from '../api/Cart';
+import { PATCHProducts } from '../api/Products';
 
-export const addCartToBdd = (idUser, idProduct, quantity) => {
-    console.log(idUser)
-    console.log(idProduct)
-    console.log(quantity)
+export const addCartToBdd = async (idUser, product, quantity) => {
+    console.log(product.stock)
+    const cart = await POSTCarts(idUser, product.id, quantity);
+
+    let stock = product.stock - quantity;
+    const body = {
+        stock: parseInt(stock, 10),
+    }
+
+    const patchedProduct = await PATCHProducts(product.id, JSON.stringify(body))
+    console.log(patchedProduct);
 }
 
 export const addCartToLocalStorage = () => {

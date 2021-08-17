@@ -37,7 +37,7 @@ const LargeCardProduct = (props) => {
         let check = howToAddCart(props.product, numberOfProduct);
         if (check === true)
         {
-            addCartToBdd(props.product.id, User[0].id, numberOfProduct);
+            addCartToBdd(User[0].id, props.product, numberOfProduct);
         }
         else if(check === false)
         {
