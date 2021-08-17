@@ -2,6 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import { ChevronRight, ChevronLeft, Add, Remove } from '@material-ui/icons';
 import { GETPicturesByProductId } from "../services/api/Pictures";
 import { howToAddCart, addCartToBdd, addCartToLocalStorage } from "../services/cart/Cart";
+import { getEmailFromToken, retrieveToken } from "../services/authentication/User";
+import { GETUserByEmail } from "../services/api/Users";
+
 
 const LargeCardProduct = (props) => {
 
@@ -27,20 +30,19 @@ const LargeCardProduct = (props) => {
         }
     }, [currentPictureId])
 
-    const addToCart = () => {
-        console.log(props);
-        console.log(numberOfProduct);
+    const addToCart = async () => {
+        let token = retrieveToken()
+        let email = getEmailFromToken(token);
+        const User = await GETUserByEmail(email);
         let check = howToAddCart(props.product, numberOfProduct);
         if (check === true)
         {
-            addCartToBdd();
+            addCartToBdd(props.product.id, User[0].id, numberOfProduct);
         }
         else if(check === false)
         {
             addCartToLocalStorage()
         }
-        console.log(check);
-
     }
 
     return (

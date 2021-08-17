@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\UsersRepository;
+use App\Controller\UserByEmail;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
@@ -21,6 +22,18 @@ use App\Repository\UsersRepository;
  *     denormalizationContext={"groups"={"user:write"}}
  * )
  */
+#[ApiResource (
+    collectionOperations: [
+        'getUserByEmail' => [
+            'path' => 'users/UserByEmail',
+            'method' => 'get',
+            'controller' => UserByEmail::class,
+        ],
+        'get',
+        'post'
+    ]
+)]
+
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**

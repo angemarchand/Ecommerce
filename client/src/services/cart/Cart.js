@@ -1,8 +1,10 @@
 import React from 'react';
-import { retrieveToken } from "../authentication/User";
+import { getEmailFromToken, retrieveToken } from "../authentication/User";
 
-export const addCartToBdd = () => {
-
+export const addCartToBdd = (idUser, idProduct, quantity) => {
+    console.log(idUser)
+    console.log(idProduct)
+    console.log(quantity)
 }
 
 export const addCartToLocalStorage = () => {
@@ -13,6 +15,7 @@ export const howToAddCart = (product, quantity) => {
         if (quantity <= product.stock)
         {
             let token = retrieveToken();
+            getEmailFromToken(token)
             if(token != null)
             {
                 return true

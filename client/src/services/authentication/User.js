@@ -23,3 +23,11 @@ export const setToken = (token) => {
     localStorage.setItem('token', JSON.stringify(token));
     return true;
 }
+
+export const getEmailFromToken = (token) => {
+    const base64Url = localStorage.token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    let email = JSON.parse(window.atob(base64)).username;
+
+    return email;
+}
