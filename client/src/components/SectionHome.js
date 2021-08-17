@@ -7,9 +7,9 @@ function SectionHome(){
 
     return (
         <div id="homeSection" className="container-fluid ">
-        <div className="row mt-3 p-5">
-                <div className="col my-auto d-none d-lg-block">
-                    <div id="left-row-banner" className="row position-relative">
+        <div className="row ms-5 mt-3 p-5">
+                <div className="col my-auto d-none d-lg-block position-relative">
+                    <div id="left-row-banner" className="row position-absolute">
                         <div className="col-7 d-flex align-items-center">
                             <div className="border-white small-picture-background m-2">
                                 <img className="small-picture-left-banner" src="#" alt="" />
@@ -35,9 +35,8 @@ function SectionHome(){
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <div id="large-pic-right-banner" className="col position-relative d-flex justify-content-start justify-content-md-end">
+                <div id="large-pic-right-banner" className="col me-5 d-flex">
                     <img src="#" alt="" id="large-picture-right-banner" />
                 </div>
             </div>
