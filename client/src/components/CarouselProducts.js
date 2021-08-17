@@ -43,7 +43,7 @@ const CarouselProducts = (props) => {
     }
 
     return (
-        <div id="carousel-product" className="container-fluid">
+        <div id="carousel-product" className="container-fluid d-none d-xl-block">
             <div className="row">
                 <div id="carousel-product-tabs-col" className="col d-flex p-0">
                     {/* <div id={activeTab == "memeCategorie" ? "active-tab" : null}
