@@ -1,8 +1,10 @@
 #carousel-card-product {
 	width: 190px;
 	min-height: 240px;
+	color: black;
 }
 .carousel-card-product-img-top{
+	object-fit: contain;
 	height: 150px;
-	background-color: grey;
+	background-color: white;
 }

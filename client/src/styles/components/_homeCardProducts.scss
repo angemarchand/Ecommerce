@@ -4,6 +4,8 @@
 	color: black;
 }
 .home-card-product-img-top{
-	height: 190px;
-	background-color: grey;
+	object-fit: contain;
+	max-height: 190px;
+	min-height: 100px;
+	background-color: white;
 }

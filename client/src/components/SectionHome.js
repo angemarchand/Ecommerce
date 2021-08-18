@@ -36,7 +36,7 @@ function SectionHome() {
                     </div>
                 </div>
                 <div id="large-pic-right-banner" className="col me-5 d-flex">
-                    <img src="#" alt="" id="large-picture-right-banner" />
+                    <img src={process.env.PUBLIC_URL + "/assets/souris-big.png"} alt="" id="large-picture-right-banner" />
                 </div>
             </div>
         </div>
