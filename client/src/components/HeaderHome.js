@@ -9,8 +9,8 @@ function HeaderHome(){
 
     return(
         <div>
-            <div class="container">
-                <div class="row align-items-center">
+            <div className="container">
+                <div className="row align-items-center">
                     <CarouselProducts />
                     <div className="col-12 logoArea">
                         <div className="d-flex align-items-center">
