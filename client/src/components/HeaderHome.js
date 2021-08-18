@@ -23,7 +23,7 @@ function HeaderHome(){
                             </div>
                             <div className="col-7 line">
                                 <h3>La marque</h3>
-                                <p>Omega Gaming est une société française spécialisée dans la distribution de produits de jeux vidéo et dub matériel électronique.</p>
+                                <p>Omega Gaming est une société française spécialisée dans la distribution de produits de jeux vidéo et du matériel électronique.</p>
                             </div>
                         </div>
 

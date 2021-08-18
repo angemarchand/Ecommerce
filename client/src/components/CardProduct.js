@@ -50,7 +50,7 @@ const CardProduct = (props) => {
                             <p >{makeSmallerText(56, [props.description])}</p>
                         </div>
                         <div>
-                            <p>{props.price} €</p>
+                            <p className="fs-5">{props.price} €</p>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ const CarouselCardProducts = (props) => {
                         <div className="card-title">
                             <h4 className="fs-5">{makeSmallerText(15, [props.product.name])}</h4>
                         </div>
-                        <div className="card-text">
+                        <div className="card-text fs-5">
                             <p>{props.product.price}€</p>
                         </div>
                     </div>
