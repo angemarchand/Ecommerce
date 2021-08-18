@@ -1,38 +1,37 @@
-import React from "react";
-import { ChevronLeft } from "@material-ui/icons";
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import React, { useEffect, useState } from "react";
+import { GETProducts } from "../services/api/Products";
+import HomeCardProducts from "./HomeCardProducts";
 
 
-function SectionHome(){
+function SectionHome() {
+
+    const [products, setProducts] = useState(null);
+
+    useEffect(() => {
+        async function getData() {
+            await getProducts();
+        }
+        getData();
+
+    }, [])
+
+    const getProducts = async () => {
+        const products = await GETProducts();
+        setProducts(products);
+    }
 
     return (
         <div id="homeSection" className="container-fluid ">
-        <div className="row ms-5 mt-3 p-5">
+            <div className="row ms-5 mt-3 p-5">
                 <div className="col my-auto d-none d-lg-block position-relative">
                     <div id="left-row-banner" className="row position-absolute">
                         <div className="col-7 d-flex align-items-center">
-                            <div className="border-white small-picture-background m-2">
-                                <img className="small-picture-left-banner" src="#" alt="" />
-                                <h4>Nom du produit </h4>
-                                <p> Prix </p>
-                            </div>
-                            <div className="border-white small-picture-background m-2">
-                                <img className="small-picture-left-banner" src="#" alt="" />
-                                <h4>Nom du produit </h4>
-                                <p> Prix </p>
-                            </div>
+                            {products ? <HomeCardProducts product={products[4]} /> : null}
+                            {products ? <HomeCardProducts product={products[5]} /> : null}
                         </div>
-                        <div className="col-7 d-flex ">
-                            <div className="border-white small-picture-background m-2">
-                                <img className="small-picture-left-banner" src="#" alt="" />
-                                <h4>Nom du produit </h4>
-                                <p> Prix </p>
-                            </div>
-                            <div className="border-white small-picture-background m-2">
-                                <img className="small-picture-left-banner" src="#" alt="" />
-                                <h4>Nom du produit </h4>
-                                <p> Prix </p>
-                            </div>
+                        <div className="col-7 d-flex mt-3">
+                            {products ? <HomeCardProducts product={products[6]} /> : null}
+                            {products ? <HomeCardProducts product={products[7]} /> : null}
                         </div>
                     </div>
                 </div>

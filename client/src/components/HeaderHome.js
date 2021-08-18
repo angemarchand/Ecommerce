@@ -11,22 +11,6 @@ function HeaderHome(){
         <div>
             <div class="container">
                 <div class="row align-items-center">
-                    {/* <div class="col-12">
-                        <div class="card  align-items-center rounded-0">
-                            <div class="iconLeft">
-                                <ArrowBackIosIcon fontSize="large"></ArrowBackIosIcon>
-                            </div>
-                            <div class="iconRight">
-                                <ArrowForwardIosIcon fontSize="large"></ArrowForwardIosIcon>
-                            </div>
-                        
-                            <h1> OMEGA PRO 14</h1>
-                            <p>EVERYTHING YOU NEED, AT FINGERTIPS</p>
-                            <img src="#" />
-                           
-                        </div>
-                            
-                    </div> */}
                     <CarouselProducts />
                     <div className="col-12 logoArea">
                         <div className="d-flex align-items-center">
