@@ -14,7 +14,7 @@ export const addCartToBdd = async (idUser, product, quantity) => {
     const patchedProduct = await PATCHProducts(product.id, JSON.stringify(body))
 }
 
-export const addCartToLocalStorage = (product, quantity) => {
+export const addCartToLocalStorage = async (product, quantity) => {
 
     if (localStorage.getItem('cart'))
     {
@@ -28,6 +28,13 @@ export const addCartToLocalStorage = (product, quantity) => {
         let cart =  [{productId : product.id , quantity : quantity  } ];
         localStorage.setItem('cart', JSON.stringify({cart}));                                             
     }
+
+    let stock = product.stock - quantity;
+    const body = {
+        stock: parseInt(stock, 10),
+    }
+
+    const patchedProduct = await PATCHProducts(product.id, JSON.stringify(body))
 }
 
 export const getCartFromLocalStorage = () => {
