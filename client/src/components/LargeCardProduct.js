@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { ChevronRight, ChevronLeft, Add, Remove } from '@material-ui/icons';
 import { GETPicturesByProductId } from "../services/api/Pictures";
 import { retrieveToken } from "../services/authentication/User";
+import { afterDiscountValue } from "../services/helpers/afterDiscountValue";
 
 const LargeCardProduct = (props) => {
 
@@ -83,12 +84,20 @@ const LargeCardProduct = (props) => {
                     </div>
                 </div>
                 <div id="large-card-product-banner-right" className="col col-sm-3 m-0">
-                    <div className="row mt-3">
-                        <div className="col d-flex justify-content-center">
-                            <p className="fs-1">{props.product.price}€</p>
+                    <div className="row mt-3 position-relative">
+                    {props.product.discount ? <p className="large-card-product-discount ps-1 position-absolute fs-4 me-1">-{props.product.discount}%</p> : null}
+                        <div className="col d-flex justify-content-center fs-1">
+                            {props.product.discount ?
+                                <div>
+                                    <p className="text-danger old-price m-0">{props.product.price}€</p>
+                                    <p className="me-2 m-0">{afterDiscountValue(props.product.price, props.product.discount)}€</p>
+                                </div>
+                                :
+                                <p>{props.product.price}€</p>
+                            }
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row mt-4">
                         <div className="col">
                             <p className="fs-4">Quantité</p>
                             <div className="row justify-content-center border border-2 m-1">
@@ -104,12 +113,12 @@ const LargeCardProduct = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col mt-2">
                             <p style={{ height: "120px" }} className="fs-4">Avis</p>
                         </div>
-                    </div>
-                    <div className="row m-3">
+                    </div> */}
+                    <div className="row m-3 mt-5 pt-5">
                         <div className="col d-flex justify-content-center">
                             <button id="large-card-product-add-cart" className="btn rounded-0 fs-4" onClick={() => addToBasket()} >Ajouter</button>
                         </div>
