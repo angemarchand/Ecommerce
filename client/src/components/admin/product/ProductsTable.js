@@ -44,6 +44,7 @@ const AdminProductTable = () => {
                             modified_at={item.modified_at}
                             stock={item.stock}
                             category={item.categories}
+                            discount={item.discount}
                         />)
                         :
                         <tr><th><p>No data</p></th></tr>}
