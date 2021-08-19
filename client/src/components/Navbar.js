@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import { ShoppingCart } from "@material-ui/icons";
-import MouseOverPopover from "./cart/CartPopover";
+import CartPopover from "./cart/CartPopover";
 
 
 function Navbar() {
@@ -35,8 +35,9 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
-                {/* <ShoppingCart className="" id="cart-icon-navbar" /> */}
-                <MouseOverPopover />
+                <div className="d-none d-lg-block">
+                    <CartPopover />
+                </div>
             </div>
         </nav>
     )
