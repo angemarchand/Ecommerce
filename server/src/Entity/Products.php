@@ -90,6 +90,11 @@ class Products
      */
     private $visits;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $discount;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -216,6 +221,18 @@ class Products
     public function setVisits(?int $visits): self
     {
         $this->visits = $visits;
+
+        return $this;
+    }
+
+    public function getDiscount(): ?int
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?int $discount): self
+    {
+        $this->discount = $discount;
 
         return $this;
     }
