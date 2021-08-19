@@ -4,7 +4,6 @@ import { POSTCarts } from '../api/Cart';
 import { PATCHProducts } from '../api/Products';
 
 export const addCartToBdd = async (idUser, product, quantity) => {
-    console.log(product.stock)
     const cart = await POSTCarts(idUser, product.id, quantity);
 
     let stock = product.stock - quantity;
@@ -13,18 +12,39 @@ export const addCartToBdd = async (idUser, product, quantity) => {
     }
 
     const patchedProduct = await PATCHProducts(product.id, JSON.stringify(body))
-    console.log(patchedProduct);
 }
 
-export const addCartToLocalStorage = () => {
+export const addCartToLocalStorage = (product, quantity) => {
 
+    if (localStorage.getItem('cart'))
+    {
+        let obj = localStorage.getItem('cart');
+        obj = JSON.parse(obj)
+        obj.cart.push({productId : product.id, quantity : quantity })
+        localStorage.setItem('cart', JSON.stringify(obj))
+    }
+    else
+    {
+        let cart =  [{productId : product.id , quantity : quantity  } ];
+        localStorage.setItem('cart', JSON.stringify({cart}));                                             
+    }
+}
+
+export const getCartFromLocalStorage = () => {
+    if(localStorage.getItem('cart'))
+    {
+        let obj = localStorage.getItem('cart');
+        obj = JSON.parse(obj);
+        return obj.cart;
+    }
+    else
+        return null;
 }
 
 export const howToAddCart = (product, quantity) => {
         if (quantity <= product.stock)
         {
             let token = retrieveToken();
-            getEmailFromToken(token)
             if(token != null)
             {
                 return true

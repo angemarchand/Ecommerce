@@ -31,17 +31,20 @@ const LargeCardProduct = (props) => {
     }, [currentPictureId])
 
     const addToCart = async () => {
-        let token = retrieveToken()
-        let email = getEmailFromToken(token);
-        const User = await GETUserByEmail(email);
+        
         let check = howToAddCart(props.product, numberOfProduct);
         if (check === true)
         {
+            let token = retrieveToken()
+            let email = getEmailFromToken(token);
+            const User = await GETUserByEmail(email);
             addCartToBdd(User[0].id, props.product, numberOfProduct);
+            document.location.reload();
+
         }
         else if(check === false)
         {
-            addCartToLocalStorage()
+            addCartToLocalStorage(props.product, numberOfProduct);
         }
     }
 
