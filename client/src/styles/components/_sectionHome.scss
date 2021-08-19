@@ -1,5 +1,5 @@
 #homeSection{
-    background-color: $white;
+    background-color: $bg-color;
     transform: skewY(-5deg);
     padding-top: 5%;
     padding-bottom: 3%;
@@ -24,10 +24,10 @@
 }
 
 #left-row-banner {
-    right: -100px;
+    right: -380px;
     transform: skewY(5deg);
     z-index: 5;
-    bottom: 30px;
+    bottom: -155px;
     .small-picture-background{
         background-color: $secondary-3;
     }

@@ -19,6 +19,9 @@ const LargeCardProduct = (props) => {
                 setPictures(pictures);
                 if (pictures[0]) {
                     setCurrentPicture(pictures[0].imageB64)
+                } else {
+                    setCurrentPicture(process.env.PUBLIC_URL + "/assets/nopic.png")
+
                 }
             }
             getData();
@@ -35,20 +38,16 @@ const LargeCardProduct = (props) => {
     const addToBasket = () => {
         console.log(props);
         console.log(numberOfProduct);
-        if (numberOfProduct <= props.product.stock)
-        {
-            if(checkIfLoggedIn() === true)
-            {
+        if (numberOfProduct <= props.product.stock) {
+            if (checkIfLoggedIn() === true) {
                 //Add in db
             }
-            else
-            {
+            else {
                 //Ass in local storage
             }
             console.log("ici")
         }
-        else
-        {
+        else {
             alert("Malheureusement notre stock n'est pas suffisant pour satisfaire votre demande.")
         }
     }
@@ -79,7 +78,7 @@ const LargeCardProduct = (props) => {
                             </div>
                         </div>
                         <div className="col">
-                            <p id="large-card-product-banner-desc" className="large-card-product-p mt-3 fs-5">Quisque nec condimentum nibh, eget consequat magna. Nunc congue varius porttitor. Aenean nec dapibus dui. Nullam ipsum lorem, mollis accumsan accumsan eget, tincidunt id mauris. Phasellus mattis nisi vitae libero aliquam accumsan. Vivamus enim ipsum, maximus ut elementum non, tempor facilisis purus. Donec ut facilisis sapien. Suspendisse lorem enim, efficitur nec ex eu, aliquet ornare felis. Fusce egestas id tortor id bibendum.</p>
+                            <p id="large-card-product-banner-desc" className="large-card-product-p mt-3 fs-5">{props.product.description}</p>
                         </div>
                     </div>
                 </div>
@@ -91,7 +90,7 @@ const LargeCardProduct = (props) => {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <p className="fs-4">Nombre</p>
+                            <p className="fs-4">Quantité</p>
                             <div className="row justify-content-center border border-2 m-1">
                                 <div className="col-3 d-flex justify-content-center border-2 border-end">
                                     <Remove id="large-card-product-add-product" onClick={() => numberOfProduct === 0 ? 0 : setNumberOfProduct(numberOfProduct - 1)} style={{ cursor: "pointer" }} />

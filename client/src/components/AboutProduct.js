@@ -9,8 +9,9 @@ const AboutProduct = (props) => {
     useEffect(() => {
         async function getData() {
             const pictures = await GETPicturesByProductId(props.product.id);
-            if(pictures[0]) setPictures(pictures);
-            // await getPictures();
+            if (pictures[0]) {
+                setPictures(pictures);
+            }
         }
         getData();
 
@@ -45,7 +46,7 @@ const AboutProduct = (props) => {
                             <p id="about-product-banner-desc" className="about-product-p mt-3 fs-5">Quisque nec condimentum nibh, eget consequat magna. Nunc congue varius porttitor. Aenean nec dapibus dui. Nullam ipsum lorem, mollis accumsan accumsan eget, tincidunt id mauris. Phasellus mattis nisi vitae libero aliquam accumsan. Vivamus enim ipsum, maximus ut elementum non, tempor facilisis purus. Donec ut facilisis sapien. Suspendisse lorem enim, efficitur nec ex eu, aliquet ornare felis. Fusce egestas id tortor id bibendum.</p>
                         </div>
                         <div className="col d-flex justify-content-center">
-                            <img style={{objectFit: "contain"}} alt={props.product.name} className="m-1" id="about-product-desc-picture" src={pictures ? pictures[0].imageB64 : "#"} />
+                            <img style={{ objectFit: "contain", backgroundColor: "white" }} alt={props.product.name} className="m-1" id="about-product-desc-picture" src={pictures ? pictures[0].imageB64 : process.env.PUBLIC_URL + "/assets/nopic.png"} />
                         </div>
                     </div>
                     <div id="about-product-desc-bottom" className="row p-4 text-resume">
