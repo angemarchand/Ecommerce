@@ -53,7 +53,8 @@ class PicturesRepository extends ServiceEntityRepository
     public function getPicturesByProductId($productId)
     {
         return $this->createQueryBuilder('pictures')
-            ->where("pictures.id_product = $productId")
+            ->where("pictures.id_product = :productId")
+            ->setParameter('productId', $productId)
             ->setMaxResults(30)
             ->getQuery()
             ->getResult()
