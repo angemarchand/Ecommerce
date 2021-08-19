@@ -46,14 +46,14 @@ function OneProduct() {
 
     return (
         <div id="products-background">
-            <div className="container-fluid container-lg pt-4 pb-4">
+            <div className="container-fluid container-lg pt-3 pb-4">
                 <SearchBar />
                 {product ? <BreadCrumb page="/oneProduct" name={product.name} /> : null}
                 {product ? <LargeCardProduct product={product} /> : null}
                 <div className="mt-4">
                     {product ? <AboutProduct product={product} /> : null}
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 d-none d-lg-block">
                     <CarouselProducts />
                 </div>
             </div>

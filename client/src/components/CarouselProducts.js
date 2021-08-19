@@ -15,11 +15,11 @@ const CarouselProducts = (props) => {
     useEffect(() => {
         if (isMounted.current) {
             createDisplayProductsTab(idTab);
-          } else {
+        } else {
             async function getData() {
                 await getVisitedProducts();
-              }
-              getData();
+            }
+            getData();
             isMounted.current = true;
         }
     }, [visitedProducts, idTab])
@@ -43,7 +43,7 @@ const CarouselProducts = (props) => {
     }
 
     return (
-        <div id="carousel-product" className="container-fluid">
+        <div id="carousel-product" className="container-fluid d-none d-xl-block">
             <div className="row">
                 <div id="carousel-product-tabs-col" className="col d-flex p-0">
                     {/* <div id={activeTab == "memeCategorie" ? "active-tab" : null}
@@ -54,7 +54,7 @@ const CarouselProducts = (props) => {
                     <div id={activeTab == "plusvues" ? "active-tab" : null}
                         className="carousel-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
                         onClick={() => setActiveTab("plusvues")} >
-                        <h3 className="m-3 fs-4">LES PLUS VUES</h3>
+                        <h3 className="m-3 fs-4">LES PLUS POPULAIRES</h3>
                     </div>
                     {/* <div id={activeTab === "meilleursNotes" ? "active-tab" : null}
                         className="carousel-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
@@ -75,10 +75,10 @@ const CarouselProducts = (props) => {
                 null
             }
             {activeTab === "plusvues" ?
-                <div className="row justify-contet-around align-items-center p-2">
+                <div className="row justify-content-around align-items-center p-2">
                     <ChevronLeft className="carousel-product-chevron col-1" onClick={() => (idTab - 4) < 3 ? setIdTab(11) : setIdTab(idTab - 4)} />
                     <div className="col d-flex justify-content-center">
-                        {displayProducts ? displayProducts.map(item => <CarouselCardProducts key={item.id} product={item} />) : null }
+                        {displayProducts ? displayProducts.map(item => <CarouselCardProducts key={item.id} product={item} />) : null}
                     </div>
                     <ChevronRight className="carousel-product-chevron col-1" onClick={() => (idTab + 4) > 11 ? setIdTab(3) : setIdTab(idTab + 4)} />
                 </div>
@@ -86,7 +86,7 @@ const CarouselProducts = (props) => {
                 null
             }
             {activeTab === "meilleursNotes" ?
-                <div className="row justify-contet-around align-items-center">
+                <div className="row justify-content-around align-items-center">
                     <ChevronLeft className="carousel-product-chevron col-1" />
                     <div className="col d-flex justify-content-center">
                         {/* {products.map(item => <CarouselCardProducts key={item.id} product={item} />)} */}

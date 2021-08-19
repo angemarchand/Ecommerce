@@ -1,14 +1,15 @@
 import React from "react";
 import logo from "../assets/img/logo.png";
 import { Instagram, Facebook, Twitter } from '@material-ui/icons';
+import { Link } from "react-router-dom";
 
 function Footer() {
 
     return (
         <div id="footer" className="container-fluid p-3 mt-auto">
-            <div className="container">
+            <div className="container m-0 mx-auto">
                 <div className="row align-items-center justify-content-around">
-                    <div className="col-md-6 mb-5">
+                    <div className="col-md-6 mb-4">
                         <div className="d-flex align-items-center">
                             <div id="container-logo" className="d-flex justify-content-center align-items-center rounded">
                                 <img src={logo} alt="logo" className="footer-logo rounded" />
@@ -31,7 +32,9 @@ function Footer() {
 
                 <div className="row align-items-center justify-content-centr">
                     <div className="col d-none d-sm-block">
-                        <h3>Produits</h3>
+                        <Link to={"/"}>
+                            <h3>Home</h3>
+                        </Link>
                         <p>Pharetra in.</p>
                         <p>Aliquam.</p>
                         <p>Nec non.</p>
@@ -39,7 +42,9 @@ function Footer() {
                         <p>Amet.</p>
                     </div>
                     <div className="col">
-                        <h3>Contact</h3>
+                        <Link to={"/products"}>
+                            <h3>Produits</h3>
+                        </Link>
                         <p>Nec non.</p>
                         <p>Ipsum.</p>
                         <p>Aliquam.</p>

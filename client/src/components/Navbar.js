@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.png";
+import { ShoppingCart } from "@material-ui/icons";
+import CartPopover from "./cart/CartPopover";
 
 
 function Navbar() {
@@ -9,7 +11,7 @@ function Navbar() {
         <nav id='navbar' className="navbar navbar-expand-lg navbar-light">
             <div className="container-xl">
                 <Link to="/" className="navbar-brand logo">
-                    <img src={logo} alt="logo" />
+                    <img id="nav-logo-img" src={logo} alt="logo" />
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" ></span>
@@ -32,6 +34,9 @@ function Navbar() {
                             <Link className="nav-link" to="#"> Logout </Link>
                         </li>
                     </ul>
+                </div>
+                <div className="d-none d-lg-block">
+                    <CartPopover />
                 </div>
             </div>
         </nav>

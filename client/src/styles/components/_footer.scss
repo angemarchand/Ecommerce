@@ -2,6 +2,9 @@
   background-color: $secondary-1;
   padding-left: 35px !important;
   padding-right: 35px !important;
+  a {
+    color: $bg-color;
+  }
 
   .footer-social-icons{
     font-size: 60px;
