@@ -29,7 +29,7 @@ function ListingProducts() {
         <div className="row">
             {
               products ?
-                products.map(items => <div key={items.id} className="col"><CardProduct name={items.name} description={items.description} price={items.price} id={items.id} /></div>)
+                products.map(items => <div key={items.id} className="col"><CardProduct discount={items.discount} name={items.name} description={items.description} price={items.price} id={items.id} /></div>)
                 :
                 null
             }

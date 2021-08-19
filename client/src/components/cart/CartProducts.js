@@ -36,7 +36,7 @@ function CartProduct() {
             <hr className="m-0" />
             {products ?
                 products.map(item => {
-                    return <CartLine product={item} />
+                    return <CartLine key={item.name} product={item} />
                 })
                 :
                 <p className="m-0 fs-4" >Votre panier est vide</p>

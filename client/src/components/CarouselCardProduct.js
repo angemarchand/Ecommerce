@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { GETPicturesByProductId } from "../services/api/Pictures";
 import { makeSmallerText } from "../services/helpers/makeSmallerText";
 import { Link } from "react-router-dom";
-import { afterDiscountPrice } from "../services/helpers/afterDiscountPrice";
+import { afterDiscountValue } from "../services/helpers/afterDiscountValue";
 
 const CarouselCardProducts = (props) => {
 
@@ -32,6 +32,7 @@ const CarouselCardProducts = (props) => {
         <div className="col">
             <Link to={`/product?id=${props.product.id}`}>
                 <div id="carousel-card-product" className="card border-0 rounded-0">
+                    {props.product.discount ? <p className="carousel-card-product-discount ps-1 position-absolute">-{props.product.discount}%</p> : null}
                     <img className="carousel-card-product-img-top" src={picture} />
                     <div className="card-body">
                         <div className="card-title">
@@ -40,7 +41,7 @@ const CarouselCardProducts = (props) => {
                         <div className="d-flex card-text fs-5">
                             {props.product.discount ?
                                 <div className="d-flex">
-                                    <p className="me-2">{afterDiscountPrice(props.product.price, props.product.discount)}€</p>
+                                    <p className="me-2">{afterDiscountValue(props.product.price, props.product.discount)}€</p>
                                     <p className="text-danger old-price">{props.product.price}€</p>
                                 </div>
                                 :
