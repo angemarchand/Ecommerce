@@ -1,6 +1,4 @@
 import React from "react";
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import logo from "../assets/img/logo.png";
 import CarouselProducts from "./CarouselProducts";
 

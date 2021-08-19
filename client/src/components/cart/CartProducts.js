@@ -27,13 +27,13 @@ function CartProduct() {
     return (
         <div id="cart-container" className="container-fluid p-4">
             <div className="d-flex justify-content-center"><p className="fs-3 fw-bold">VOTRE PANIER</p></div>
-            <div className="row">
+            <div className="row mb-2">
                 <div className="col-2 d-none d-md-block"></div>
                 <div className="col-7 d-none d-md-block">NOM</div>
                 <div className="col-2 d-none d-md-block">PRIX</div>
-                <div className="col-1 d-none d-md-block"><DeleteForever className="delete-icon"/></div>
+                <div className="col-1 d-none d-md-block"><DeleteForever className="delete-icon" /></div>
             </div>
-            <hr />
+            <hr className="m-0" />
             {products ?
                 products.map(item => {
                     return <CartLine product={item} />
@@ -42,12 +42,12 @@ function CartProduct() {
                 <p className="m-0 fs-4" >Votre panier est vide</p>
             }
             <div className="row">
-            <div className="col-12 d-flex justify-content-center">
-                <p className="fs-3">Total: {total}€</p>
-            </div>
-            <div className="col-12 d-flex justify-content-center">
-                <button id="btn-cart-checkout" className="btn rounded-0">FINALISER LA COMMANDE</button>
-            </div>
+                <div className="col-12 d-flex justify-content-center">
+                    <p className="fs-3">Total: {total}€</p>
+                </div>
+                <div className="col-12 d-flex justify-content-center">
+                    <button id="btn-cart-checkout" className="btn rounded-0">FINALISER LA COMMANDE</button>
+                </div>
             </div>
         </div>
     );
