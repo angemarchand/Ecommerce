@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartLine from "./CartLine";
 import { DeleteForever } from '@material-ui/icons';
+import { totalPrice } from "../../services/helpers/totalPrice";
 
 function CartProduct() {
 
@@ -17,6 +18,11 @@ function CartProduct() {
             price: 550
         }
     ])
+    const [total, setTotal] = useState(null)
+
+    useEffect(() => {
+        setTotal(totalPrice(products));
+    }, [])
 
     return (
         <div id="cart-container" className="container-fluid p-4">
@@ -36,8 +42,11 @@ function CartProduct() {
                 <p className="m-0 fs-4" >Votre panier est vide</p>
             }
             <div className="row">
-            <div className="col d-flex justify-content-center">
-                <button className="btn btn-primary rounded-0">FINALISER LA COMMANDE</button>
+            <div className="col-12 d-flex justify-content-center">
+                <p className="fs-3">Total: {total}€</p>
+            </div>
+            <div className="col-12 d-flex justify-content-center">
+                <button id="btn-cart-checkout" className="btn rounded-0">FINALISER LA COMMANDE</button>
             </div>
             </div>
         </div>
