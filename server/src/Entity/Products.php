@@ -91,13 +91,21 @@ class Products
     private $visits;
 
     /**
+<<<<<<< HEAD
      * @ORM\Column(type="integer", nullable=true)
      */
     private $discount;
+=======
+     * @ORM\OneToMany(targetEntity=Cart::class, mappedBy="products", orphanRemoval=true)
+     */
+    private $carts;
+
+>>>>>>> 5fa38a4191d4688e22ce6aa364a846358b24ad0d
 
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->carts = new ArrayCollection();
     }
 
     /**
@@ -233,6 +241,34 @@ class Products
     public function setDiscount(?int $discount): self
     {
         $this->discount = $discount;
+    }
+    
+    /**
+     * @return Collection|Cart[]
+     */
+    public function getCarts(): Collection
+    {
+        return $this->carts;
+    }
+
+    public function addCart(Cart $cart): self
+    {
+        if (!$this->carts->contains($cart)) {
+            $this->carts[] = $cart;
+            $cart->setProducts($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCart(Cart $cart): self
+    {
+        if ($this->carts->removeElement($cart)) {
+            // set the owning side to null (unless already changed)
+            if ($cart->getProducts() === $this) {
+                $cart->setProducts(null);
+            }
+        }
 
         return $this;
     }

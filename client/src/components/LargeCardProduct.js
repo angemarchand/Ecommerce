@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronRight, ChevronLeft, Add, Remove } from '@material-ui/icons';
 import { GETPicturesByProductId } from "../services/api/Pictures";
-import { retrieveToken } from "../services/authentication/User";
+import { howToAddCart, addCartToBdd, addCartToLocalStorage } from "../services/cart/Cart";
+import { getEmailFromToken, retrieveToken } from "../services/authentication/User";
+import { GETUserByEmail } from "../services/api/Users";
+
 
 const LargeCardProduct = (props) => {
 
@@ -30,25 +33,21 @@ const LargeCardProduct = (props) => {
         }
     }, [currentPictureId])
 
-    const checkIfLoggedIn = () => {
-        let token = retrieveToken();
-        console.log(token);
-    }
+    const addToCart = async () => {
+        
+        let check = howToAddCart(props.product, numberOfProduct);
+        if (check === true)
+        {
+            let token = retrieveToken()
+            let email = getEmailFromToken(token);
+            const User = await GETUserByEmail(email);
+            addCartToBdd(User[0].id, props.product, numberOfProduct);
+            document.location.reload();
 
-    const addToBasket = () => {
-        console.log(props);
-        console.log(numberOfProduct);
-        if (numberOfProduct <= props.product.stock) {
-            if (checkIfLoggedIn() === true) {
-                //Add in db
-            }
-            else {
-                //Ass in local storage
-            }
-            console.log("ici")
         }
-        else {
-            alert("Malheureusement notre stock n'est pas suffisant pour satisfaire votre demande.")
+        else if(check === false)
+        {
+            addCartToLocalStorage(props.product, numberOfProduct);
         }
     }
 
@@ -111,7 +110,7 @@ const LargeCardProduct = (props) => {
                     </div>
                     <div className="row m-3">
                         <div className="col d-flex justify-content-center">
-                            <button id="large-card-product-add-cart" className="btn rounded-0 fs-4" onClick={() => addToBasket()} >Ajouter</button>
+                            <button id="large-card-product-add-cart" className="btn rounded-0 fs-4" onClick={() => addToCart()} >Ajouter</button>
                         </div>
                     </div>
                     <div className="row m-3 mt-4">
