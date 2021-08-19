@@ -54,7 +54,7 @@ const CardProduct = (props) => {
                         <div className="fs-5">
                         {props.discount ?
                                 <div className="d-flex">
-                                    <p className="me-2">{afterDiscountValue(props.price, props.discount)}€</p>
+                                    <p className="me-2">{Math.round(afterDiscountValue(props.price, props.discount))}€</p>
                                     <p className="text-danger old-price">{props.price}€</p>
                                 </div>
                                 :

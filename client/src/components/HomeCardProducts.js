@@ -30,7 +30,7 @@ const HomeCardProducts = (props) => {
         <div className="col">
             <Link to={`/product?id=${props.product.id}`}>
                 <div className="card border-0 rounded-0 home-card-product">
-                    {props.product.discount ? <p className="carousel-card-product-discount ps-1 position-absolute">-{props.product.discount}%</p> : null}
+                    {props.product.discount ? <p className="carousel-card-product-discount ps-1 position-absolute me-1 mt-1">-{props.product.discount}%</p> : null}
                     <img className="home-card-product-img-top" src={picture ? picture : process.env.PUBLIC_URL + "/assets/nopic.png"} />
                     <div className="card-body p-1 ps-2 ">
                         <div className="card-title">
@@ -39,7 +39,7 @@ const HomeCardProducts = (props) => {
                         <div className="card-text fs-5">
                         {props.product.discount ?
                                 <div className="d-flex">
-                                    <p className="me-2">{afterDiscountValue(props.product.price, props.product.discount)}€</p>
+                                    <p className="me-2">{Math.round(afterDiscountValue(props.product.price, props.product.discount))}€</p>
                                     <p className="text-danger old-price">{props.product.price}€</p>
                                 </div>
                                 :

@@ -36,12 +36,12 @@ const CarouselCardProducts = (props) => {
                     <img className="carousel-card-product-img-top" src={picture} />
                     <div className="card-body">
                         <div className="card-title">
-                            <h4 className="fs-5">{makeSmallerText(15, [props.product.name])}</h4>
+                            <h4 className="fs-5">{makeSmallerText(14, [props.product.name])}</h4>
                         </div>
                         <div className="d-flex card-text fs-5">
                             {props.product.discount ?
                                 <div className="d-flex">
-                                    <p className="me-2">{afterDiscountValue(props.product.price, props.product.discount)}€</p>
+                                    <p className="me-2">{Math.round(afterDiscountValue(props.product.price, props.product.discount))}€</p>
                                     <p className="text-danger old-price">{props.product.price}€</p>
                                 </div>
                                 :
