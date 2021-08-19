@@ -34,7 +34,7 @@ const HomeCardProducts = (props) => {
                     <img className="home-card-product-img-top" src={picture ? picture : process.env.PUBLIC_URL + "/assets/nopic.png"} />
                     <div className="card-body p-1 ps-2 ">
                         <div className="card-title">
-                            <h4 className="fs-5">{makeSmallerText(15, [props.product.name])}</h4>
+                            <h4 className="fs-5">{makeSmallerText(14, [props.product.name])}</h4>
                         </div>
                         <div className="card-text fs-5">
                         {props.product.discount ?

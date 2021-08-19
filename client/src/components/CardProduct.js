@@ -45,7 +45,7 @@ const CardProduct = (props) => {
             <Link to={`/product?id=${props.id}`}>
                 <div className="product-card-body card-body">
                     <div className="card-title">
-                        <h4>{makeSmallerText(26, [props.name])}</h4>
+                        <h4>{makeSmallerText(17, [props.name])}</h4>
                     </div>
                     <div className="card-text h-75 mt-3 d-flex flex-column">
                         <div className="mb-auto">
