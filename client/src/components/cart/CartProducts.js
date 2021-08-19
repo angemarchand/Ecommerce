@@ -15,7 +15,8 @@ function CartProduct() {
         {
             name: "produit 2",
             description: "4 achetés, 0 offert.. c'est la crise mec",
-            price: 550
+            price: 550,
+            discount: 35
         }
     ])
     const [total, setTotal] = useState(null)
