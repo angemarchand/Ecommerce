@@ -6,16 +6,16 @@
 #### INSTALLATION ET EXECUTION
 **INSTALLATION**
 _Pour intaller l'application taper sur le terminal les commandes suivantes_
-_Dans le dossier server faire la commande **symfony install**_
-_Dans le dossier client faire la commande **npm install**_
+- _Dans le dossier server faire la commande **symfony install**_
+- _Dans le dossier client faire la commande **npm install**_
 
 
 **EXECUTION**
 Pour lancer le site il faut exécuter les commandes dans le terminal suivants:
-_Dans le dossier server sur le terminal taper **symfony server:start**_
-Aller dans son navigateur  et taper cette URL 'http://localhost:8000/api'
-_Dans le dossier client sur le terminal taper **npm start**_
-Aller dans son navigateur  et taper cette URL 'http://localhost:3000'
+- _Dans le dossier server sur le terminal taper **symfony server:start**_
+    Aller dans son navigateur  et taper cette URL 'http://localhost:8000/api'
+- _Dans le dossier client sur le terminal taper **npm start**_
+    Aller dans son navigateur  et taper cette URL 'http://localhost:3000'
 
 #### TECHNOLOGIES
 **Framework symfony** 
@@ -40,7 +40,7 @@ Omega Gaming se décompose en deux parties :
     ![register](./register.PNG)
 
     - login: contient un formulaire de connexion pour l'utilisateur **"http://localhost:3000/users/login"**
-    
+
     ![login](./login.PNG)
 
 2. Le back office ou l'espace d'administration qui est uniquement visible par l'administrateur.
