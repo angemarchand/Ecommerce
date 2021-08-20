@@ -6,8 +6,8 @@
 ## INSTALLATION ET Exécution
 **INSTALLATION**
 _Pour intaller l'application taper sur le terminal les commandes suivantes_
-_Dans le dossier server faire la commande **symfony server:start**_
-_Dans le dossier client faire la commande **npm start**_
+_Dans le dossier server faire la commande **symfony install**_
+_Dans le dossier client faire la commande **npm install**_
 
 
 **Exécution**
@@ -31,9 +31,12 @@ _pour le coté client ou l'affichage dans le navigateur_
 
 Omega Gaming se décompose en deux parties :
 1. Le front office ou côté client qui est la partie visible par les internautes.
-    - home représente la vitrine du site et présente l'enseigne et ses produits
-    - Ici on a tous les produits en stock
-    - cette page donne la description d'un produit et la fiche technique de celui-ci
+    - home: représente la vitrine du site et présente l'enseigne et ses produits
+    - products: présente tous les produits en stock
+    - product: donne la description d'un produit et la fiche technique de celui-ci
+    - register: contient un formulaire d'incription pour l'utilisateur **"http://localhost:3000/users/register"**
+    ![alt text](./client/assets/regiter.PNG)
+    - login: contient un formulaire de connexion pour l'utilisateur **"http://localhost:3000/users/login"**
 
 2. Le back office ou l'espace d'administration qui est uniquement visible par l'administrateur.
     - Ici il pourra gérer le contenu et les fonctionnalités du site.
