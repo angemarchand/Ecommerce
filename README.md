@@ -35,7 +35,7 @@ _Pour le côté  client ou l'affichage dans le navigateur_
 
 Omega Gaming se décompose en deux parties :
 1. Le front office ou côté client qui est la partie visible par les internautes.
-    - home: représente la vitrine du site et présente l'enseigne et ses produits
+    - home: c'est la vitrine du site, présente l'enseigne et ses produits
     - products: présente tous les produits en stock
     - product: donne la description d'un produit et la fiche technique de celui-ci
     - register: contient un formulaire d'incription pour l'utilisateur **"http://localhost:3000/users/register"**
