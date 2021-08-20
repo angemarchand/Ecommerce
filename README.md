@@ -20,6 +20,7 @@ Pour lancer le site il faut exécuter les commandes dans le terminal suivants:
     Aller dans son navigateur  et taper cette URL **http://localhost:3000**
 
 **TECHNOLOGIES**
+
 **Framework symfony** 
 _Côté  Back ou récuperation et insertion des données dans la base de données_
 
