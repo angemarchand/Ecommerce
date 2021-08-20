@@ -21,6 +21,7 @@ export const GETProduct = async (id) => {
         }
     })
     const product = await response.json();
+    console.log(product)
     return product;
 }
 

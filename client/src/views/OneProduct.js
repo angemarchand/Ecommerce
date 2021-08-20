@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { GETProduct, PATCHProducts} from "../services/api/Products";
+import { GETProduct, PATCHProducts } from "../services/api/Products";
 import { useLocation, useHistory } from "react-router";
 import SearchBar from "../components/SearchBar";
 import BreadCrumb from "../components/BreadCrumb";
@@ -17,10 +17,9 @@ function OneProduct() {
 
     useEffect(() => {
         async function getData() {
-            await getProduct();   
+            await getProduct();
         }
         search ? getData() : history.push("/products");
-
     }, [])
 
     useEffect(() => {
@@ -29,19 +28,28 @@ function OneProduct() {
                 await addVisits();
             }
             addOneVisit()
-          } else {
+        } else {
             isMounted.current = true;
-          }
-      }, [product])
+        }
+    }, [product])
 
     const getProduct = async () => {
         const responseProduct = await GETProduct(new URLSearchParams(search).get('id'));
-        setProduct(responseProduct);
+        if (responseProduct.id) {
+            setProduct(responseProduct);
+        } else {
+            history.push("/products");
+        }
     }
 
     const addVisits = async () => {
-        let visits = product.visits + 1;
-        await PATCHProducts(product.id, JSON.stringify({visits: visits}) );
+        let visits;
+        if (product.visits) {
+            visits = product.visits + 1;
+        }else{
+            visits = 1;
+        }
+        await PATCHProducts(product.id, JSON.stringify({ visits: visits }));
     }
 
     return (
