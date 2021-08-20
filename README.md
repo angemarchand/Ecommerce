@@ -6,7 +6,7 @@
 **INSTALLATION**
 
 _Pour intaller l'application taper sur le terminal les commandes suivantes_
-- _Dans le dossier server faire la commande **symfony install**_
+- _Dans le dossier server faire la commande **composer install**_
 - _Dans le dossier client faire la commande **npm install**_
 
 **EXECUTION**
@@ -31,6 +31,7 @@ _Pour le côté  client ou l'affichage dans le navigateur_
 
 
 
+
 # PRESENTATION DU PROJET
 
 Omega Gaming se décompose en deux parties :
@@ -50,15 +51,15 @@ Omega Gaming se décompose en deux parties :
 
 
     ![login](./login.PNG)
-    
+
 
 2. Le back office ou l'espace d'administration qui est uniquement visible par l'administrateur.
     - Ici il pourra gérer le contenu et les fonctionnalités du site.
     
     - **Comment y accéder ?**
         - _Vous recevrez un e-mail pour vous confirmer que votre site est bien créé qui contiendra:_
-            - un lien vers votre espace d'administration
-            - vos identifiants de connexion (identifiant et mot de passe)
+            - Un indentifiant
+            - Un mot de passe)
         - _Vous pouvez accéder à cette page en tapant sur la barre de recherche de votre navigateur l'url  suivante:  **http://localhost:3000/admin**_
 
     - **Les recommandations**
