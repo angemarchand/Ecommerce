@@ -38,7 +38,7 @@ const BreadCrumb = (props) => {
     }
 
     return (
-        <div className="container mt-">
+        <div className="container m-0 mb-2">
             <div className="row">
                 <div className="col">
                     <nav aria-label="breadcrumb">

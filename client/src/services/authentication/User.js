@@ -34,3 +34,12 @@ export const deleteToken = () => {
     console.log("hey")
     localStorage.removeItem('token');
 }
+
+export const getEmailFromToken = (token) => {
+    const base64Url = localStorage.token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    console.log(base64Url)
+    let email = JSON.parse(window.atob(base64)).username;
+
+    return email;
+}
