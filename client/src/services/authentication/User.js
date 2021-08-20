@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+
 export const GETToken = async (email, password) => {
     const response = await fetch(`https://localhost:8000/authentication_token`, {
         method: 'POST',
@@ -17,6 +19,10 @@ export const GETToken = async (email, password) => {
 export const retrieveToken = () => {
     const token = localStorage.getItem('token');
     return JSON.parse(token);
+}
+
+export const decodeToken = (token) => {
+    return jwt_decode(token);
 }
 
 export const setToken = (token) => {

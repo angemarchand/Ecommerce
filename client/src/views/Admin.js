@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminProductTable from "../components/admin/product/ProductsTable";
 import AdminCategoriesTable from "../components/admin/category/CategoriesTable";
 import { MenuOpen } from '@material-ui/icons';
+import { decodeToken, retrieveToken } from "../services/authentication/User";
+import { isAdmin } from "../services/authentication/Admin";
+import { useHistory } from "react-router";
 
 const Admin = () => {
 
-    const [active, setActive] = useState(false)
-    const [content, setContent] = useState("products")
+    const [active, setActive] = useState(false);
+    const [content, setContent] = useState("products");
+    const history = useHistory();
 
     const displayContent = () => {
-        if(content === "products") return <AdminProductTable />
-        if(content === "categories") return <AdminCategoriesTable />
+
+        if (checkRoleAdmin()) {
+            if (content === "products") return <AdminProductTable />
+            if (content === "categories") return <AdminCategoriesTable />
+        } else {
+            history.push("/products");
+        }
+    }
+
+    const checkRoleAdmin = () => {
+        let token = retrieveToken();
+        token = decodeToken(token.token);
+        return isAdmin(token) ? true : false
     }
 
     return (
