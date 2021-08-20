@@ -37,7 +37,7 @@ const CardProduct = (props) => {
     return (
         <div id="product-card" className="card border-0 mx-auto mb-4">
             <div className="card-product-container-pic position-relative">
-            {props.discount ? <p className="carousel-card-product-discount ps-1 position-absolute">-{props.discount}%</p> : null}
+            {props.discount ? <p className="carousel-card-product-discount ps-1 position-absolute me-1 mt-1">-{props.discount}%</p> : null}
                 <ChevronLeft onClick={() => pictures[currentPictureId - 1] ? setCurrentPictureId(currentPictureId - 1) : setCurrentPictureId(pictures.length - 1)} id="card-product-chevron-pic-left" className="card-product-chevron-pic position-absolute" />
                 <img className="card-products-img-top" alt={props.name} src={currentPicture ? currentPicture : process.env.PUBLIC_URL + "/assets/nopic.png"} />
                 <ChevronRight onClick={() => pictures[currentPictureId + 1] ? setCurrentPictureId(currentPictureId + 1) : setCurrentPictureId(0)} id="card-product-chevron-pic-right" className="card-product-chevron-pic position-absolute" />

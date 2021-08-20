@@ -32,7 +32,7 @@ const CarouselCardProducts = (props) => {
         <div className="col">
             <Link to={`/product?id=${props.product.id}`}>
                 <div id="carousel-card-product" className="card border-0 rounded-0">
-                    {props.product.discount ? <p className="carousel-card-product-discount ps-1 position-absolute">-{props.product.discount}%</p> : null}
+                    {props.product.discount ? <p className="carousel-card-product-discount ps-1 position-absolute me-1 mt-1">-{props.product.discount}%</p> : null}
                     <img className="carousel-card-product-img-top" src={picture} />
                     <div className="card-body">
                         <div className="card-title">
