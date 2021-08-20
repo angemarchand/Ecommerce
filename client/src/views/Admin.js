@@ -24,8 +24,11 @@ const Admin = () => {
 
     const checkRoleAdmin = () => {
         let token = retrieveToken();
-        token = decodeToken(token.token);
-        return isAdmin(token) ? true : false
+        if(token){
+            token = decodeToken(token.token);
+            return isAdmin(token) ? true : false
+        }
+        return false;
     }
 
     return (

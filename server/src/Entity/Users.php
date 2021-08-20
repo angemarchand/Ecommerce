@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\UsersRepository;
+use App\Controller\UserByEmail;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
@@ -19,6 +22,18 @@ use App\Repository\UsersRepository;
  *     denormalizationContext={"groups"={"user:write"}}
  * )
  */
+#[ApiResource (
+    collectionOperations: [
+        'getUserByEmail' => [
+            'path' => 'users/UserByEmail',
+            'method' => 'get',
+            'controller' => UserByEmail::class,
+        ],
+        'get',
+        'post'
+    ]
+)]
+
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
@@ -78,6 +93,16 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $modified_at;
 
     /**
+     * @ORM\OneToMany(targetEntity=Cart::class, mappedBy="users", orphanRemoval=true)
+     */
+    private $carts;
+
+    public function __construct()
+    {
+        $this->carts = new ArrayCollection();
+    }
+
+    /**
     * @ORM\PrePersist
     * @ORM\PreUpdate
     */
@@ -131,7 +156,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        // $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -151,7 +176,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function getPlainPassword(): string
+    public function getPlainPassword(): ?string
     {
         return $this->plainPassword;
     }
@@ -215,6 +240,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setModifiedAt(\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cart[]
+     */
+    public function getCarts(): Collection
+    {
+        return $this->carts;
+    }
+
+    public function addCart(Cart $cart): self
+    {
+        if (!$this->carts->contains($cart)) {
+            $this->carts[] = $cart;
+            $cart->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCart(Cart $cart): self
+    {
+        if ($this->carts->removeElement($cart)) {
+            // set the owning side to null (unless already changed)
+            if ($cart->getUsers() === $this) {
+                $cart->setUsers(null);
+            }
+        }
 
         return $this;
     }

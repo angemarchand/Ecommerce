@@ -64,4 +64,16 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
         ;
     }
     */
+
+    public function getUserByEmail($email)
+    {
+        return $this->createQueryBuilder('users')
+            ->select("users.id", "users.name")
+            ->where("users.email = :email ")
+            ->setParameter('email', $email)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
