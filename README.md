@@ -12,9 +12,9 @@ _Pour intaller l'application taper sur le terminal les commandes suivantes_
 
 **EXECUTION**
 Pour lancer le site il faut exécuter les commandes dans le terminal suivants:
-- _Dans le dossier server sur le terminal taper **symfony server:start**_
+- _Dans le dossier server sur le terminal taper **symfony server:start**._ 
     Aller dans son navigateur  et taper cette URL 'http://localhost:8000/api'
-- _Dans le dossier client sur le terminal taper **npm start**_
+- _Dans le dossier client sur le terminal taper **npm start**._ 
     Aller dans son navigateur  et taper cette URL 'http://localhost:3000'
 
 #### TECHNOLOGIES
@@ -47,11 +47,11 @@ Omega Gaming se décompose en deux parties :
     - Ici il pourra gérer le contenu et les fonctionnalités du site.
     
     - **Comment y accéder ?**
-        _Le token de connexion_
-        _Vous pouvez accéder à cette page en tapant sur la barre de recherche de votre navigateur l'url suivante:  **http://localhost:3000/admin**
+        - _Le token de connexion_
+        - _Vous pouvez accéder à cette page en tapant sur la barre de recherche de votre navigateur l'url suivante:  **http://localhost:3000/admin**
 
     - **Les recommandations**
-        _Mettre des photos à fond blanc_
+       - _Mettre des photos à fond blanc_
 
 
 
