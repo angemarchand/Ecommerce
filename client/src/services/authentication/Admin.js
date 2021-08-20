@@ -1,3 +1,4 @@
 export const isAdmin = (token) => {
-    return token.roles == "admin" ? true : false; 
+    console.log(token)
+    return token.roles[0] === "ROLE_ADMIN" ? true : false; 
 }

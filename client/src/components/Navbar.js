@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import { ShoppingCart } from "@material-ui/icons";
 import MouseOverPopover from "./cart/CartPopover";
+import { deleteToken } from "../services/authentication/User";
 
 
 function Navbar() {
@@ -31,7 +32,7 @@ function Navbar() {
                             <Link className="nav-link" to="/users/login"> Login </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#"> Logout </Link>
+                            <Link className="nav-link" onClick={deleteToken} to="#"> Logout </Link>
                         </li>
                     </ul>
                 </div>
