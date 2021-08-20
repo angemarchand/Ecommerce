@@ -57,9 +57,10 @@ Omega Gaming se décompose en deux parties :
     - Ici il pourra gérer le contenu et les fonctionnalités du site.
     
     - **Comment y accéder ?**
-        - _Vous recevrez un e-mail pour vous confirmer que votre site est bien créé qui contiendra:_
-            - Un indentifiant
-            - Un mot de passe)
+        
+        Se connecter avec les identifiants suivants:
+        - Email: admin@admin.admin
+        - Mot de passe: admin
         - _Vous pouvez accéder à cette page en tapant sur la barre de recherche de votre navigateur l'url  suivante:  **http://localhost:3000/admin**_
 
     - **Les recommandations**
