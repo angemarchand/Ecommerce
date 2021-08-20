@@ -3,21 +3,21 @@
 *OMEGA GAMING est un site Web de commerce de produits électroniques crée à l'aide des technologies symfony et de reactjs*
 
 
-## INSTALLATION ET Exécution
+#### INSTALLATION ET EXECUTION
 **INSTALLATION**
 _Pour intaller l'application taper sur le terminal les commandes suivantes_
 _Dans le dossier server faire la commande **symfony install**_
 _Dans le dossier client faire la commande **npm install**_
 
 
-**Exécution**
+**EXECUTION**
 Pour lancer le site il faut exécuter les commandes dans le terminal suivants:
 _Dans le dossier server sur le terminal taper **symfony server:start**_
 Aller dans son navigateur  et taper cette URL 'http://localhost:8000/api'
 _Dans le dossier client sur le terminal taper **npm start**_
 Aller dans son navigateur  et taper cette URL 'http://localhost:3000'
 
-### Technologies
+#### TECHNOLOGIES
 **Framework symfony** 
 _Côté  Back ou récuperation et insertion des données dans la base de données_
 
@@ -28,7 +28,7 @@ _Protocole qui facilite la communication entre le coté client et le coté backe
 _Pour le côté  client ou l'affichage dans le navigateur_
 
 
-#### PRESENTATION DU PROJET
+## PRESENTATION DU PROJET
 
 Omega Gaming se décompose en deux parties :
 1. Le front office ou côté client qui est la partie visible par les internautes.
