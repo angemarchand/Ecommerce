@@ -36,9 +36,11 @@ Omega Gaming se décompose en deux parties :
     - products: présente tous les produits en stock
     - product: donne la description d'un produit et la fiche technique de celui-ci
     - register: contient un formulaire d'incription pour l'utilisateur **"http://localhost:3000/users/register"**
+
     ![register](./register.PNG)
 
     - login: contient un formulaire de connexion pour l'utilisateur **"http://localhost:3000/users/login"**
+    
     ![login](./login.PNG)
 
 2. Le back office ou l'espace d'administration qui est uniquement visible par l'administrateur.
