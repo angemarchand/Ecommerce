@@ -5,11 +5,22 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CartRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Controller\CartByProductId;
 
 /**
  * @ORM\Entity(repositoryClass=CartRepository::class)
  */
-#[ApiResource]
+#[ApiResource (
+    collectionOperations: [
+        'deleteCartByProductId' => [
+            'path' => 'carts/product',
+            'method' => 'delete',
+            'controller' => CartByProductId::class,
+        ],
+        'get',
+        'post'
+    ]
+)]
 class Cart
 {
     /**

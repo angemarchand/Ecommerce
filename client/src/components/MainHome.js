@@ -15,8 +15,8 @@ function MainHome() {
     }, [])
 
     const getProducts = async () => {
-        const products = await GETProducts();
-        setProducts(products);
+        const response = await GETProducts();
+        setProducts(response);
     }
 
     return (

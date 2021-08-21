@@ -1,5 +1,5 @@
 //// GET ALL ////
-export const GETProducts = async () => {
+export const    GETProducts = async () => {
     const response = await fetch('https://localhost:8000/api/products', {
         method: 'GET',
         headers: {
@@ -80,4 +80,18 @@ export const GETMostVisitedProducts = async (id) => {
     })
     const products = await response.json();
     return products;
+}
+
+//// GET PRODUCT BY ID /////
+
+export const GETProductById = async (link) => {
+    const response = await fetch(`https://localhost:8000${link}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+    })
+    const product = await response.json();
+    return product;
 }

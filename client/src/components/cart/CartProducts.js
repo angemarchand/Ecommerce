@@ -1,42 +1,75 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CartLine from "./CartLine";
 import { DeleteForever } from '@material-ui/icons';
 import { totalPrice } from "../../services/helpers/totalPrice";
+import { getCartFromBdd } from "../../services/cart/Cart";
+import { DELETECartByProductId } from "../../services/api/Cart";
 
 function CartProduct() {
 
-    // const [products, setProducts] = useState(null)
-    const [products, setProducts] = useState([
-        {
-            name: "produit 1",
-            description: "Si on le vend, c'est que tu en as besoin",
-            price: 850
-        },
-        {
-            name: "produit 2",
-            description: "4 achetés, 0 offert.. c'est la crise mec",
-            price: 550
-        }
-    ])
+    const [products, setProducts] = useState(null)
+    const [removeProduct, setRemoveProduct] = useState(null);
     const [total, setTotal] = useState(null)
+    const isInitialMount = useRef(true);
+
 
     useEffect(() => {
-        setTotal(totalPrice(products));
+       
+        async function getData() {
+            let cart = await getCartFromBdd();
+            setTotal(totalPrice(cart));
+            if (cart[0]) {
+                setProducts(cart);
+            }
+        }
+        getData();
+
     }, [])
+
+    useEffect(() => {
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+        } else {
+            if (removeProduct) {
+                const response =  removeProductFromTab(removeProduct);
+                setProducts(response);
+                setRemoveProduct(null)
+            }
+        }
+    }, [removeProduct])
+
+    const removeProductFromDb = async (id) => {
+        const response = await DELETECartByProductId(id);   
+    }
+
+    const removeProductFromTab = (product) => {
+        const index = products.findIndex(element => element.item.id === product.item.id);
+        removeProductFromDb(product.item.id);
+        let cache = products;
+        cache.splice(index, 1);
+        console.log(cache)
+        return cache;
+    }
+
+    const deleteItem = (product) => {
+        setRemoveProduct(product)
+
+    }  
 
     return (
         <div id="cart-container" className="container-fluid p-4">
             <div className="d-flex justify-content-center"><p className="fs-3 fw-bold">VOTRE PANIER</p></div>
             <div className="row mb-2">
                 <div className="col-2 d-none d-md-block"></div>
-                <div className="col-7 d-none d-md-block">NOM</div>
+                <div className="col-5 d-none d-md-block">NOM</div>
                 <div className="col-2 d-none d-md-block">PRIX</div>
+                <div className="col-2 d-none d-md-block">QUANTITE</div>
                 <div className="col-1 d-none d-md-block"><DeleteForever className="delete-icon" /></div>
             </div>
             <hr className="m-0" />
             {products ?
                 products.map(item => {
-                    return <CartLine product={item} />
+                    return <CartLine product={item} deleteItem={deleteItem} />
                 })
                 :
                 <p className="m-0 fs-4" >Votre panier est vide</p>

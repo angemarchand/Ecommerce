@@ -47,4 +47,16 @@ class CartRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function deleteCartByProductId($productId)
+    {
+        return $this->createQueryBuilder('cart')
+            ->delete()
+            ->where("cart.products = :productId")
+            ->setParameter('productId', $productId)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

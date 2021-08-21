@@ -1,7 +1,8 @@
 import React from 'react';
 import { getEmailFromToken, retrieveToken } from "../authentication/User";
-import { POSTCarts } from '../api/Cart';
-import { PATCHProducts } from '../api/Products';
+import { POSTCarts, GETCartById } from '../api/Cart';
+import { PATCHProducts, GETProductById } from '../api/Products';
+import { GETUserByEmail, GETUserById } from '../api/Users';
 
 export const addCartToBdd = async (idUser, product, quantity) => {
     const cart = await POSTCarts(idUser, product.id, quantity);
@@ -46,6 +47,48 @@ export const getCartFromLocalStorage = () => {
     }
     else
         return null;
+}
+
+export const makeCartTab = async (cart) =>
+{
+    let item = null;
+    let items = [];
+
+    for (const line of cart)
+    {
+        item = await GETCartById(line);
+        items.push(item);
+    }
+    
+    return items;
+}
+
+export const getProductsFromCartTab = async (cart) =>
+{
+    let item = null;
+    let items = [];
+    
+    for (const line of cart)
+    {
+        item = await GETProductById(line.products);
+        items.push({item, 'quantity' : line.quantity});
+    }
+
+    return items;
+}
+
+export const getCartFromBdd = async () => {
+    let token = retrieveToken();
+    let email = getEmailFromToken(token);
+
+    let user = await GETUserByEmail(email);
+    let userAndCart = await GETUserById(user[0].id);
+    
+    let cart = userAndCart.carts;
+    let cartTab = await makeCartTab(cart);
+    let products = await getProductsFromCartTab(cartTab);
+
+    return products;
 }
 
 export const howToAddCart = (product, quantity) => {
