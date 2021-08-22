@@ -25,6 +25,7 @@ const AdminProductLine = props => {
                 stock={props.stock}
                 category={props.category}
                 visits={props.visits}
+                discount={props.discount}
                 />
             </td>
         </tr >

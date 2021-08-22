@@ -91,10 +91,14 @@ class Products
     private $visits;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $discount;
+
+    /**
      * @ORM\OneToMany(targetEntity=Cart::class, mappedBy="products", orphanRemoval=true)
      */
     private $carts;
-
 
     public function __construct()
     {
@@ -227,6 +231,18 @@ class Products
         return $this;
     }
 
+    public function getDiscount(): ?int
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?int $discount): self
+    {
+        $this->discount = $discount;
+
+        return $this;
+    }
+    
     /**
      * @return Collection|Cart[]
      */

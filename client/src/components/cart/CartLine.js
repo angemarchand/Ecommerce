@@ -1,7 +1,8 @@
 import { Clear } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
 import { GETPicturesByProductId } from '../../services/api/Pictures'
-import {deleteItem} from './CartProducts';
+import { deleteItem } from './CartProducts';
+import { afterDiscountValue } from "../../services/helpers/afterDiscountValue";
 
 export default function CartLine(props) {
 
@@ -14,17 +15,16 @@ export default function CartLine(props) {
     useEffect(() => {
         async function getData() {
             await getPictures();
-          }
-          getData();
-        
+        }
+        getData();
+
     }, [])
 
     const getPictures = async () => {
         let pictures = await GETPicturesByProductId(props.product.item.id);
-        if (pictures[0] !== undefined)
-        {
+        if (pictures[0] !== undefined) {
             setPicture(pictures[0].imageB64);
-        }else{
+        } else {
             setPicture(process.env.PUBLIC_URL + "/assets/nopic.png")
         }
     }
@@ -38,7 +38,14 @@ export default function CartLine(props) {
                 <p className="m-0">{props.product.item.name}</p>
             </div>
             <div className="col-11 col-md-2">
-                <p className="m-0">{props.product.item.price}€</p>
+                {props.product.item.discount ?
+                    <div>
+                        <p className="m-0">{afterDiscountValue(props.product.item.price, props.product.item.discount)}€</p>
+                        <p className="m-0 text-danger old-price">{props.product.item.price}€</p>
+                    </div>
+                    :
+                    <p className="m-0">{props.product.item.price}€</p>
+                }
             </div>
             <div className="col-11 col-md-2">
                 <p className="m-0">{props.product.quantity} unités</p>

@@ -9,6 +9,7 @@ const AdminProductModal = props => {
     const [name, setName] = useState(props.name ? props.name : null);
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
+    const [discount, setDiscount] = useState(props.discount);
     const [pictures, setPictures] = useState(null);
     const [idCategory, setIdCategory] = useState(null);
     const [picturesToDb, setPicturesToDb] = useState(null);
@@ -149,7 +150,8 @@ const AdminProductModal = props => {
             description: description,
             price: parseInt(price, 10),
             stock: parseInt(stock, 10),
-            visits: parseInt(props.visits, 10)
+            visits: parseInt(props.visits, 10),
+            discount: parseInt(discount, 10)
         }
         if (idCategory !== null) body.categories = [`/api/categories/${idCategory}`]
         if (window.confirm("Apply modification ?")) {
@@ -175,9 +177,10 @@ const AdminProductModal = props => {
     };
 
     const post = async () => {
-        const product = await POSTProducts(name, description, price, stock);
+        const product = await POSTProducts(name, description, price, stock, discount);
         if (pictures) {
             for (const item of pictures) {
+                console.log(product.id, product)
                 await POSTPicture(product.id, item.name, item.imageB64);
             }
         }
@@ -224,6 +227,10 @@ const AdminProductModal = props => {
                             <div className="mb-4">
                                 <label className="form-label">Price</label>
                                 <input placeholder={props.price} onChange={(e) => setPrice(e.target.value)} type="number" className="form-control" />
+                            </div>
+                            <div className="mb-4">
+                                <label className="form-label">Discount</label>
+                                <input placeholder={props.discount} onChange={(e) => setDiscount(e.target.value)} type="number" className="form-control" />
                             </div>
                             <label className="custom-file-label" htmlFor="customFile">Choose picture</label>
                             <div className="mb-4 custom-file">

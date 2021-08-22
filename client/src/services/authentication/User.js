@@ -21,9 +21,18 @@ export const retrieveToken = () => {
     return JSON.parse(token);
 }
 
+export const decodeToken = (token) => {
+    return jwt_decode(token);
+}
+
 export const setToken = (token) => {
     localStorage.setItem('token', JSON.stringify(token));
     return true;
+}
+
+export const deleteToken = () => {
+    console.log("hey")
+    localStorage.removeItem('token');
 }
 
 export const getEmailFromToken = (token) => {
