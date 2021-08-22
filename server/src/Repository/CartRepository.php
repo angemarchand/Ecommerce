@@ -59,4 +59,16 @@ class CartRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function GetCartByUserIdProductId($productId, $userId)
+    {
+        return $this->createQueryBuilder('cart')
+            ->where("cart.products = :productId AND cart.users = :userId")
+            ->setParameter('productId', $productId)
+            ->setParameter('userId', $userId)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

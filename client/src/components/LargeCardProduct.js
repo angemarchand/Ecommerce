@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronRight, ChevronLeft, Add, Remove } from '@material-ui/icons';
 import { GETPicturesByProductId } from "../services/api/Pictures";
-import { howToAddCart, addCartToBdd, addCartToLocalStorage } from "../services/cart/Cart";
+import { howToAddCart, addCartToBdd, addCartToLocalStorage, getCartFromBdd } from "../services/cart/Cart";
 import { getEmailFromToken, retrieveToken } from "../services/authentication/User";
 import { GETUserByEmail } from "../services/api/Users";
+import { GETCartByUserAndproduct, PATCHCart } from "../services/api/Cart";
 
 
 const LargeCardProduct = (props) => {
@@ -34,19 +35,31 @@ const LargeCardProduct = (props) => {
     }, [currentPictureId])
 
     const addToCart = async () => {
-        
+
         let check = howToAddCart(props.product, numberOfProduct);
-        if (check === true)
-        {
+        if (check === true) {
             let token = retrieveToken()
             let email = getEmailFromToken(token);
-            const User = await GETUserByEmail(email);
-            addCartToBdd(User[0].id, props.product, numberOfProduct);
-            document.location.reload();
-
+            const user = await GETUserByEmail(email);
+            const currentCart = await getCartFromBdd();
+            if (currentCart.length) {
+                if (currentCart.some(item => item.item.id === props.product.id)) {
+                    let rowCart = await GETCartByUserAndproduct(props.product.id, user[0].id);
+                    let resp = await PATCHCart(rowCart[0].id, JSON.stringify({
+                        quantity: rowCart[0].quantity + numberOfProduct
+                    }));
+                    setNumberOfProduct(0);
+                } else {
+                    addCartToBdd(user[0].id, props.product, numberOfProduct);
+                    setNumberOfProduct(0);
+                }
+            } else {
+                addCartToBdd(user[0].id, props.product, numberOfProduct);
+                setNumberOfProduct(0);
+            }
+            // document.location.reload();
         }
-        else if(check === false)
-        {
+        else if (check === false) {
             addCartToLocalStorage(props.product, numberOfProduct);
         }
     }

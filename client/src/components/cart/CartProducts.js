@@ -14,7 +14,7 @@ function CartProduct() {
 
 
     useEffect(() => {
-       
+
         async function getData() {
             let cart = await getCartFromBdd();
             setTotal(totalPrice(cart));
@@ -27,19 +27,15 @@ function CartProduct() {
     }, [])
 
     useEffect(() => {
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-        } else {
-            if (removeProduct) {
-                const response =  removeProductFromTab(removeProduct);
-                setProducts(response);
-                setRemoveProduct(null)
-            }
+        if (removeProduct) {
+            const response = removeProductFromTab(removeProduct);
+            setProducts(response);
+            setRemoveProduct(null)
         }
     }, [removeProduct])
 
     const removeProductFromDb = async (id) => {
-        const response = await DELETECartByProductId(id);   
+        const response = await DELETECartByProductId(id);
     }
 
     const removeProductFromTab = (product) => {
@@ -54,7 +50,7 @@ function CartProduct() {
     const deleteItem = (product) => {
         setRemoveProduct(product)
 
-    }  
+    }
 
     return (
         <div id="cart-container" className="container-fluid p-4">
@@ -69,7 +65,7 @@ function CartProduct() {
             <hr className="m-0" />
             {products ?
                 products.map(item => {
-                    return <CartLine product={item} deleteItem={deleteItem} />
+                    return <CartLine key={item.item.id} product={item} deleteItem={deleteItem} />
                 })
                 :
                 <p className="m-0 fs-4" >Votre panier est vide</p>

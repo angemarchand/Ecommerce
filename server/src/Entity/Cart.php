@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CartRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Controller\CartByProductId;
+use App\Controller\GetCartByUserIdProductId;
 
 /**
  * @ORM\Entity(repositoryClass=CartRepository::class)
@@ -16,6 +17,11 @@ use App\Controller\CartByProductId;
             'path' => 'carts/product',
             'method' => 'delete',
             'controller' => CartByProductId::class,
+        ],
+        'GetCartByUserIdProductId' => [
+            'path' => 'carts/product',
+            'method' => 'get',
+            'controller' => GetCartByUserIdProductId::class,
         ],
         'get',
         'post'

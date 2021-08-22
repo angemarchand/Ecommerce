@@ -27,6 +27,19 @@ export const GETCartById = async (link) => {
     return cart;
 }
 
+//// UPDATE ONE ////
+export const PATCHCart = async (id, body) => {
+    const response = await fetch(`https://localhost:8000/api/carts/${id}`, {
+        method: "PATCH",
+        headers: {
+            'Content-Type': 'application/merge-patch+json',
+        },
+        body
+    })
+    const product = await response.json();
+    return product;
+}
+
 export const DELETECartById = async (id) => {
         const response = await fetch(`https://localhost:8000/api/carts/${id}`, {
             method: "DELETE"
@@ -35,8 +48,21 @@ export const DELETECartById = async (id) => {
 }
 
 export const DELETECartByProductId = async (id) => {
+    console.log(id)
     const response = await fetch('https://localhost:8000/api/carts/product?productId=' + id, {
         method: "DELETE"
     })
     return response;
+}
+
+export const GETCartByUserAndproduct = async (productId, userId) => {
+    const response = await fetch(`https://localhost:8000/api/carts/product?productId=${productId}&userId=${userId}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+    })
+    const cart = await response.json();
+    return cart;
 }
