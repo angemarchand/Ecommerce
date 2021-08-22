@@ -35,7 +35,7 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="d-non d-lg-block">
+                <div className="d-none d-lg-block">
                     <CartPopover />
                 </div>
             </div>

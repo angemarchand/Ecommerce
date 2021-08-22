@@ -21,14 +21,15 @@ Pour lancer le site il faut exécuter les commandes dans le terminal suivants:
 
 **TECHNOLOGIES**
 
-**Framework symfony** 
-_Côté  Back ou récuperation et insertion des données dans la base de données_
+**FRONT** :
+ - **Reactjs**  _Pour le côté  client ou l'affichage dans le navigateur_
 
-**API platform** 
-_Protocole qui facilite la communication entre le coté client et le coté backend_
+**BACK**:
+ - **Framework symfony** _Côté  Back ou récuperation et insertion des données dans la base de données_
+ - **API platform** _Protocole qui facilite la communication entre le coté client et le coté backend_
+ - **MYSQL** _Système de gestion de la base de données_
 
-**Reactjs** 
-_Pour le côté  client ou l'affichage dans le navigateur_
+
 
 
 

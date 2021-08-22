@@ -6,7 +6,7 @@ import CartPopoverLine from './CartPopoverLine';
 export default function CartPopover() {
 
     const [open, setOpen] = useState(false)
-    const [cartProducts, setCartProducts] = useState([1, 2, 3, 4, 5, 6, 7, 8])
+    const [cartProducts, setCartProducts] = useState([1])
 
     const handlePopoverOpen = () => {
         setOpen(true);
