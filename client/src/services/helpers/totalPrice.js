@@ -5,7 +5,6 @@ export const totalPrice = (products) => {
     products.forEach(product => {
         if (product.item.discount) {
             total += afterDiscountValue(product.item.price, product.item.discount);
-            console.log(total)
         } else {
             total += product.item.price;
         }

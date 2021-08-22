@@ -21,14 +21,12 @@ export const GETProduct = async (id) => {
         }
     })
     const product = await response.json();
-    console.log(product)
     return product;
 }
 
 //// POST ONE ////
 export const POSTProducts = async (name, description, price, stock, discount = null) => {
     if (window.confirm("Create a new product ?")) {
-        console.log(name, description, price, stock, discount)
         const response = await fetch('https://localhost:8000/api/products', {
             method: "POST",
             headers: {

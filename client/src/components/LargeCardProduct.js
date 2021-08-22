@@ -139,7 +139,7 @@ const LargeCardProduct = (props) => {
                     <div className="row m-3 mt-4">
                         <div className="col d-flex justify-content-center">
                             <Link to="/cart/id">
-                                <button id="large-card-product-buy-btn" className="btn rounded-0 fs-4">Acheter</button>
+                                <button id="large-card-product-buy-btn" onClick={() => addToCart()} className="btn rounded-0 fs-4">Acheter</button>
                             </Link>
                         </div>
                     </div>

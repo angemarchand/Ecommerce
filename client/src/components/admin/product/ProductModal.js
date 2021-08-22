@@ -180,7 +180,6 @@ const AdminProductModal = props => {
         const product = await POSTProducts(name, description, price, stock, discount);
         if (pictures) {
             for (const item of pictures) {
-                console.log(product.id, product)
                 await POSTPicture(product.id, item.name, item.imageB64);
             }
         }

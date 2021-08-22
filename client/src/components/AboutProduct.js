@@ -26,7 +26,7 @@ const AboutProduct = (props) => {
                         onClick={() => setActiveTab("descriptif")} >
                         <h3 className="m-3 fs-4">DESCRIPTIF</h3>
                     </div>
-                    <div id={activeTab === "ficheTechnique" ? "active-tab" : null}
+                    {/* <div id={activeTab === "ficheTechnique" ? "active-tab" : null}
                         className="about-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
                         onClick={() => setActiveTab("ficheTechnique")} >
                         <h3 className="m-3 fs-4">FICHE TECHNIQUE</h3>
@@ -35,7 +35,7 @@ const AboutProduct = (props) => {
                         className="about-product-tab border-end border-white p-5 pt-0 pb-0 align-items-center justify-content-center d-flex"
                         onClick={() => setActiveTab("avisClients")} >
                         <h3 className="m-3 fs-4">AVIS CLIENTS</h3>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {activeTab === "descriptif" ?

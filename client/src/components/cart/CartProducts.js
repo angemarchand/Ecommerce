@@ -43,7 +43,6 @@ function CartProduct() {
         removeProductFromDb(product.item.id);
         let cache = products;
         cache.splice(index, 1);
-        console.log(cache)
         return cache;
     }
 

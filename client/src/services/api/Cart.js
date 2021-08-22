@@ -48,7 +48,6 @@ export const DELETECartById = async (id) => {
 }
 
 export const DELETECartByProductId = async (id) => {
-    console.log(id)
     const response = await fetch('https://localhost:8000/api/carts/product?productId=' + id, {
         method: "DELETE"
     })

@@ -31,7 +31,6 @@ export const setToken = (token) => {
 }
 
 export const deleteToken = () => {
-    console.log("hey")
     localStorage.removeItem('token');
 }
 
