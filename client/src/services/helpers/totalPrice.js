@@ -3,10 +3,11 @@ import { afterDiscountValue } from "./afterDiscountValue";
 export const totalPrice = (products) => {
     let total = 0;
     products.forEach(product => {
-        if (product.discount) {
-            total += afterDiscountValue(product.price, product.discount);
+        if (product.item.discount) {
+            total += afterDiscountValue(product.item.price, product.item.discount);
+            console.log(total)
         } else {
-            total += product.price;
+            total += product.item.price;
         }
     });
     return total;

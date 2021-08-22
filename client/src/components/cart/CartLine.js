@@ -1,7 +1,6 @@
 import { Clear } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
 import { GETPicturesByProductId } from '../../services/api/Pictures'
-import { deleteItem } from './CartProducts';
 import { afterDiscountValue } from "../../services/helpers/afterDiscountValue";
 
 export default function CartLine(props) {
